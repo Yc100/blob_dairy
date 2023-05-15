@@ -9,6 +9,8 @@
     
     <title>
         
+            spring循环引用 |
+        
         MemoryDairy
     </title>
     
@@ -196,7 +198,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation"></span>
+                <span class="title-hover-animation">spring循环引用</span>
             </div>
 
             
@@ -218,16 +220,38 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2023-05-10 16:29:28</span>
-        <span class="mobile">2023-05-10 16:29</span>
+        <span class="pc">2021-06-03 10:40:36</span>
+        <span class="mobile">2021-06-03 10:40</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-05-15 14:32:57</span>
+        <span class="pc">2023-05-15 14:47:08</span>
     </span>
     
     
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Hexo/">Hexo</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Hexo/">Hexo</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
@@ -911,16 +935,16 @@
 <div class="article-copyright-info-container">
     <ul class="copyright-info-content">
         <li class="post-title">
-            <span class="type">本文标题</span>：<span class="content"></span>
+            <span class="type">本文标题</span>：<span class="content">spring循环引用</span>
         </li>
         <li class="post-author">
             <span class="type">本文作者</span>：<span class="content">Yc</span>
         </li>
         <li class="post-time">
-            <span class="type">创建时间</span>：<span class="content">2023-05-10 16:29:28</span>
+            <span class="type">创建时间</span>：<span class="content">2021-06-03 10:40:36</span>
         </li>
         <li class="post-link">
-            <span class="type">本文链接</span>：<span class="content">2023/05/10/hello-world/</span>
+            <span class="type">本文链接</span>：<span class="content">2021/06/03/hello-world/</span>
         </li>
         <li class="post-license">
             <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
@@ -934,6 +958,14 @@
                 </div>
             
 
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Hexo/">#Hexo</a>&nbsp;
+                        </li>
+                    
+                </ul>
             
 
             
@@ -1018,109 +1050,41 @@
     
 
     <div class="right-bottom-side-tools">
-        $tools-item-width = 2.2rem
-$tools-item-font-size = 1.1rem
-$tools-item-border-radius = 0.1rem
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
 
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
 
-.side-tools-container {
-  position relative
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
 
-  .tools-item {
-    width $tools-item-width
-    height $tools-item-width
-    margin-bottom 0.2rem
-    color var(--text-color-3)
-    font-size $tools-item-font-size
-    background var(--background-color-1)
-    border-right none
-    border-radius $tools-item-border-radius
-    box-shadow 0.1rem 0.1rem 0.2rem var(--shadow-color)
-    cursor pointer
+        <!-- rss -->
+        
 
-    i {
-      color var(--text-color-3)
-    }
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
 
-    &:hover {
-      color var(--background-color-1)
-      background var(--primary-color)
-      box-shadow 0.2rem 0.2rem 0.4rem var(--shadow-color)
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
 
-      i {
-        color var(--background-color-1)
-      }
-    }
-
-    +keep-tablet() {
-      width $tools-item-width * 0.9
-      height $tools-item-width * 0.9
-      margin-bottom 0.2rem
-      font-size $tools-item-font-size * 0.9
-    }
-
-    &.rss {
-
-      a {
-        width 100%
-        height 100%
-        border-radius $tools-item-border-radius
-
-        &:hover {
-          color var(--background-color-1)
-          background var(--primary-color)
-          box-shadow 0.2rem 0.2rem 0.4rem var(--shadow-color)
-        }
-      }
-    }
-  }
-
-
-  .side-tools-list {
-    transform translateX(100%)
-    opacity 0
-    transition-t("transform, opacity", "0, 0", "0.2, 0.2", "linear, linear")
-
-    &.show {
-      transform translateX(0)
-      opacity 1
-    }
-  }
-
-
-  .exposed-tools-list {
-
-    if (hexo-config('style.scroll.percent') == true) {
-      .tool-scroll-to-top {
-        display none
-
-        &.show {
-          display flex
-        }
-
-        &:hover {
-
-          .percent {
-            display none
-          }
-
-          .arrow-up {
-            display flex
-          }
-        }
-
-        .arrow-up {
-          display none
-        }
-
-        .percent {
-          display flex
-          font-size 1rem
-        }
-      }
-    }
-  }
-}
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
 
     </div>
 
