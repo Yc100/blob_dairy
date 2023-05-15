@@ -224,9 +224,10 @@
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        一直想做个博客网站，去网上查了一下，最先查出来的是云服务器+WordPress，不过又要买服务器，又要买域名，还得备案。
-后来发现每个Github账户都可以开一个自己的静态网站（域名为 username.github.io），非常简单。
-静态网站的定...
+                        spring源码（一）spring循环引用
+spring在默认单例的情况下是支持循环引用的
+
+上图这两个类相互引用了对方（循环依赖）spring在单例、非构造方法注入的情况下是允许这样的循环依赖 上面的代码可以正常输出 从容器中可以获取到Xbean ...
                     
                 </div>
 
@@ -234,7 +235,7 @@
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Mon May 15 2023 14:18:31 GMT+0800">
+            <span class="home-article-date" data-updated="Mon May 15 2023 14:32:57 GMT+0800">
                 2023-05-15
             </span>
         </span>
@@ -306,41 +307,109 @@
     
 
     <div class="right-bottom-side-tools">
-        <div class="side-tools-container">
-    <ul class="side-tools-list">
-        <li class="tools-item tool-font-adjust-plus flex-center">
-            <i class="fas fa-search-plus"></i>
-        </li>
+        $tools-item-width = 2.2rem
+$tools-item-font-size = 1.1rem
+$tools-item-border-radius = 0.1rem
 
-        <li class="tools-item tool-font-adjust-minus flex-center">
-            <i class="fas fa-search-minus"></i>
-        </li>
 
-        <li class="tools-item tool-dark-light-toggle flex-center">
-            <i class="fas fa-moon"></i>
-        </li>
+.side-tools-container {
+  position relative
 
-        <!-- rss -->
-        
+  .tools-item {
+    width $tools-item-width
+    height $tools-item-width
+    margin-bottom 0.2rem
+    color var(--text-color-3)
+    font-size $tools-item-font-size
+    background var(--background-color-1)
+    border-right none
+    border-radius $tools-item-border-radius
+    box-shadow 0.1rem 0.1rem 0.2rem var(--shadow-color)
+    cursor pointer
 
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
-            </li>
-        
+    i {
+      color var(--text-color-3)
+    }
 
-        <li class="tools-item tool-scroll-to-bottom flex-center">
-            <i class="fas fa-arrow-down"></i>
-        </li>
-    </ul>
+    &:hover {
+      color var(--background-color-1)
+      background var(--primary-color)
+      box-shadow 0.2rem 0.2rem 0.4rem var(--shadow-color)
 
-    <ul class="exposed-tools-list">
-        <li class="tools-item tool-toggle-show flex-center">
-            <i class="fas fa-cog fa-spin"></i>
-        </li>
-        
-    </ul>
-</div>
+      i {
+        color var(--background-color-1)
+      }
+    }
+
+    +keep-tablet() {
+      width $tools-item-width * 0.9
+      height $tools-item-width * 0.9
+      margin-bottom 0.2rem
+      font-size $tools-item-font-size * 0.9
+    }
+
+    &.rss {
+
+      a {
+        width 100%
+        height 100%
+        border-radius $tools-item-border-radius
+
+        &:hover {
+          color var(--background-color-1)
+          background var(--primary-color)
+          box-shadow 0.2rem 0.2rem 0.4rem var(--shadow-color)
+        }
+      }
+    }
+  }
+
+
+  .side-tools-list {
+    transform translateX(100%)
+    opacity 0
+    transition-t("transform, opacity", "0, 0", "0.2, 0.2", "linear, linear")
+
+    &.show {
+      transform translateX(0)
+      opacity 1
+    }
+  }
+
+
+  .exposed-tools-list {
+
+    if (hexo-config('style.scroll.percent') == true) {
+      .tool-scroll-to-top {
+        display none
+
+        &.show {
+          display flex
+        }
+
+        &:hover {
+
+          .percent {
+            display none
+          }
+
+          .arrow-up {
+            display flex
+          }
+        }
+
+        .arrow-up {
+          display none
+        }
+
+        .percent {
+          display flex
+          font-size 1rem
+        }
+      }
+    }
+  }
+}
 
     </div>
 
