@@ -9,7 +9,7 @@
     
     <title>
         
-            归档: 2021 |
+            timeRecord |
         
         MemoryDairy
     </title>
@@ -88,7 +88,7 @@
                         </li>
                     
                         <li class="menu-item">
-                            <a class="active"
+                            <a class=""
                                href="/archives"
                             >
                                 归档
@@ -136,7 +136,7 @@
                         </li>
                     
                         <li class="menu-item">
-                            <a class=""
+                            <a class="active"
                                href="/timeRecord"
                             >
                                 计时器
@@ -170,7 +170,7 @@
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class="active"
+                    <a class=""
                        href="/archives">归档</a>
                 </li>
             
@@ -200,7 +200,7 @@
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class=""
+                    <a class="active"
                        href="/timeRecord">计时器</a>
                 </li>
             
@@ -219,32 +219,107 @@
             <div class="main-content">
 
                 
-                    <div class="fade-in-down-animation">
-    <div class="archive-container ">
+                    
+<div class="fade-in-down-animation">
+    <div class="page-template-container">
         
-<div class="archive-list-container">
-    
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2021</span>
-                <span class="archive-year-post-count">[1]</span>
-            </div>
-            <ul class="article-list">
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2021/06/03/hello-world/"
-                        >spring循环引用</a>
-                        <span class="article-date">06-03</span>
-                    </li>
-                
-            </ul>
-        </section>
-    
+        
+        <div class="page-template-content keep-markdown-body">
+            
+                <body onbeforeunload="checkLeave()">
+
+<div class="year" id="datecalcresult" style="display: block;">
+    <span>春节：</span>
+    <span class="count">正月初一</span>
+    <span class="count" id="yearDay"></span>
 </div>
 
+<div class="year" id="datecalcresult" style="display: block;">
+    <span>和宝宝搁一起：</span>
+    <span class="count">2021-12-19</span>
+    <span class="count" id="togetherDay"></span>
+</div>
+
+<script>
+    var nowDate = new Date()
+    
+    var yearDate='2024-02-10'
+    var yearDate=new Date(yearDate.replace(/-/g,'/'));
+    var yearDay = '还有'+parseInt((yearDate.getTime()-nowDate.getTime())/(1000*60*60*24))+'天';
+    document.getElementById("yearDay").innerHTML=yearDay;
+
+    var togetherDate=new Date('2021-12-19 19:26:12')
+    var togetherDay='已经'+timeAgo(nowDate,togetherDate)
+    document.getElementById("togetherDay").innerHTML=togetherDay;
+    setInterval(diffTogetherDay, 1000);
+
+
+function getDaysBetween(startDate, enDate) {
+    return parseInt((enDate.getTime()-startDate.getTime())/(1000*60*60*24))
+}
+
+function diffTogetherDay(){
+    var togetherDate=new Date('2021-12-19 19:26:12')
+    var togetherDay='已经'+timeAgo(new Date(),togetherDate)
+    document.getElementById("togetherDay").innerHTML=togetherDay;
+}
+
+function timeAgo(timeA, timeB) {
+ 
+    var diff = new Date(timeA).getTime() - new Date(timeB).getTime();
+    //计算出相差天数  
+    var days=Math.floor(diff/(24*3600*1000));  
+       
+    //计算出小时数  
+    var leave1=diff%(24*3600*1000);    //计算天数后剩余的毫秒数  
+    var hours=Math.floor(leave1/(3600*1000));  
+    //计算相差分钟数  
+    var leave2=leave1%(3600*1000);        //计算小时数后剩余的毫秒数  
+    var minutes=Math.floor(leave2/(60*1000));  
+       
+    //计算相差秒数  
+    var leave3=leave2%(60*1000);      //计算分钟数后剩余的毫秒数  
+    var seconds=Math.round(leave3/1000);  
+      
+    var returnStr = seconds + "秒";  
+    if(minutes>0) {  
+        returnStr = minutes + "分" + returnStr;  
+    }  
+    if(hours>0) {  
+        returnStr = hours + "小时" + returnStr;  
+    }  
+    if(days>0) {  
+        returnStr = days + "天" + returnStr;  
+    }  
+    return returnStr;  
+}
+function checkLeave() {
+    debugger
+    window.clearInterval(diffTogetherDay);
+}
+
+</script>
+<style>
+.year {
+    color: #000;
+    font-weight: 700;
+    border: 0px;
+    border-radius: 8px;
+    background-color: #b8dcf5;
+    margin: 16px auto;
+    display: none;
+    line-height: 70px;
+    text-align: center;
+}
+</style>
+
+</body>
+            
+        </div>
+        
     </div>
 </div>
+
 
                 
             </div>
