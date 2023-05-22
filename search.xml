@@ -3,24 +3,9 @@
   <entry>
     <title>spring循环引用</title>
     <url>/2021/06/03/hello-world/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="spring源码（一）spring循环引用"><a href="#spring源码（一）spring循环引用" class="headerlink" title="spring源码（一）spring循环引用"></a>spring源码（一）spring循环引用</h1><p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c51742c7390f4b18b17450540e177d40~tplv-k3u1fbpfcp-zoom-crop-mark:1512:1512:1512:851.awebp"
-                      alt="spring源码（一）spring循环引用"
-                ></p>
-<h2 id="spring在默认单例的情况下是支持循环引用的"><a href="#spring在默认单例的情况下是支持循环引用的" class="headerlink" title="spring在默认单例的情况下是支持循环引用的"></a>spring在默认单例的情况下是支持循环引用的</h2><p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59d767659456403ca508bf2501241ee8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="1.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee8324aeed0c45dab44388e37281416f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="2.png"
-                ></p>
+    <content><![CDATA[<h1 id="spring源码（一）spring循环引用"><a href="#spring源码（一）spring循环引用" class="headerlink" title="spring源码（一）spring循环引用"></a>spring源码（一）spring循环引用</h1><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c51742c7390f4b18b17450540e177d40~tplv-k3u1fbpfcp-zoom-crop-mark:1512:1512:1512:851.awebp" alt="spring源码（一）spring循环引用"></p>
+<h2 id="spring在默认单例的情况下是支持循环引用的"><a href="#spring在默认单例的情况下是支持循环引用的" class="headerlink" title="spring在默认单例的情况下是支持循环引用的"></a>spring在默认单例的情况下是支持循环引用的</h2><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59d767659456403ca508bf2501241ee8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="1.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee8324aeed0c45dab44388e37281416f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="2.png"></p>
 <p>上图这两个类相互引用了对方（循环依赖）spring在单例、非构造方法注入的情况下是允许这样的循环依赖 上面的代码可以正常输出 从容器中可以获取到Xbean Ybean</p>
 <h2 id="Spring的循环依赖可以关闭"><a href="#Spring的循环依赖可以关闭" class="headerlink" title="Spring的循环依赖可以关闭"></a>Spring的循环依赖可以关闭</h2><p>1、spring提供的APi</p>
 <p>2、修改源码</p>
@@ -28,12 +13,7 @@
 <p>spring的属性注入属于Spring bean的生命周期的一部分</p>
 <h2 id="两个相关概念："><a href="#两个相关概念：" class="headerlink" title="两个相关概念："></a>两个相关概念：</h2><p>1、spring bean——受spring容器管理的对象，可能经过了完整的spring生命周期（为什么是可能？难道还有bean是没有经过bean生命周期的？答案是有的），最终存在spring容器当中；一个bean一定是个对象。</p>
 <p>2、对象——任何符合java语法规则实例化出来的对象，一个对象并不一定是spring bean 所谓bean的生命周期就是磁盘上的类通过扫描，然后实例化，跟着初始化，继而放到容器当中的过程。</p>
-<h2 id="spring-bean的生命周期经历步骤"><a href="#spring-bean的生命周期经历步骤" class="headerlink" title="spring bean的生命周期经历步骤"></a>spring bean的生命周期经历步骤</h2><p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/affea5305668421dbf4a3c0c7535aaf3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="3.png"
-                ></p>
+<h2 id="spring-bean的生命周期经历步骤"><a href="#spring-bean的生命周期经历步骤" class="headerlink" title="spring bean的生命周期经历步骤"></a>spring bean的生命周期经历步骤</h2><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/affea5305668421dbf4a3c0c7535aaf3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="3.png"></p>
 <p>1：实例化一个ApplicationContext的对象；</p>
 <p>2：调用bean工厂后置处理器完成扫描；</p>
 <p>3：循环解析扫描出来的类信息；</p>
@@ -52,609 +32,169 @@
 <p>16：如果需要代理则完成代理</p>
 <p>17：put到单例池——bean完成——存在spring容器当中</p>
 <h2 id="spring大概在什么时候实例化bean的"><a href="#spring大概在什么时候实例化bean的" class="headerlink" title="spring大概在什么时候实例化bean的"></a>spring大概在什么时候实例化bean的</h2><p>spring在AbstractApplicationContext#finishBeanFactoryInitialization方法中完成了bean的实例化。这点需要记住</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6925e0a51b2c4361889b41137d0cce85~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="4.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/035db7616b2b4e0da7e5f935f0924893~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="5.png"
-                ></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6925e0a51b2c4361889b41137d0cce85~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="4.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/035db7616b2b4e0da7e5f935f0924893~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="5.png"></p>
 <h2 id="spring-bean实例化的过程理论："><a href="#spring-bean实例化的过程理论：" class="headerlink" title="spring bean实例化的过程理论："></a>spring bean实例化的过程理论：</h2><p>假设磁盘上有X、Y类，spring启动时会扫描到X、Y被加了注解（@Autowired）然后会把X、Y的class信息封装成为一个beanDefinition对象，这个beanDefinition对象包含了当前类的信息，比如当前类是不是抽象的、当前这个类的描述、当前这个类的类型、当前这个类是不是懒加载等等这些信息。封装完之后会把beanDefinition对象放到一个Map集合当中，如果有的话执行beanFactoryPostProcessor（扩展）。然后开始验证，如果验证都通过的话调用prelnstantiateSingletons方法（过程相当复杂） 开始实例化当前类，实例化之后成为一个spring bean放到单例池里面。</p>
-<h2 id="源码验证："><a href="#源码验证：" class="headerlink" title="源码验证："></a>源码验证：</h2><p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/daebedcb97704baeb10c6f0740ecc997~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="6.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/60657df2ee4a40fb9f13b91622c26f1b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="7png.png"
-                ></p>
+<h2 id="源码验证："><a href="#源码验证：" class="headerlink" title="源码验证："></a>源码验证：</h2><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/daebedcb97704baeb10c6f0740ecc997~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="6.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/60657df2ee4a40fb9f13b91622c26f1b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="7png.png"></p>
 <p>这段代码用来初始化spring容器，当这段代码执行完之后，XY已经被实例化好了</p>
 <p>debug源码找到在哪里实例化好的bean</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf9ca3c9d62745659ac18cc6b3ef345e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="8.png"
-                ></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf9ca3c9d62745659ac18cc6b3ef345e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="8.png"></p>
 <p>beanFactory-&gt;beanDefinitionMap中还不存在x、y类</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f219fe7828044bb3a7dc18bd9529c2a7~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="9.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb93097de6e443f0a25e71f2df8526e0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="10.png"
-                ></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f219fe7828044bb3a7dc18bd9529c2a7~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="9.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb93097de6e443f0a25e71f2df8526e0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="10.png"></p>
 <p>扫描具体的实现代码</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a661e87ae6614f8487a4885f964932da~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="11.png"
-                ></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a661e87ae6614f8487a4885f964932da~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="11.png"></p>
 <p>put到beanDefinitionMap</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/704dea404eae4e8380ac156cf67ee733~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="12.png"
-                ></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/704dea404eae4e8380ac156cf67ee733~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="12.png"></p>
 <p>调用太多了</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5cc9222c882c4b72a76bf23dbb5e50ea~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="13.png"
-                ></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5cc9222c882c4b72a76bf23dbb5e50ea~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="13.png"></p>
 <p>看源码中在AnnotationConfigApplicationContext类的父类定义了beanFactory</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/256a90e7d578464391bce40e0100c952~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="14.png"
-                ></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/256a90e7d578464391bce40e0100c952~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="14.png"></p>
 <p>这个beanFactory就是我们常说的spring bean工厂 它是DefaultListableBeanFactory的实例</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a2923d464a364b6c83b9d23b0786e0ec~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="15.png"
-                ></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a2923d464a364b6c83b9d23b0786e0ec~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="15.png"></p>
 <p>在DefaultListableBeanFactory中有一个属性叫做 beanDefinitionMap ConcurrentHashMap 1.7、1.8 解决并发</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6584d185f0214099964a86031ceee550~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="17.png"
-                ></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6584d185f0214099964a86031ceee550~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="17.png"></p>
 <p>执行完invokeBeanFactoryPostProcessors方法发现beanDefinitionMap中有了x、y</p>
 <p>所以nvokeBeanFactoryPostProcessors中完成了扫描把类变成了beanDefinition对象（注意这个时候spring并没有对bean进行实例化）</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/984c5af0955345a8bb33bbdfe92d5921~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="18.png"
-                ></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/984c5af0955345a8bb33bbdfe92d5921~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="18.png"></p>
 <p>而是在finishBeanFactoryInitialization实例化单例的bean</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f7dcd464b865439d9d928de41c3daf93~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="19.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6facbd83c22e402cb7f7fe5fd89e9323~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="20.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cf594a0f9ca04c91abbe1e9dfbd90463~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="21.png"
-                ></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f7dcd464b865439d9d928de41c3daf93~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="19.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6facbd83c22e402cb7f7fe5fd89e9323~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="20.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cf594a0f9ca04c91abbe1e9dfbd90463~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="21.png"></p>
 <p>BeanFactoryPostProcessors:</p>
 <p>bean工厂后置处理器 能够干扰spring当中bean工厂初始化过程？</p>
 <p>扩展：可以在初始化前后做一些事情 实现这个接口可以拿到 beanFactory可以对beanFactory做一些改变等</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d522b4806104a179a69bf40068c44c8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="22.png"
-                ></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d522b4806104a179a69bf40068c44c8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="22.png"></p>
 <p>重点调用：finishBeanFactoryInitialization方法中beanFactory.preInstantiateSingletons();</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10e6a1d647d4460baf7646c8301234f8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="23.png"
-                ></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10e6a1d647d4460baf7646c8301234f8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="23.png"></p>
 <p>拿到beanNames集合 为了遍历</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a0e8eddb43ef470fa4f1d2fbc470dff0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="24.png"
-                ></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a0e8eddb43ef470fa4f1d2fbc470dff0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="24.png"></p>
 <h2 id="为什么要有-beanDefinition："><a href="#为什么要有-beanDefinition：" class="headerlink" title="为什么要有 beanDefinition："></a>为什么要有 beanDefinition：</h2><p>用来描述spring bean的里面包含了spring bean的所有信息（因为普通的类 不能描述 scope lazy等等等等 ） 调用到doGetBean ac.getBean其实底层就是调用这个doGetBean方法</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/27f0b3fce4154459aad07f05379f7d9b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="25.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0cd7191344db4802a5ae6f6665e407d2~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="26.png"
-                ></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/27f0b3fce4154459aad07f05379f7d9b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="25.png"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0cd7191344db4802a5ae6f6665e407d2~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="26.png"></p>
 <p>singletonObjects:单例池</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b7c48b4311f427eb5e12332658041d3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="27.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/21856b5ac9f44db785f88ba9babcfe00~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="28.png"
-                ></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b7c48b4311f427eb5e12332658041d3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="27.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/21856b5ac9f44db785f88ba9babcfe00~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="28.png"></p>
 <p>创建bean之前的关键代码</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29da1c5cece34fdbb921ee1ba012909e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="29.png"
-                ></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29da1c5cece34fdbb921ee1ba012909e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="29.png"></p>
 <p>singletonsCurrentlyInCreation 正在创建的单例bean的名字集合 放在这个集合当中</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc489d6b97d141d7aa8afb69c1bd81f4~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="30.png"
-                ></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc489d6b97d141d7aa8afb69c1bd81f4~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="30.png"></p>
 <p>关键代码 调用传过来的 ObjectFactory&lt;?&gt; singletonFactory的方法 lambda</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4aaa5d3a07f440d790020426c9124b10~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="31.png"
-                ></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4aaa5d3a07f440d790020426c9124b10~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="31.png"></p>
 <p>再往下执行调到这里</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7631282aa0e4458f915db440a0cc39a0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="32.png"
-                ></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7631282aa0e4458f915db440a0cc39a0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="32.png"></p>
 <p>到此bean 还没有被创建</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fb11cdf96e664f74bf0a9628806d5d93~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="33.png"
-                ></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fb11cdf96e664f74bf0a9628806d5d93~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="33.png"></p>
 <p>创建对象</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/632a136d4d62449c832a60e07318cd3f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="34.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46b1e0b283b443acbe9eefa3e234c6f7~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="35.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b4b3a17c64924ead968cb41188e8f99e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="36.png"
-                ></p>
-<p>依次进入方法内部 <img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cca5d717d1e94ab290daa838a9bbc7d6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="37.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f43ccb86709d4c54b6d8fbde05628656~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="38.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f5709f0f58b341ba824b38f349b2e88b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="39.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84af71355d3e4b38bab67e3bb03e0320~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="40.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c055d70c6d8949e2861d00ff36d2497f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="41.png"
-                ></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/632a136d4d62449c832a60e07318cd3f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="34.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46b1e0b283b443acbe9eefa3e234c6f7~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="35.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b4b3a17c64924ead968cb41188e8f99e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="36.png"></p>
+<p>依次进入方法内部 <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cca5d717d1e94ab290daa838a9bbc7d6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="37.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f43ccb86709d4c54b6d8fbde05628656~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="38.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f5709f0f58b341ba824b38f349b2e88b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="39.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84af71355d3e4b38bab67e3bb03e0320~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="40.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c055d70c6d8949e2861d00ff36d2497f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="41.png"></p>
 <p>这个时候只是实例化出来了对象还不是一个bean</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb64638cd8724ffa857b9d4330653447~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="42.png"
-                ></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb64638cd8724ffa857b9d4330653447~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="42.png"></p>
 <p>判断支持循环依赖 allowCircularReferences默认等于true</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/69459684f772461f886a39ffabd7735a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="43.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/767662e5f5fe41df83859c36f9c70ef7~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="44.png"
-                ></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/69459684f772461f886a39ffabd7735a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="43.png"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/767662e5f5fe41df83859c36f9c70ef7~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="44.png"></p>
 <p>spring处理循环依赖时候涉及的三个Map</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/315d38cf77fc473a9a7ec1381a25156d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="45.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/165c59d251f5436a94383d4e965fa7e8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="46.png"
-                ></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/315d38cf77fc473a9a7ec1381a25156d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="45.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/165c59d251f5436a94383d4e965fa7e8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="46.png"></p>
 <p>执行完这个方法后注入的属性有值了</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a083393f8c1f4cbea875045b310deb9c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="47.png"
-                ></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a083393f8c1f4cbea875045b310deb9c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="47.png"></p>
 <p>接下来调用initializeBean这个方法</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84b8275a04b64d5591878d9c5435d88d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="48.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b36e7b52d4dd4c11a1f678527700663a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="49.png"
-                ></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84b8275a04b64d5591878d9c5435d88d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="48.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b36e7b52d4dd4c11a1f678527700663a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="49.png"></p>
 <p>//执行部分Aware接口</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c933192af5c5426c928353c13f84edcf~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="50.png"
-                ></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c933192af5c5426c928353c13f84edcf~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="50.png"></p>
 <p>生命周期方法的回调</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a022dbb0c69c40ccaf2933357b34a293~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="51.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3372b097bed2426990186344b6a14940~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="52.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/36bee3d9b00c404aa4608ee82d95986d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="53.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d0d7660fa37b4f0e94a6d0e72e2720cd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="54.png"
-                ></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a022dbb0c69c40ccaf2933357b34a293~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="51.png"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3372b097bed2426990186344b6a14940~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="52.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/36bee3d9b00c404aa4608ee82d95986d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="53.png"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d0d7660fa37b4f0e94a6d0e72e2720cd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="54.png"></p>
 <p>生命周期回调初始化方法有三种实现方式 可以同时存在一个bean当中</p>
 <p>因为在源码中执行时机是不一样的</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9d12aeac1720444fa1a8c737bf2a4249~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="55.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84508d3d66414e86b0a1c85959a4221d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="56.png"
-                ></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9d12aeac1720444fa1a8c737bf2a4249~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="55.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84508d3d66414e86b0a1c85959a4221d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="56.png"></p>
 <p>spring bean的生命周期 调用过程</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e5ce745f277446eda1c357cff391ae76~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="57.png"
-                ></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e5ce745f277446eda1c357cff391ae76~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="57.png"></p>
 <p>会按照字母顺序创建(可以更改)</p>
 <p>循环依赖！</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89a035e95b2b4d66996a208bec8e59a9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="58.png"
-                ></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89a035e95b2b4d66996a208bec8e59a9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="58.png"></p>
 <p>x属性注入 填充y 调到了doGetBean(“y”) 肯定拿不到</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06298c5dee864991849fc1ede0130100~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="59.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f71fed3e5f674fec998b3dc44ae9ecde~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="60.png"
-                ></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06298c5dee864991849fc1ede0130100~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="59.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f71fed3e5f674fec998b3dc44ae9ecde~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="60.png"></p>
 <p>正在创建x的过程当中创建y所以singletonsCurrentlyInCreation有x</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a01d15ce8a3409a9579519ced56875c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="61.png"
-                ></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a01d15ce8a3409a9579519ced56875c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="61.png"></p>
 <p>X和Y正在被创建的过程当中</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/486d32de4dd84e0c96fedd442fb8f3fd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="62.png"
-                ></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/486d32de4dd84e0c96fedd442fb8f3fd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="62.png"></p>
 <p>执行这个方法之前y还没有别创建 一旦执行完 控制台打印y</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97f86535d9d843e38d54f3ec7043e9c6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="63.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/02225196d66340ffb509dfb161429830~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="64.png"
-                ></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97f86535d9d843e38d54f3ec7043e9c6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="63.png"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/02225196d66340ffb509dfb161429830~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="64.png"></p>
 <p>这个时候y要注入x所以回去getBean(“x”)</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e0471ee253774f7dbf26163cdd2e37d8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="65.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f51194ce80642d8954e086740100ffa~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="66.png"
-                ></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e0471ee253774f7dbf26163cdd2e37d8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="65.png"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f51194ce80642d8954e086740100ffa~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="66.png"></p>
 <p>关键代码： 这个时候返回的肯定不能是null如果返回null的话就成了死循环了 又会去走创建x的步骤</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1c7f12f69244fd3b7d3e75ab22e48d9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="67.png"
-                ></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1c7f12f69244fd3b7d3e75ab22e48d9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="67.png"></p>
 <p>（从单例池当中去拿x但是 x也肯定不在单例池当中因为它没有走完bean的生命周期）</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/71be49cf874f4c69ae55ac5042f1e2bf~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="68.png"
-                ></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/71be49cf874f4c69ae55ac5042f1e2bf~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="68.png"></p>
 <p>getSingleton源码 注意第二个参数写死了true</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/52dbafaa8d2b43f3bafeae87093dee47~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="69.png"
-                ></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/52dbafaa8d2b43f3bafeae87093dee47~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="69.png"></p>
 <p>单例池——一级缓存主要存放单例bean （所谓的容器）</p>
 <p>现在去从单例池当中去拿x 拿不到 返回 null</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/80edca051bf6491681b5891cb8af57f8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="70.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6fd8d521ef644ab9bd7fe10187362937~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="71.png"
-                ></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/80edca051bf6491681b5891cb8af57f8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="70.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6fd8d521ef644ab9bd7fe10187362937~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="71.png"></p>
 <p>这里判断x是不是正在被创建 true</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2aea760eaab4499ca4c0f9641f468c97~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="72.png"
-                ></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2aea760eaab4499ca4c0f9641f468c97~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="72.png"></p>
 <p>这里还是拿不到 原因很简单，因为前面根本就没有网这个map三级缓存中放入</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3ba42a9b448b4d928bb8f09c56a952a5~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="73.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89c02c94422e4dec97b0b0d63135450c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="74.png"
-                ></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3ba42a9b448b4d928bb8f09c56a952a5~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="73.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89c02c94422e4dec97b0b0d63135450c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="74.png"></p>
 <p>这里肯定成立</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a68ed83249f4e51a54c1eab7aa652cf~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="75.png"
-                ></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a68ed83249f4e51a54c1eab7aa652cf~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="75.png"></p>
 <p>这个地方可以拿到 但是这个不是x类型 它是Factory</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3514dfaa7bc461ba46df2e686b418b3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="76.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/91b66bb704de422a9f96a61293a3283b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="77.png"
-                ></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3514dfaa7bc461ba46df2e686b418b3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="76.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/91b66bb704de422a9f96a61293a3283b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="77.png"></p>
 <p>问题： 1、工厂怎么来的？</p>
 <p>2、为什么不直接在二级缓存中存一个x，而要存一个工厂？</p>
 <p>3、x和工厂怎么联系起来？</p>
 <p>4、工厂造出来的x和正在创建的x是同一个吗 ？ 是同一个</p>
 <p>5、如果不是循环依赖的bean会不会执行三级缓存 ？ 答： 不会</p>
 <p>回答1：与bean的生命周期有关，下图</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/17bbe9955181492fa98b97eb11b0916e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="78.png"
-                ></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/17bbe9955181492fa98b97eb11b0916e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="78.png"></p>
 <p>回答2：</p>
 <p>因为spring如果直接把x存进二级缓存，那么在y注入x的时候，需要的x不是当前存进去的x</p>
 <p>解释：存工厂可以产生任何对象，比存一个对象更加丰富 可以对x进行加工</p>
 <p>回答三：</p>
 <p>先把x传进去，然后增强，返回出来</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2229f1aa5e104fc2b02098accbebf9eb~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="79.png"
-                ></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2229f1aa5e104fc2b02098accbebf9eb~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="79.png"></p>
 <p>回答四： 默认是同一个</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eebe83be86a94ef3ab341db1702093a2~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="80.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c44019d268cd4c2c8b61e462c490dc24~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="81.png"
-                ></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eebe83be86a94ef3ab341db1702093a2~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="80.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c44019d268cd4c2c8b61e462c490dc24~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="81.png"></p>
 <p>为什么要添加到三级换存当中 ：把它放到三级缓存 （x依赖y，y依赖x，x依赖z，z依赖x的情况下，x就不需要重复从工厂产生了），说白了为了效率</p>
 <p>为什么要从二级缓存remove掉：为了gc 资源回收</p>
 <p>singletonsCurrentlyInCreation 这个集合80%是为了循环依赖而使用的</p>
 <p>beanDefinition A类去掉注解</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9f7588fdb505485d9020e160aa21bbae~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="82.png"
-                ></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9f7588fdb505485d9020e160aa21bbae~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="82.png"></p>
 <p>然后通过ac来获取a 肯定会报错 因为A不在spring容器当中</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/54d4b6190a53461aa3580cdf67f4cf04~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="83.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/60147a0abaa04165a6608c561cd26d86~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="84.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa5ccf6e1e184f9abce637155a788b2e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="85.png"
-                ></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/54d4b6190a53461aa3580cdf67f4cf04~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="83.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/60147a0abaa04165a6608c561cd26d86~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="84.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa5ccf6e1e184f9abce637155a788b2e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="85.png"></p>
 <p>调用了程序员或者spring当中提供的所有的postProcessors</p>
 <p>//拿到spring当中所有的BeanFactoryPostProcessor对象 执行postProcessBeanDefinitionRegistry方法 完成的扫描，扫描之后就变成了beanDefinition</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa4e93993f6f49459cb6a8e631fb4ef9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="86.png"
-                ></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa4e93993f6f49459cb6a8e631fb4ef9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="86.png"></p>
 <p>所谓的扫描就是执行spring内部的BeanFactoryPostProcessor的子类当中的postProcessBeanDefinitionRegistry方法完成的扫描</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/423c14c5a9b14ba1a2ee3993fbcf4390~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="87.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/838ec2213a34472b83c6c8daa496bb44~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="88.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/55f4f8b5242e4d38a370d8f5bc5cc704~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="89.png"
-                ></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/423c14c5a9b14ba1a2ee3993fbcf4390~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="87.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/838ec2213a34472b83c6c8daa496bb44~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="88.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/55f4f8b5242e4d38a370d8f5bc5cc704~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="89.png"></p>
 <p>怎么区分是spring内部和程序员自己提供的？</p>
 <p>找出所有实现了接口的子类，并且找了两次，代码几乎一摸一样 第一次找spring自己内部的 第二次找程序员写的</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2024cbb524e490babf3692e524487ba~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="90.png"
-                ></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2024cbb524e490babf3692e524487ba~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="90.png"></p>
 <p>spring 扩展点</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3db00fed467548df88b48880bd4d88bf~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="91.png"
-                ></p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7568c4b96ee84d8a9b969899d326a601~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
-                      alt="92.png"
-                ></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3db00fed467548df88b48880bd4d88bf~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="91.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7568c4b96ee84d8a9b969899d326a601~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="92.png"></p>
 <p>比如：把class给改了 改成了A，现在就可以拿到A了 而B就拿不到了</p>
 <h1 id="写在后面："><a href="#写在后面：" class="headerlink" title="写在后面："></a>写在后面：</h1><p>我是YC一位普通的从事软件开发行业的工作者，工作了很多年第一次写的一篇技术博客。这也是我学习到的东西，做一个分享吧！再此感谢子路老师，他的源码性的东西讲的非常的深入和细致。我也是听了他的课之后做一个总结，再次感谢！</p>
 ]]></content>
