@@ -4,7 +4,7 @@ var anzhiyu = {
     if (window.location.pathname != "/music/") {
       return;
     }
-    const anMusicBg = document.getElementById("web_bg");
+    const anMusicBg = document.getElementById("an_music_bg");
 
     if (isChangeBg) {
       // player listswitch 会进入此处
