@@ -1,38 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Java 8 Stream 相关记录-持续更新</title>
-    <url>/2023/05/31/20230531-1/</url>
-    <content><![CDATA[<blockquote>
-<p>Java8中的Stream流现如今是我们在开发过程中必用的一项技术，它与 java.io 包里的 InputStream 和 OutputStream 是完全不同的概念。</p>
-<p>Java 8 中的 Stream 是对集合（Collection）对象功能的增强，它专注于对集合对象进行各种非常便利、高效的聚合操作（aggregate operation），或者大批量数据操作 (bulk data operation)。</p>
-<p>Stream API 借助于同样新出现的 Lambda 表达式，极大的提高编程效率和程序可读性。同时它提供串行和并行两种模式进行汇聚操作，并发模式能够充分利用多核处理器的优势，使用 fork/join 并行方式来拆分任务和加速处理过程。</p>
-</blockquote>
-<h2 id="为什么要用Stream"><a href="#为什么要用Stream" class="headerlink" title="为什么要用Stream"></a>为什么要用Stream</h2><ul>
-<li>有高效的并行操作</li>
-<li>有多种功能呢个性的聚合操作</li>
-<li>函数式编程，使代码更加简洁，提高编程效率</li>
-</ul>
-<h2 id="使用记录"><a href="#使用记录" class="headerlink" title="使用记录"></a>使用记录</h2><h3 id="处理List对象的某个属性转换成数组"><a href="#处理List对象的某个属性转换成数组" class="headerlink" title="处理List对象的某个属性转换成数组"></a>处理List对象的某个属性转换成数组</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">BigDecimal[] ranchPriceList = ranchPriceTitles.get(<span class="number">0</span>).getRanchPriceTitles()</span><br><span class="line">        .stream().map(RanchPriceTitle::getItemPrice).toArray(BigDecimal[]::<span class="keyword">new</span>);</span><br><span class="line">BigDecimal[] platformPriceList = priceValueList</span><br><span class="line">        .stream().map(PriceValue::getValPrice).toArray(BigDecimal[]::<span class="keyword">new</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="将List封装对象的某个属性转换为以逗号分隔的字符串"><a href="#将List封装对象的某个属性转换为以逗号分隔的字符串" class="headerlink" title="将List封装对象的某个属性转换为以逗号分隔的字符串"></a>将List封装对象的某个属性转换为以逗号分隔的字符串</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> String.join(<span class="string">&quot;,&quot;</span>, userList.stream().</span><br><span class="line">      map(User::getUserName).</span><br><span class="line">collect(Collectors.toList()));</span><br></pre></td></tr></table></figure>
-
-<h3 id="求平均数"><a href="#求平均数" class="headerlink" title="求平均数"></a>求平均数</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//如果list中属性不为null且不为0才参与计算</span></span><br><span class="line"><span class="type">Double</span> <span class="variable">allRanchAvgDValue</span> <span class="operator">=</span> ranchPriceAvgList.stream().</span><br><span class="line">        filter(</span><br><span class="line">                d -&gt; d.getAvgPrice() != <span class="literal">null</span></span><br><span class="line">                        &amp;&amp; d.getAvgPrice().compareTo(BigDecimal.ZERO) &gt; <span class="number">0</span>)</span><br><span class="line">        .mapToDouble(x -&gt; x.getAvgPrice().doubleValue()).average().getAsDouble();</span><br><span class="line"></span><br><span class="line"><span class="type">BigDecimal</span> <span class="variable">allRanchAvg</span> <span class="operator">=</span> BigDecimal.valueOf(allRanchAvgDValue);<span class="comment">//牧场采购均价</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="将List中封装对象其中的属性作为Key值转为Map-lt-String-Obj-gt"><a href="#将List中封装对象其中的属性作为Key值转为Map-lt-String-Obj-gt" class="headerlink" title="将List中封装对象其中的属性作为Key值转为Map&lt;String,Obj&gt;"></a>将List中封装对象其中的属性作为Key值转为Map&lt;String,Obj&gt;</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Map&lt;String, ItemPrice&gt; departmentMap = oldItemPrice.stream()</span><br><span class="line">    .collect(Collectors.toMap(x-&gt;x.getOrgCode()+<span class="string">&quot;#&quot;</span>+x.getPrcDate(), Function.identity()));</span><br></pre></td></tr></table></figure>
-
-<h3 id="根据List封装对象中的某个属性进行分组"><a href="#根据List封装对象中的某个属性进行分组" class="headerlink" title="根据List封装对象中的某个属性进行分组"></a>根据List封装对象中的某个属性进行分组</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Map&lt;Integer, List&lt;Department&gt;&gt; collect = departmentList.stream().</span><br><span class="line">    collect(Collectors.groupingBy(depart -&gt; depart.getId()));</span><br></pre></td></tr></table></figure>
-
-<h3 id="获取树形结构数据-递归"><a href="#获取树形结构数据-递归" class="headerlink" title="获取树形结构数据 -递归"></a>获取树形结构数据 -递归</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;MediaEntity&gt; <span class="title function_">getAllFile</span><span class="params">()</span> &#123;</span><br><span class="line">    List&lt;Long&gt; resourceIds = resourceVisitorScopeService.getCanVisitorResourceIds(CategoryCode.LEARNING.getCode()</span><br><span class="line">            , ResourceVisitorScopeTypeCode.MEDIA.getCode(),</span><br><span class="line">            <span class="number">2</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    List&lt;MediaEntity&gt; allFiles = mediaDao.getFileOne(resourceIds);</span><br><span class="line">    List&lt;MediaEntity&gt; rootFile = allFiles.stream()</span><br><span class="line">            .filter(s-&gt;s.getParentId()==<span class="number">0</span>)</span><br><span class="line">            .peek(s-&gt;s.setChildren(getChildren(s,allFiles)))</span><br><span class="line">            .collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rootFile;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> List&lt;MediaEntity&gt; <span class="title function_">getChildren</span><span class="params">(MediaEntity mediaEntity,List&lt;MediaEntity&gt; allFiles)</span>&#123;</span><br><span class="line">    List&lt;MediaEntity&gt; childList = allFiles.stream()</span><br><span class="line">            .filter(file-&gt;mediaEntity.getId()==file.getParentId())</span><br><span class="line">            .peek(s-&gt;s.setChildren(getChildren(s,allFiles)))</span><br><span class="line">            .collect(Collectors.toList());</span><br><span class="line">    <span class="keyword">return</span> childList;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>JAVA</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用 Github Pages 和 Hexo 搭建自己的独立博客</title>
     <url>/2023/05/26/20230526-1/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>首先感谢你能来访问我的 Blog，这是我搭建的第一个博客网站，使用的是 Github Pages + Hexo 的形式搭建，从小白一路走了过来也挺不容易的 hhh，前前后后几分钟就能搭建完成了叭，现在把它记录下来，将来也许会是一种怀念叭.</p>
@@ -252,37 +220,35 @@
       </tags>
   </entry>
   <entry>
-    <title>不要问我北京怎么样，我只能说 去过</title>
-    <url>/2023/05/27/20230601-1/</url>
-    <content><![CDATA[<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100 height=86 src="/download/离开北京.mp3"></iframe> -->
-<p><audio src="/download/离开北京.mp3" autoplay="autoplay" controls="controls" loop="loop"></audio></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;上周去到了北京，我们又见面了。每次见面虽然短暂，但都很快乐。这也是我时隔多年再一次回到北京，北京没有什么变化，一样的车水马龙，一样的灯火通明。地铁上的一阵微风拂来，那一刻仿佛又回到了几年前，匆匆忙忙，忙忙碌碌。急速的脚步仿佛一刻都不能停下。北京的生活节奏的确是家乡所不能比的。工作在朝阳酒仙桥，住所在昌平天通苑，将近20公里的距离，四十四分钟的地铁三趟换乘，还得再坐半个多小时的公交车才能从公司到家。无论是公交还是地铁，无论是早上还是夜晚，人们都急匆匆的奔忙在路上。<br><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/6282909184d507251e496a44c0ea64e.3io6hb7tavc0.webp" alt="1.png"></p>
-<h2 id="在北京的开始"><a href="#在北京的开始" class="headerlink" title="在北京的开始"></a>在北京的开始</h2><p>&nbsp; &nbsp; &nbsp; &nbsp; 很荣幸，也很庆幸，在2016年毕业后的那个夏天，我义无反顾，毅然决然的背上背包，拎着行李箱坐上了去往北京的火车。时间推回到2016年的夏天，那时我还没有毕业，却也曾每日每夜想象毕业以后得生活。我以后要干什么？以后每个月会挣多少钱？工作找不到怎么办？这是一个来自即将毕业人的三连问。说实话我从没有想过以后会做一名一线开发的程序员，甚至都不知道程序员到底是干什么的。因为我在的那个大学其实学习上并不太抓紧，甚至宿舍的舍友白天不上课，夜晚不睡觉！我好像是那个宿舍惟一的一个另类，会每天按时去上课，会想要去想应该学些什么，会自我内心考虑到是不是我再不努力我的人生就完了。所以从那时起就开始暗自努力下定决心，我一定要对自己负责。</p>
-<p><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/630ac40a46f1974d5dc4926a279a328.3y43vp5bau60.webp" alt="2.png"><br><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/5b4468dd8a3af07ae98a93f984a45e7.1qyglil42cyo.webp" alt="3.png"></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; 说到这里我一定得感谢一个人，哦不，应该是感谢很多人。感谢身边的每一位老师。感谢每一位老师面对着一群不爱上课不爱学习的孩子，还是尽心尽力的想要去教会每一个人。我想这就是做老师的责任吧！感谢刘老师，刘老师是我的数据库启蒙老师，她每次上课都非常的认真，好像扯着嗓子再喊，生怕有哪个人听不到她说话。还记得有一次全班人都走了，只剩下我一个人，坚持把课上到结束，刘老师也一样。我想这就是老师与学生之间的互相尊重。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; 感谢谷老师，谷老师给人的感觉是一位很有专业经验的老师。在这里也想对谷老师说一句对不起。因为我想起来发生过一次非常小的摩擦吧。因为其他同学来上课其实只是为了刷个课时，基本上不带书的，可恰巧那天我把书拿错了。谷老师那天对所有没有带书的学生都非常不客气，但这其实是我能理解的。因为谷老师没能得到他应得到的尊重。我原本想像谷老师解释我拿错书了。可谷老师非常的不客气说了我。我随后夺门而出，年轻气盛吧，我当时对谷老师没有听我解释的态度而感到恼火。没有带书的同学被请出去后都没有再返回那堂课，除了我。我立刻回到寝室找到正确的那本书随后返回教室。很显然谷老师看我的眼神改变了。从那之后，我们的关系也变的非常好。感谢谷老师。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; 最后一位要感谢的是徐老师，可能我和徐老师，见面的次数一只手就能数的过来，也许这就是命运吧，如果没有遇到徐老师，没有听到徐老师讲的那节课外的公开课，我想至少我的工作行业一定不是现在的软件开发。也正是那节公开课，让我结识到了可以说改变我命运的知识和行业——编程。听徐老师生动形象的讲着一线开发人员每天的工作内容，生活，还有工作之余做的事情。我脑海里便开始浮想自己成为了那样的程序员。但说实话，最吸引我的还是高工资，高收入。啊哈哈哈。谁会跟钱过不去呢？</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; 所以在毕业后的暑假里我几乎没有休息几天，就向着北京出发了。感觉那个夏天是我经历过最热的夏天，刚下了火车就感觉无比的闷热，我背着沉重的双肩包，拖着行李箱。上了地铁，那是我第一次感受到来自地铁的微风，非常的清爽。今后的我每一天上班下班都在享受着这种清风徐来的感觉。<br><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/5cf9956108adbde16ce81531e59b804.79no9j8ybcg0.webp" alt="4.png"></p>
-<h2 id="开始工作"><a href="#开始工作" class="headerlink" title="开始工作"></a>开始工作</h2><p>&nbsp; &nbsp; &nbsp; &nbsp; 经过了几个月的自我努力和熏陶，我成功的拿下了人生当中第一个offer，这期间的艰辛和辛苦我想没有人能深得体会，我也无法用苍白的言语去形容和描述，所以就像是人生一样。所有过不去的坎坷，到了最后我们回头看看时，也都过去了！正如我现在所遇到的问题，和正在经历的事情我相信最终我一定可以过去呀。</p>
-<p><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/9dd653675c812eb0d06c9e4aa1ffefb.1pnvyal11oao.webp" alt="5.png"></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp;第一份工作上手快，同事和领导都很喜欢我，说真的有时候想想，难道是天赋吗，很多东西没有接触过甚至不知道是干嘛的。但是工作当中所有的任务我全部通过自己的努力完成了，所有遇到的问题也都自己解决了。那些见过的没见过的工具、插件、jar包、框架、语言，当时看来难的不能再难得需求，也都没有将我击倒。现在看来我想对那些正在学习或是打算学习编程的孩子们说，编程真的不难，做程序员真的很有趣！</p>
-<p><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/962b228e41f2e2ba90b222b7fc80633.5fjsrk3zdtk0.webp" alt="6.png"></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp;公司的所有同事也都还不错，时不时的聚餐活动，不过想想看来能够相处很长时间的其实还真没有，身边的同事有走的也有来的，总是在换新的面孔。好像每个人也得习惯了这样的节奏。</p>
-<h2 id="在北京的生活"><a href="#在北京的生活" class="headerlink" title="在北京的生活"></a>在北京的生活</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;刚到北京那会，我住在一个几乎不到50平米的公寓楼里面，八个人上下铺。条件属实艰苦。没有热水，没有独立的卫生间，好像除了能睡个觉其他的什么都没有。但就是这小小的房间，给了我们当时八个人些许的温暖。再往后我独自一人开始找房子，找到了距离天通苑地铁站还需半个小时公交车程的东沙各庄。当我第一次到那时简直是震惊，居然有这么多人，简直是太多人了！我独自一人租了个单人公寓也就20多30平米吧。独立卫生间，一张很破的床另加一张很破的桌子这就是当时全部的家具，其他什么都没有。不过当时那也是一种鸟枪换炮的感觉。</p>
-<p><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/e05be8b4cf323a9b522d9f7cf8d5f47.4zf96u19gzw0.webp" alt="7.png"></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp;也许北京和我一样的人太多太多了，一个人，喜欢独处。做什么都是自己。享受着每天上下班时戴着耳机，虽然哪里都是人但好像我的世界里只有自己的那种感觉。北京像是一个无情的城市对于我来说，因为北京的生活就好像没有感情的机器每天不停地、重复的运转着，一刻都不能停歇，仿佛只要停下脚步稍作休息后就赶不上那趟通往终点的直达列车。那里每个人的眼里都有光，但每个人的脸上都有一丝丝疲惫的痕迹。说实话我太了解外地人在北京的艰辛和不容易。</p>
-<p><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/72febbfa3cdd63d289ac6566115c844.awhsdlguh4g.webp" alt="8.png"><br><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/0a41900004b34745e10d34a4ef1ecad.izy41vfgm4o.webp" alt="9.png"><br><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/1cfdc3c1bc26700c570ecf8ca7827ef.3yyj6zjtv5e0.webp" alt="10.png"><br><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/cee8eaf1a6776143cef6b1f8aafd798.mnoxd0m4qps.webp" alt="11.png"></p>
-<h2 id="离开北京"><a href="#离开北京" class="headerlink" title="离开北京"></a>离开北京</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;我以为我会在北京生活工作很长很长时间，因为我早已习惯了那里的生活方式和习惯，可是由于家庭原因我还是选择了离开北京。<br><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/b8b9de2a8cb9e622b0be137cb2f3b42.7g7eabf5tyo0.webp" alt="12.png"></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp;离开北京前的最后一个工作日，早已交接完手头的所有工作，我坐在工位上不时地环顾四周，人在离别的时候心里是有些变化的。也不能说不舍吧，但是总会是有一点情绪的。那天像往常一样时间过得很快。下班后同事们想要给我送行，我们一起吃了散伙饭。说实话那是我第一次感觉喝酒喝的断片了，跟几位或许真的不太熟的好同事。不是因为关系不好，是因为相处最多的真的也就一年多吧。我们关系都非常好，只是不够了解。感谢他们为我送行。<br><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/8ed2d673ec6f2238e578d4c64ed9780.2tfy4o7biyi0.webp" alt="13.png"></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp;发小老三知道我要回来，正好来北京顺便把我接回去。散伙饭结束后我被送到老三住的酒店，老三见到我后也是很诧异，“咋喝这么多？”老三问我，我说开心，实际上当时的心里我也说不上是开心还是难过，开心的是我要回家了可以短暂的休息放松下了，因为从毕业到现在我都从来没有好好的休息过。难过的是这几年在北京的艰辛？还是什么？我也只能说不知道，情感交杂说不出的滋味。就这样平平淡淡像往常过年过节回家一样，我不声不响的离开了北京。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp;今天想想在北京的一些事现在已经有些记不清了。不过也许我还会回到北京，去出差，去玩，只是肯定的是再回去时已经不是当年那个背着双肩包，总是戴着耳机穿梭在人海里的少年了！</p>
-<p><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/f71b28ee7e5a5e14c7d24bb603107c3.k5hz73ybmts.webp" alt="14.png"></p>
-]]></content>
+    <title>Java 8 Stream 相关记录-持续更新</title>
+    <url>/2023/05/31/20230531-1/</url>
+    <content><![CDATA[<blockquote>
+<p>Java8中的Stream流现如今是我们在开发过程中必用的一项技术，它与 java.io 包里的 InputStream 和 OutputStream 是完全不同的概念。</p>
+<p>Java 8 中的 Stream 是对集合（Collection）对象功能的增强，它专注于对集合对象进行各种非常便利、高效的聚合操作（aggregate operation），或者大批量数据操作 (bulk data operation)。</p>
+<p>Stream API 借助于同样新出现的 Lambda 表达式，极大的提高编程效率和程序可读性。同时它提供串行和并行两种模式进行汇聚操作，并发模式能够充分利用多核处理器的优势，使用 fork/join 并行方式来拆分任务和加速处理过程。</p>
+</blockquote>
+<h2 id="为什么要用Stream"><a href="#为什么要用Stream" class="headerlink" title="为什么要用Stream"></a>为什么要用Stream</h2><ul>
+<li>有高效的并行操作</li>
+<li>有多种功能呢个性的聚合操作</li>
+<li>函数式编程，使代码更加简洁，提高编程效率</li>
+</ul>
+<h2 id="使用记录"><a href="#使用记录" class="headerlink" title="使用记录"></a>使用记录</h2><h3 id="处理List对象的某个属性转换成数组"><a href="#处理List对象的某个属性转换成数组" class="headerlink" title="处理List对象的某个属性转换成数组"></a>处理List对象的某个属性转换成数组</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">BigDecimal[] ranchPriceList = ranchPriceTitles.get(<span class="number">0</span>).getRanchPriceTitles()</span><br><span class="line">        .stream().map(RanchPriceTitle::getItemPrice).toArray(BigDecimal[]::<span class="keyword">new</span>);</span><br><span class="line">BigDecimal[] platformPriceList = priceValueList</span><br><span class="line">        .stream().map(PriceValue::getValPrice).toArray(BigDecimal[]::<span class="keyword">new</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="将List封装对象的某个属性转换为以逗号分隔的字符串"><a href="#将List封装对象的某个属性转换为以逗号分隔的字符串" class="headerlink" title="将List封装对象的某个属性转换为以逗号分隔的字符串"></a>将List封装对象的某个属性转换为以逗号分隔的字符串</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> String.join(<span class="string">&quot;,&quot;</span>, userList.stream().</span><br><span class="line">      map(User::getUserName).</span><br><span class="line">collect(Collectors.toList()));</span><br></pre></td></tr></table></figure>
+
+<h3 id="求平均数"><a href="#求平均数" class="headerlink" title="求平均数"></a>求平均数</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//如果list中属性不为null且不为0才参与计算</span></span><br><span class="line"><span class="type">Double</span> <span class="variable">allRanchAvgDValue</span> <span class="operator">=</span> ranchPriceAvgList.stream().</span><br><span class="line">        filter(</span><br><span class="line">                d -&gt; d.getAvgPrice() != <span class="literal">null</span></span><br><span class="line">                        &amp;&amp; d.getAvgPrice().compareTo(BigDecimal.ZERO) &gt; <span class="number">0</span>)</span><br><span class="line">        .mapToDouble(x -&gt; x.getAvgPrice().doubleValue()).average().getAsDouble();</span><br><span class="line"></span><br><span class="line"><span class="type">BigDecimal</span> <span class="variable">allRanchAvg</span> <span class="operator">=</span> BigDecimal.valueOf(allRanchAvgDValue);<span class="comment">//牧场采购均价</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="将List中封装对象其中的属性作为Key值转为Map-lt-String-Obj-gt"><a href="#将List中封装对象其中的属性作为Key值转为Map-lt-String-Obj-gt" class="headerlink" title="将List中封装对象其中的属性作为Key值转为Map&lt;String,Obj&gt;"></a>将List中封装对象其中的属性作为Key值转为Map&lt;String,Obj&gt;</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Map&lt;String, ItemPrice&gt; departmentMap = oldItemPrice.stream()</span><br><span class="line">    .collect(Collectors.toMap(x-&gt;x.getOrgCode()+<span class="string">&quot;#&quot;</span>+x.getPrcDate(), Function.identity()));</span><br></pre></td></tr></table></figure>
+
+<h3 id="根据List封装对象中的某个属性进行分组"><a href="#根据List封装对象中的某个属性进行分组" class="headerlink" title="根据List封装对象中的某个属性进行分组"></a>根据List封装对象中的某个属性进行分组</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Map&lt;Integer, List&lt;Department&gt;&gt; collect = departmentList.stream().</span><br><span class="line">    collect(Collectors.groupingBy(depart -&gt; depart.getId()));</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取树形结构数据-递归"><a href="#获取树形结构数据-递归" class="headerlink" title="获取树形结构数据 -递归"></a>获取树形结构数据 -递归</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;MediaEntity&gt; <span class="title function_">getAllFile</span><span class="params">()</span> &#123;</span><br><span class="line">    List&lt;Long&gt; resourceIds = resourceVisitorScopeService.getCanVisitorResourceIds(CategoryCode.LEARNING.getCode()</span><br><span class="line">            , ResourceVisitorScopeTypeCode.MEDIA.getCode(),</span><br><span class="line">            <span class="number">2</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    List&lt;MediaEntity&gt; allFiles = mediaDao.getFileOne(resourceIds);</span><br><span class="line">    List&lt;MediaEntity&gt; rootFile = allFiles.stream()</span><br><span class="line">            .filter(s-&gt;s.getParentId()==<span class="number">0</span>)</span><br><span class="line">            .peek(s-&gt;s.setChildren(getChildren(s,allFiles)))</span><br><span class="line">            .collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rootFile;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> List&lt;MediaEntity&gt; <span class="title function_">getChildren</span><span class="params">(MediaEntity mediaEntity,List&lt;MediaEntity&gt; allFiles)</span>&#123;</span><br><span class="line">    List&lt;MediaEntity&gt; childList = allFiles.stream()</span><br><span class="line">            .filter(file-&gt;mediaEntity.getId()==file.getParentId())</span><br><span class="line">            .peek(s-&gt;s.setChildren(getChildren(s,allFiles)))</span><br><span class="line">            .collect(Collectors.toList());</span><br><span class="line">    <span class="keyword">return</span> childList;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>Dairy</category>
+        <category>JAVA</category>
       </categories>
       <tags>
-        <tag>Dairy</tag>
+        <tag>JAVA</tag>
       </tags>
   </entry>
   <entry>
@@ -319,6 +285,40 @@
       </categories>
       <tags>
         <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>不要问我北京怎么样，我只能说 去过</title>
+    <url>/2023/05/27/20230601-1/</url>
+    <content><![CDATA[<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100 height=86 src="/download/离开北京.mp3"></iframe> -->
+<p><audio src="/download/离开北京.mp3" autoplay="autoplay" controls="controls" loop="loop"></audio></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;上周去到了北京，我们又见面了。每次见面虽然短暂，但都很快乐。这也是我时隔多年再一次回到北京，北京没有什么变化，一样的车水马龙，一样的灯火通明。地铁上的一阵微风拂来，那一刻仿佛又回到了几年前，匆匆忙忙，忙忙碌碌。急速的脚步仿佛一刻都不能停下。北京的生活节奏的确是家乡所不能比的。工作在朝阳酒仙桥，住所在昌平天通苑，将近20公里的距离，四十四分钟的地铁三趟换乘，还得再坐半个多小时的公交车才能从公司到家。无论是公交还是地铁，无论是早上还是夜晚，人们都急匆匆的奔忙在路上。<br><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/6282909184d507251e496a44c0ea64e.3io6hb7tavc0.webp" alt="1.png"></p>
+<h2 id="在北京的开始"><a href="#在北京的开始" class="headerlink" title="在北京的开始"></a>在北京的开始</h2><p>&nbsp; &nbsp; &nbsp; &nbsp; 很荣幸，也很庆幸，在2016年毕业后的那个夏天，我义无反顾，毅然决然的背上背包，拎着行李箱坐上了去往北京的火车。时间推回到2016年的夏天，那时我还没有毕业，却也曾每日每夜想象毕业以后得生活。我以后要干什么？以后每个月会挣多少钱？工作找不到怎么办？这是一个来自即将毕业人的三连问。说实话我从没有想过以后会做一名一线开发的程序员，甚至都不知道程序员到底是干什么的。因为我在的那个大学其实学习上并不太抓紧，甚至宿舍的舍友白天不上课，夜晚不睡觉！我好像是那个宿舍惟一的一个另类，会每天按时去上课，会想要去想应该学些什么，会自我内心考虑到是不是我再不努力我的人生就完了。所以从那时起就开始暗自努力下定决心，我一定要对自己负责。</p>
+<p><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/630ac40a46f1974d5dc4926a279a328.3y43vp5bau60.webp" alt="2.png"><br><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/5b4468dd8a3af07ae98a93f984a45e7.1qyglil42cyo.webp" alt="3.png"></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 说到这里我一定得感谢一个人，哦不，应该是感谢很多人。感谢身边的每一位老师。感谢每一位老师面对着一群不爱上课不爱学习的孩子，还是尽心尽力的想要去教会每一个人。我想这就是做老师的责任吧！感谢刘老师，刘老师是我的数据库启蒙老师，她每次上课都非常的认真，好像扯着嗓子再喊，生怕有哪个人听不到她说话。还记得有一次全班人都走了，只剩下我一个人，坚持把课上到结束，刘老师也一样。我想这就是老师与学生之间的互相尊重。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 感谢谷老师，谷老师给人的感觉是一位很有专业经验的老师。在这里也想对谷老师说一句对不起。因为我想起来发生过一次非常小的摩擦吧。因为其他同学来上课其实只是为了刷个课时，基本上不带书的，可恰巧那天我把书拿错了。谷老师那天对所有没有带书的学生都非常不客气，但这其实是我能理解的。因为谷老师没能得到他应得到的尊重。我原本想像谷老师解释我拿错书了。可谷老师非常的不客气说了我。我随后夺门而出，年轻气盛吧，我当时对谷老师没有听我解释的态度而感到恼火。没有带书的同学被请出去后都没有再返回那堂课，除了我。我立刻回到寝室找到正确的那本书随后返回教室。很显然谷老师看我的眼神改变了。从那之后，我们的关系也变的非常好。感谢谷老师。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 最后一位要感谢的是徐老师，可能我和徐老师，见面的次数一只手就能数的过来，也许这就是命运吧，如果没有遇到徐老师，没有听到徐老师讲的那节课外的公开课，我想至少我的工作行业一定不是现在的软件开发。也正是那节公开课，让我结识到了可以说改变我命运的知识和行业——编程。听徐老师生动形象的讲着一线开发人员每天的工作内容，生活，还有工作之余做的事情。我脑海里便开始浮想自己成为了那样的程序员。但说实话，最吸引我的还是高工资，高收入。啊哈哈哈。谁会跟钱过不去呢？</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 所以在毕业后的暑假里我几乎没有休息几天，就向着北京出发了。感觉那个夏天是我经历过最热的夏天，刚下了火车就感觉无比的闷热，我背着沉重的双肩包，拖着行李箱。上了地铁，那是我第一次感受到来自地铁的微风，非常的清爽。今后的我每一天上班下班都在享受着这种清风徐来的感觉。<br><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/5cf9956108adbde16ce81531e59b804.79no9j8ybcg0.webp" alt="4.png"></p>
+<h2 id="开始工作"><a href="#开始工作" class="headerlink" title="开始工作"></a>开始工作</h2><p>&nbsp; &nbsp; &nbsp; &nbsp; 经过了几个月的自我努力和熏陶，我成功的拿下了人生当中第一个offer，这期间的艰辛和辛苦我想没有人能深得体会，我也无法用苍白的言语去形容和描述，所以就像是人生一样。所有过不去的坎坷，到了最后我们回头看看时，也都过去了！正如我现在所遇到的问题，和正在经历的事情我相信最终我一定可以过去呀。</p>
+<p><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/9dd653675c812eb0d06c9e4aa1ffefb.1pnvyal11oao.webp" alt="5.png"></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;第一份工作上手快，同事和领导都很喜欢我，说真的有时候想想，难道是天赋吗，很多东西没有接触过甚至不知道是干嘛的。但是工作当中所有的任务我全部通过自己的努力完成了，所有遇到的问题也都自己解决了。那些见过的没见过的工具、插件、jar包、框架、语言，当时看来难的不能再难得需求，也都没有将我击倒。现在看来我想对那些正在学习或是打算学习编程的孩子们说，编程真的不难，做程序员真的很有趣！</p>
+<p><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/962b228e41f2e2ba90b222b7fc80633.5fjsrk3zdtk0.webp" alt="6.png"></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;公司的所有同事也都还不错，时不时的聚餐活动，不过想想看来能够相处很长时间的其实还真没有，身边的同事有走的也有来的，总是在换新的面孔。好像每个人也得习惯了这样的节奏。</p>
+<h2 id="在北京的生活"><a href="#在北京的生活" class="headerlink" title="在北京的生活"></a>在北京的生活</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;刚到北京那会，我住在一个几乎不到50平米的公寓楼里面，八个人上下铺。条件属实艰苦。没有热水，没有独立的卫生间，好像除了能睡个觉其他的什么都没有。但就是这小小的房间，给了我们当时八个人些许的温暖。再往后我独自一人开始找房子，找到了距离天通苑地铁站还需半个小时公交车程的东沙各庄。当我第一次到那时简直是震惊，居然有这么多人，简直是太多人了！我独自一人租了个单人公寓也就20多30平米吧。独立卫生间，一张很破的床另加一张很破的桌子这就是当时全部的家具，其他什么都没有。不过当时那也是一种鸟枪换炮的感觉。</p>
+<p><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/e05be8b4cf323a9b522d9f7cf8d5f47.4zf96u19gzw0.webp" alt="7.png"></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;也许北京和我一样的人太多太多了，一个人，喜欢独处。做什么都是自己。享受着每天上下班时戴着耳机，虽然哪里都是人但好像我的世界里只有自己的那种感觉。北京像是一个无情的城市对于我来说，因为北京的生活就好像没有感情的机器每天不停地、重复的运转着，一刻都不能停歇，仿佛只要停下脚步稍作休息后就赶不上那趟通往终点的直达列车。那里每个人的眼里都有光，但每个人的脸上都有一丝丝疲惫的痕迹。说实话我太了解外地人在北京的艰辛和不容易。</p>
+<p><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/72febbfa3cdd63d289ac6566115c844.awhsdlguh4g.webp" alt="8.png"><br><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/0a41900004b34745e10d34a4ef1ecad.izy41vfgm4o.webp" alt="9.png"><br><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/1cfdc3c1bc26700c570ecf8ca7827ef.3yyj6zjtv5e0.webp" alt="10.png"><br><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/cee8eaf1a6776143cef6b1f8aafd798.mnoxd0m4qps.webp" alt="11.png"></p>
+<h2 id="离开北京"><a href="#离开北京" class="headerlink" title="离开北京"></a>离开北京</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;我以为我会在北京生活工作很长很长时间，因为我早已习惯了那里的生活方式和习惯，可是由于家庭原因我还是选择了离开北京。<br><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/b8b9de2a8cb9e622b0be137cb2f3b42.7g7eabf5tyo0.webp" alt="12.png"></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;离开北京前的最后一个工作日，早已交接完手头的所有工作，我坐在工位上不时地环顾四周，人在离别的时候心里是有些变化的。也不能说不舍吧，但是总会是有一点情绪的。那天像往常一样时间过得很快。下班后同事们想要给我送行，我们一起吃了散伙饭。说实话那是我第一次感觉喝酒喝的断片了，跟几位或许真的不太熟的好同事。不是因为关系不好，是因为相处最多的真的也就一年多吧。我们关系都非常好，只是不够了解。感谢他们为我送行。<br><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/8ed2d673ec6f2238e578d4c64ed9780.2tfy4o7biyi0.webp" alt="13.png"></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;发小老三知道我要回来，正好来北京顺便把我接回去。散伙饭结束后我被送到老三住的酒店，老三见到我后也是很诧异，“咋喝这么多？”老三问我，我说开心，实际上当时的心里我也说不上是开心还是难过，开心的是我要回家了可以短暂的休息放松下了，因为从毕业到现在我都从来没有好好的休息过。难过的是这几年在北京的艰辛？还是什么？我也只能说不知道，情感交杂说不出的滋味。就这样平平淡淡像往常过年过节回家一样，我不声不响的离开了北京。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;今天想想在北京的一些事现在已经有些记不清了。不过也许我还会回到北京，去出差，去玩，只是肯定的是再回去时已经不是当年那个背着双肩包，总是戴着耳机穿梭在人海里的少年了！</p>
+<p><img src="https://cdn.staticaly.com/gh/Yc100/picx-images-hosting@master/f71b28ee7e5a5e14c7d24bb603107c3.k5hz73ybmts.webp" alt="14.png"></p>
+]]></content>
+      <categories>
+        <category>Dairy</category>
+      </categories>
+      <tags>
+        <tag>Dairy</tag>
       </tags>
   </entry>
   <entry>
