@@ -1,13 +1,12 @@
-
-$(document).ready(function(){
+var clock ='';
+var loveerDate = ()=>{
+    window.clearInterval(clock);
     var nowDate = new Date()
     var togetherDate=new Date('2021-12-19 19:26:12')
     var togetherDay='已经'+timeAgo(nowDate,togetherDate)
     //document.getElementById("togetherDay").innerHTML=togetherDay;
     $('#togetherDay').html(togetherDay)
     clock = setInterval(diffTogetherDay, 1000);
-});
-
     function timeAgo(timeA, timeB) {
  
         var diff = new Date(timeA).getTime() - new Date(timeB).getTime();
@@ -43,8 +42,8 @@ $(document).ready(function(){
         console.log(href)
         console.log(href.indexOf('/timeRecord'))
         if(href !='https://yc100.github.io' && href !='http://localhost:4000/'){
-            window.clearInterval(clock);
-            return
+           // window.clearInterval(clock);
+            
         }else{
             var togetherDate=new Date('2021-12-19 19:26:12')
             var togetherDay='已经'+timeAgo(new Date(),togetherDate)
@@ -54,3 +53,6 @@ $(document).ready(function(){
         
         
     }
+}
+    
+loveerDate();
