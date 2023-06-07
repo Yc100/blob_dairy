@@ -41,7 +41,7 @@ var loveerDate = ()=>{
         var href = $(location).attr('href');
         console.log(href)
         console.log(href.indexOf('/timeRecord'))
-        if(href !='https://yc100.github.io' && href !='http://localhost:4000/'){
+        if(href !='https://yc100.github.io/' && href !='http://localhost:4000/'){
            // window.clearInterval(clock);
             
         }else{
