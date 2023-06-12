@@ -1,38 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Java 8 Stream 相关记录-持续更新</title>
-    <url>/2023/05/31/20230531-1/</url>
-    <content><![CDATA[<blockquote>
-<p>Java8中的Stream流现如今是我们在开发过程中必用的一项技术，它与 java.io 包里的 InputStream 和 OutputStream 是完全不同的概念。</p>
-<p>Java 8 中的 Stream 是对集合（Collection）对象功能的增强，它专注于对集合对象进行各种非常便利、高效的聚合操作（aggregate operation），或者大批量数据操作 (bulk data operation)。</p>
-<p>Stream API 借助于同样新出现的 Lambda 表达式，极大的提高编程效率和程序可读性。同时它提供串行和并行两种模式进行汇聚操作，并发模式能够充分利用多核处理器的优势，使用 fork/join 并行方式来拆分任务和加速处理过程。</p>
-</blockquote>
-<h2 id="为什么要用Stream"><a href="#为什么要用Stream" class="headerlink" title="为什么要用Stream"></a>为什么要用Stream</h2><ul>
-<li>有高效的并行操作</li>
-<li>有多种功能呢个性的聚合操作</li>
-<li>函数式编程，使代码更加简洁，提高编程效率</li>
-</ul>
-<h2 id="使用记录"><a href="#使用记录" class="headerlink" title="使用记录"></a>使用记录</h2><h3 id="处理List对象的某个属性转换成数组"><a href="#处理List对象的某个属性转换成数组" class="headerlink" title="处理List对象的某个属性转换成数组"></a>处理List对象的某个属性转换成数组</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">BigDecimal[] ranchPriceList = ranchPriceTitles.get(<span class="number">0</span>).getRanchPriceTitles()</span><br><span class="line">        .stream().map(RanchPriceTitle::getItemPrice).toArray(BigDecimal[]::<span class="keyword">new</span>);</span><br><span class="line">BigDecimal[] platformPriceList = priceValueList</span><br><span class="line">        .stream().map(PriceValue::getValPrice).toArray(BigDecimal[]::<span class="keyword">new</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="将List封装对象的某个属性转换为以逗号分隔的字符串"><a href="#将List封装对象的某个属性转换为以逗号分隔的字符串" class="headerlink" title="将List封装对象的某个属性转换为以逗号分隔的字符串"></a>将List封装对象的某个属性转换为以逗号分隔的字符串</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> String.join(<span class="string">&quot;,&quot;</span>, userList.stream().</span><br><span class="line">      map(User::getUserName).</span><br><span class="line">collect(Collectors.toList()));</span><br></pre></td></tr></table></figure>
-
-<h3 id="求平均数"><a href="#求平均数" class="headerlink" title="求平均数"></a>求平均数</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//如果list中属性不为null且不为0才参与计算</span></span><br><span class="line"><span class="type">Double</span> <span class="variable">allRanchAvgDValue</span> <span class="operator">=</span> ranchPriceAvgList.stream().</span><br><span class="line">        filter(</span><br><span class="line">                d -&gt; d.getAvgPrice() != <span class="literal">null</span></span><br><span class="line">                        &amp;&amp; d.getAvgPrice().compareTo(BigDecimal.ZERO) &gt; <span class="number">0</span>)</span><br><span class="line">        .mapToDouble(x -&gt; x.getAvgPrice().doubleValue()).average().getAsDouble();</span><br><span class="line"></span><br><span class="line"><span class="type">BigDecimal</span> <span class="variable">allRanchAvg</span> <span class="operator">=</span> BigDecimal.valueOf(allRanchAvgDValue);<span class="comment">//牧场采购均价</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="将List中封装对象其中的属性作为Key值转为Map-lt-String-Obj-gt"><a href="#将List中封装对象其中的属性作为Key值转为Map-lt-String-Obj-gt" class="headerlink" title="将List中封装对象其中的属性作为Key值转为Map&lt;String,Obj&gt;"></a>将List中封装对象其中的属性作为Key值转为Map&lt;String,Obj&gt;</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Map&lt;String, ItemPrice&gt; departmentMap = oldItemPrice.stream()</span><br><span class="line">    .collect(Collectors.toMap(x-&gt;x.getOrgCode()+<span class="string">&quot;#&quot;</span>+x.getPrcDate(), Function.identity()));</span><br></pre></td></tr></table></figure>
-
-<h3 id="根据List封装对象中的某个属性进行分组"><a href="#根据List封装对象中的某个属性进行分组" class="headerlink" title="根据List封装对象中的某个属性进行分组"></a>根据List封装对象中的某个属性进行分组</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Map&lt;Integer, List&lt;Department&gt;&gt; collect = departmentList.stream().</span><br><span class="line">    collect(Collectors.groupingBy(depart -&gt; depart.getId()));</span><br></pre></td></tr></table></figure>
-
-<h3 id="获取树形结构数据-递归"><a href="#获取树形结构数据-递归" class="headerlink" title="获取树形结构数据 -递归"></a>获取树形结构数据 -递归</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;MediaEntity&gt; <span class="title function_">getAllFile</span><span class="params">()</span> &#123;</span><br><span class="line">    List&lt;Long&gt; resourceIds = resourceVisitorScopeService.getCanVisitorResourceIds(CategoryCode.LEARNING.getCode()</span><br><span class="line">            , ResourceVisitorScopeTypeCode.MEDIA.getCode(),</span><br><span class="line">            <span class="number">2</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    List&lt;MediaEntity&gt; allFiles = mediaDao.getFileOne(resourceIds);</span><br><span class="line">    List&lt;MediaEntity&gt; rootFile = allFiles.stream()</span><br><span class="line">            .filter(s-&gt;s.getParentId()==<span class="number">0</span>)</span><br><span class="line">            .peek(s-&gt;s.setChildren(getChildren(s,allFiles)))</span><br><span class="line">            .collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rootFile;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> List&lt;MediaEntity&gt; <span class="title function_">getChildren</span><span class="params">(MediaEntity mediaEntity,List&lt;MediaEntity&gt; allFiles)</span>&#123;</span><br><span class="line">    List&lt;MediaEntity&gt; childList = allFiles.stream()</span><br><span class="line">            .filter(file-&gt;mediaEntity.getId()==file.getParentId())</span><br><span class="line">            .peek(s-&gt;s.setChildren(getChildren(s,allFiles)))</span><br><span class="line">            .collect(Collectors.toList());</span><br><span class="line">    <span class="keyword">return</span> childList;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>JAVA</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用 Github Pages 和 Hexo 搭建自己的独立博客</title>
     <url>/2023/05/26/20230526-1/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>首先感谢你能来访问我的 Blog，这是我搭建的第一个博客网站，使用的是 Github Pages + Hexo 的形式搭建，从小白一路走了过来也挺不容易的 hhh，前前后后几分钟就能搭建完成了叭，现在把它记录下来，将来也许会是一种怀念叭.</p>
@@ -252,6 +220,38 @@
       </tags>
   </entry>
   <entry>
+    <title>Java 8 Stream 相关记录-持续更新</title>
+    <url>/2023/05/31/20230531-1/</url>
+    <content><![CDATA[<blockquote>
+<p>Java8中的Stream流现如今是我们在开发过程中必用的一项技术，它与 java.io 包里的 InputStream 和 OutputStream 是完全不同的概念。</p>
+<p>Java 8 中的 Stream 是对集合（Collection）对象功能的增强，它专注于对集合对象进行各种非常便利、高效的聚合操作（aggregate operation），或者大批量数据操作 (bulk data operation)。</p>
+<p>Stream API 借助于同样新出现的 Lambda 表达式，极大的提高编程效率和程序可读性。同时它提供串行和并行两种模式进行汇聚操作，并发模式能够充分利用多核处理器的优势，使用 fork/join 并行方式来拆分任务和加速处理过程。</p>
+</blockquote>
+<h2 id="为什么要用Stream"><a href="#为什么要用Stream" class="headerlink" title="为什么要用Stream"></a>为什么要用Stream</h2><ul>
+<li>有高效的并行操作</li>
+<li>有多种功能呢个性的聚合操作</li>
+<li>函数式编程，使代码更加简洁，提高编程效率</li>
+</ul>
+<h2 id="使用记录"><a href="#使用记录" class="headerlink" title="使用记录"></a>使用记录</h2><h3 id="处理List对象的某个属性转换成数组"><a href="#处理List对象的某个属性转换成数组" class="headerlink" title="处理List对象的某个属性转换成数组"></a>处理List对象的某个属性转换成数组</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">BigDecimal[] ranchPriceList = ranchPriceTitles.get(<span class="number">0</span>).getRanchPriceTitles()</span><br><span class="line">        .stream().map(RanchPriceTitle::getItemPrice).toArray(BigDecimal[]::<span class="keyword">new</span>);</span><br><span class="line">BigDecimal[] platformPriceList = priceValueList</span><br><span class="line">        .stream().map(PriceValue::getValPrice).toArray(BigDecimal[]::<span class="keyword">new</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="将List封装对象的某个属性转换为以逗号分隔的字符串"><a href="#将List封装对象的某个属性转换为以逗号分隔的字符串" class="headerlink" title="将List封装对象的某个属性转换为以逗号分隔的字符串"></a>将List封装对象的某个属性转换为以逗号分隔的字符串</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> String.join(<span class="string">&quot;,&quot;</span>, userList.stream().</span><br><span class="line">      map(User::getUserName).</span><br><span class="line">collect(Collectors.toList()));</span><br></pre></td></tr></table></figure>
+
+<h3 id="求平均数"><a href="#求平均数" class="headerlink" title="求平均数"></a>求平均数</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//如果list中属性不为null且不为0才参与计算</span></span><br><span class="line"><span class="type">Double</span> <span class="variable">allRanchAvgDValue</span> <span class="operator">=</span> ranchPriceAvgList.stream().</span><br><span class="line">        filter(</span><br><span class="line">                d -&gt; d.getAvgPrice() != <span class="literal">null</span></span><br><span class="line">                        &amp;&amp; d.getAvgPrice().compareTo(BigDecimal.ZERO) &gt; <span class="number">0</span>)</span><br><span class="line">        .mapToDouble(x -&gt; x.getAvgPrice().doubleValue()).average().getAsDouble();</span><br><span class="line"></span><br><span class="line"><span class="type">BigDecimal</span> <span class="variable">allRanchAvg</span> <span class="operator">=</span> BigDecimal.valueOf(allRanchAvgDValue);<span class="comment">//牧场采购均价</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="将List中封装对象其中的属性作为Key值转为Map-lt-String-Obj-gt"><a href="#将List中封装对象其中的属性作为Key值转为Map-lt-String-Obj-gt" class="headerlink" title="将List中封装对象其中的属性作为Key值转为Map&lt;String,Obj&gt;"></a>将List中封装对象其中的属性作为Key值转为Map&lt;String,Obj&gt;</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Map&lt;String, ItemPrice&gt; departmentMap = oldItemPrice.stream()</span><br><span class="line">    .collect(Collectors.toMap(x-&gt;x.getOrgCode()+<span class="string">&quot;#&quot;</span>+x.getPrcDate(), Function.identity()));</span><br></pre></td></tr></table></figure>
+
+<h3 id="根据List封装对象中的某个属性进行分组"><a href="#根据List封装对象中的某个属性进行分组" class="headerlink" title="根据List封装对象中的某个属性进行分组"></a>根据List封装对象中的某个属性进行分组</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Map&lt;Integer, List&lt;Department&gt;&gt; collect = departmentList.stream().</span><br><span class="line">    collect(Collectors.groupingBy(depart -&gt; depart.getId()));</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取树形结构数据-递归"><a href="#获取树形结构数据-递归" class="headerlink" title="获取树形结构数据 -递归"></a>获取树形结构数据 -递归</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;MediaEntity&gt; <span class="title function_">getAllFile</span><span class="params">()</span> &#123;</span><br><span class="line">    List&lt;Long&gt; resourceIds = resourceVisitorScopeService.getCanVisitorResourceIds(CategoryCode.LEARNING.getCode()</span><br><span class="line">            , ResourceVisitorScopeTypeCode.MEDIA.getCode(),</span><br><span class="line">            <span class="number">2</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    List&lt;MediaEntity&gt; allFiles = mediaDao.getFileOne(resourceIds);</span><br><span class="line">    List&lt;MediaEntity&gt; rootFile = allFiles.stream()</span><br><span class="line">            .filter(s-&gt;s.getParentId()==<span class="number">0</span>)</span><br><span class="line">            .peek(s-&gt;s.setChildren(getChildren(s,allFiles)))</span><br><span class="line">            .collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rootFile;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> List&lt;MediaEntity&gt; <span class="title function_">getChildren</span><span class="params">(MediaEntity mediaEntity,List&lt;MediaEntity&gt; allFiles)</span>&#123;</span><br><span class="line">    List&lt;MediaEntity&gt; childList = allFiles.stream()</span><br><span class="line">            .filter(file-&gt;mediaEntity.getId()==file.getParentId())</span><br><span class="line">            .peek(s-&gt;s.setChildren(getChildren(s,allFiles)))</span><br><span class="line">            .collect(Collectors.toList());</span><br><span class="line">    <span class="keyword">return</span> childList;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>不要问我北京怎么样，我只能说 去过</title>
     <url>/2023/05/27/20230601-1/</url>
     <content><![CDATA[<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100 height=86 src="/download/离开北京.mp3"></iframe> -->
@@ -283,121 +283,6 @@
       </categories>
       <tags>
         <tag>Dairy</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>电信机顶盒创维E900-S刷机简易教程</title>
-    <url>/2023/06/05/20230605-1/</url>
-    <content><![CDATA[<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100 height=86 src="/download/离开北京.mp3"></iframe> -->
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;上周六宝和发小出去玩耍，一个人在家里闲来无事，打算把一直闲置的电信IPTV智能机顶盒刷下机，刷成一个全网通用的网络机顶盒，只要有无线网或者是有线网就可以正常使用，连接在显示器或电视上就可以当做智能电视来使用了。<br><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/8.1tcm7p7jozgg.jpg" alt="1.png"></p>
-<h2 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h2><ul>
-<li>螺丝刀(用于将机顶盒后盖的螺丝拧下)</li>
-<li>翘片或平头螺丝刀头(用于将机顶盒的后盖和主板撬起，因为机顶盒太小了主板卡的很牢固需要用工具来撬起来)</li>
-<li>U盘(U盘中存放刷机用到的程序和需要安装的软件)</li>
-<li>显示器、HDMI高清线(在升级后需要进行例如网络的配置所以需要有显示器)</li>
-<li>螺丝钉或者镊子或其他可以导电的物体(因为在升级过程中需要短接操作)</li>
-</ul>
-<h2 id="刷机步骤"><a href="#刷机步骤" class="headerlink" title="刷机步骤"></a>刷机步骤</h2><p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/1.55elghg8qlo0.jpg" alt="2.png"><br>首先用合适的螺丝刀将机顶盒背面的三个螺丝拧下,注意本刷机教程只适用于同型号的机顶盒，其他型号机顶盒未尝试所以不确定成功率，同型号的绝对没有问题。同型号的机顶盒背部的螺丝孔应该是有三个，如果没找到的话别着急，需要将底部的胶条撕下，螺丝孔藏在胶条下面。</p>
-<p>螺丝拆下后就需要用翘片或是平头的螺丝刀头从缝隙中一点一点将后盖撬起，这里需要用一点力，我这个设备还是很紧的。撬开后盖后就可以看到主板了<br><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/2.2gb0wyxbb78k.jpg" alt="3.png"></p>
-<p>接着还是用翘片从底部继续将主板翘起，有电源按钮的那一面是上部对着的就是底部了。这里注意主板的侧边有一跟线连着的信号接收器，它可能是粘在侧边的外壳上的所以如果粘的比较牢固的话我们需要想办法将这个接收器先与侧边的外壳分离开，可以用吹风机暖风吹一吹后在取回好取一些。总之就是在撬主板时不要将这个信号接收器给损坏了就行。撬主版时翘起来一点后可以用手将主板取出即可。</p>
-<p>然后将主板翻过来，主板的背部的这个地方就是我前面要说的短接操作</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/1685951953559.6mzi7n2beyk0.jpg" alt="4.png"></p>
-<p>刷机时需要用螺丝头或者镊子将这个两个地方抵住使主版短接从而读取U盘里的数据进行刷机和升级，我是用的镊子。</p>
-<p>将准备好的U盘格式化后把这些文件放到U盘根目录中即可，YueMe_BOX文件夹中放入你想要安装的软件，在刷机时会自动安装这些软件。<br>链接：<a href="https://pan.baidu.com/s/1HHOXbAw7ckDhPIHxxOLqlA">https://pan.baidu.com/s/1HHOXbAw7ckDhPIHxxOLqlA</a><br>提取码：wiyo</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/1685953082982.5hwkr7mt5xw0.jpg" alt="5.png"></p>
-<p>接入显示器的HDMI高清线和电源，插入已经准备好的U盘。此时应确保机顶盒的电源按钮为关闭状态。</p>
-<p>接着用小镊子抵住上面所说到的两个短接点。开机（这里我说明下点击完开机按钮会过一会才会有反应不知道是我设备的事情还是短接的问题，我第一次尝试没有成功开机后还是进入了原先的IPTV系统，不用着急多试几次，也可以尝试换用其他的类似螺丝头这样的工具多试几次一定可以）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/8.1tcm7p7jozgg.jpg" alt="6.png"></p>
-<p>此时如果成功的话会进入到下面的这个界面，说明机顶盒已经开始在刷机了，看到这个界面后就可以不用短接了，将小镊子拿下来，等待自动升级即可</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/7.2oxvjopi2du0.jpg" alt="7.png"></p>
-<p>到这个页面的话就是自动在安装已经放在YueMe_BOX文件夹下的软件了<br><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/5.ujgrictps9c.jpg" alt="8.png"></p>
-<p>安装完成<br><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/4.3naz7jwdea80.jpg" alt="9.png"></p>
-<p>剩下就可以进行网络连接然后找个视屏试看了。<br><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/3.78v7ufoxu5g0.jpg" alt="10.png"></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spring 源码编译</title>
-    <url>/2023/06/08/20230608-1/</url>
-    <content><![CDATA[<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100 height=86 src="/download/离开北京.mp3"></iframe> -->
-
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Spring源码是我一直在追求的东西，也是一直在学习，近两年公司的事情实在是太多了，所以并没有真正的继续系统的学习，以前在学习的过程中积累了很多多笔记，也是整理出来做一个分享吧！后续会陆续的公开到博客当中</p>
-<h2 id="1、下载源码"><a href="#1、下载源码" class="headerlink" title="1、下载源码"></a>1、下载源码</h2><p>这里我推荐使用码云下载源码速度稍微快一些，如果你可以科学上网访问github的话那其实都一样。<br>码云地址：<a href="https://gitee.com/mirrors/spring-framework">https://gitee.com/mirrors/spring-framework</a><br>github地址：<a href="https://github.com/spring-projects/spring-framework">https://github.com/spring-projects/spring-framework</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1emkq1cm2r0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1emkq1cm2r0.jpg"></p>
-<h2 id="2、编译前的优化"><a href="#2、编译前的优化" class="headerlink" title="2、编译前的优化"></a>2、编译前的优化</h2><p>首先切换一下分支 我这里选择spring5.2的版本去编译的</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.6ayybrsdngs0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.6ayybrsdngs0.jpg"></p>
-<p>找到这个文件，将从远程下载gradle的地址修改为本地自己已经下载gradle的本地路径，(因为Spring源码是使用Gradle来编译的并不是我们原来熟悉的maven，所以想要学习Spring源码的话是需要掌握Gradle的，关于Gradle本文就不做多的解释请自行查阅先关资料。)</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.3oblu8frw580.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.3oblu8frw580.jpg"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.4apmsda5cjc0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.4apmsda5cjc0.jpg"></p>
-<p>打开spring源码中build.gradle文件配置阿里镜像</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.2i0yj95yerm0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.2i0yj95yerm0.jpg"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1ak9n2z11an4.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1ak9n2z11an4.jpg"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">maven &#123; url &quot;https://repo.spring.io/libs-spring-framework-build&quot; &#125;</span><br><span class="line">maven &#123; url &quot;https://repo.spring.io/snapshot&quot; &#125; // Reactor</span><br><span class="line">maven &#123;url &#x27;https://maven.aliyun.com/nexus/content/groups/public/&#x27;&#125; //阿里云</span><br><span class="line">maven &#123;url &#x27;https://maven.aliyun.com/nexus/content/repositories/jcenter&#x27;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>至此编译spring源码前的准备工作就算完成了</p>
-<h3 id="为什么要做前面这几步？"><a href="#为什么要做前面这几步？" class="headerlink" title="为什么要做前面这几步？"></a>为什么要做前面这几步？</h3><p>首先得了解gradlew.bat做了什么，运行这个命令spring首先会下载一个gradle到本地来，然后通过gradle去编译spring源码。一旦运行了之后下载到哪里也是自动指定的而且会很慢，因为是国外的网站，然后可能一些jar包也下载不下来，所以我们进行一系列的操作都是为了去更快更不容易出错得去编译spring源码。</p>
-<h2 id="3、编译源码"><a href="#3、编译源码" class="headerlink" title="3、编译源码"></a>3、编译源码</h2><p>cmd执行命令</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1s09riha94o0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1s09riha94o0.jpg"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.yjbkrtwtnds.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.yjbkrtwtnds.jpg"></p>
-<p>这样就编译成功了 之后就可以导入idea里了</p>
-<p>导入idea的文档请查阅 <a href="https://github.com/spring-projects/spring-framework/blob/master/import-into-idea.md">https://github.com/spring-projects/spring-framework/blob/master/import-into-idea.md</a> ﻿</p>
-<p>根据文档的提示导入idea之前需要去 Precompile spring-oxm 也就是预编译oxm这个项目；运行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gradlew :spring-oxm:compileTestJava</span><br></pre></td></tr></table></figure>
-
-<p>这里运行时间会很长</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.3ns3zkzu2j00.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.3ns3zkzu2j00.jpg"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.33o3s1bmfqe0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.33o3s1bmfqe0.jpg"></p>
-<h2 id="4、导入idea"><a href="#4、导入idea" class="headerlink" title="4、导入idea"></a>4、导入idea</h2><p>导入idea之前需要先进行一下idea的一些环境设置，比如gradle、jdk等等的设置（如果已经全局设置过就不需要了）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.40cujde1p0y0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.40cujde1p0y0.jpg"></p>
-<p>这里一定要设置一下因为如果不设置的话导入idea时又会重新下载一遍jar包</p>
-<p>我的是在这个路径下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.3o34ztw4l3o0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.3o34ztw4l3o0.jpg"></p>
-<p>导入spring源码到idea</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1m4o70rppj8g.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1m4o70rppj8g.jpg"></p>
-<p>选择项目目录当中的build.gradle文件导入</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.3530e2j91tm0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.3530e2j91tm0.jpg"></p>
-<p>导入后idea会开始建立索引这个过程也会很漫长</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.2nvrqvdsqqg0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.2nvrqvdsqqg0.jpg"></p>
-<p>这里看一下刚才的设置有没有存在</p>
-<p>我这里看设置并没有生效所以需要在设置一下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.4es1rgz5i8m0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.4es1rgz5i8m0.jpg"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.l2vmruvbdb4.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.l2vmruvbdb4.jpg"></p>
-<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>接下来验证源码能不能用，创建一个模块来引用spring源码然后进行一个简单的测试</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.pzfac58g0mo.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.pzfac58g0mo.jpg"></p>
-<p>这里选择gradle，因为spring源码就是使用的gradle所以我们也必须使用gradle不能使用maven</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.511ckcv47fw0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.511ckcv47fw0.jpg"></p>
-<p>我的模块已经建立好了</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.4w7k5ustpns0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.4w7k5ustpns0.jpg"></p>
-<p>引入spring-context依赖</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.6n0hnqjt0fs0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.6n0hnqjt0fs0.jpg"></p>
-<p>这里只是简单的建立了一个配置类 什么都没有 只是加了两个注解 一个是配置类的注解、一个是扫描包路径的注解</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.51miod88vro0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.51miod88vro0.jpg"></p>
-<p>建立了一个普通的类 加了component注解，</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1urtgkd202zk.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1urtgkd202zk.jpg"></p>
-<p>运行spring源码然后调用api获取bean</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.4scby8h5qi20.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.4scby8h5qi20.jpg"></p>
-<p>这个时候跑一下 可能会有报错，比如找不到类之类的错误</p>
-<p>哪里报错就到哪个模块下面的test下run一下</p>
-<p>比如这个错误在spring-context下面</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1h0cibhpxh5s.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1h0cibhpxh5s.jpg"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.60tnh32rlk00.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.60tnh32rlk00.jpg"></p>
-<p>在test上右键选择run all tests</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.6q9yhow1m1g0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.6q9yhow1m1g0.jpg"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.5qad9vdcjpc0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.5qad9vdcjpc0.jpg"></p>
-<p>解决完这些错误之后再运行就可以了</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.679c5vul16g0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.679c5vul16g0.jpg"></p>
-<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>至此Spring源码从下载到编译然后引入Idea的过程就结束了。可能在实操中会遇到各种各样的问题，这都属于正常，因为环境不一样或者版本不一样。希望看到此文章的小伙伴遇到错误千万不要着急也希望千万不要放弃。因为这个解决错误的过程其实就是最好的学习Spring源码的过程。相信只要努力一定可以成功。有问题也可以联系我，我们互相讨论学习！</p>
-]]></content>
-      <categories>
-        <category>Spring源码</category>
-      </categories>
-      <tags>
-        <tag>Spring源码</tag>
       </tags>
   </entry>
   <entry>
@@ -597,6 +482,121 @@
 <p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7568c4b96ee84d8a9b969899d326a601~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="92.png"></p>
 <p>比如：把class给改了 改成了A，现在就可以拿到A了 而B就拿不到了</p>
 <h1 id="写在后面："><a href="#写在后面：" class="headerlink" title="写在后面："></a>写在后面：</h1><p>我是YC一位普通的从事软件开发行业的工作者，工作了很多年第一次写的一篇技术博客。这也是我学习到的东西，做一个分享吧！再此感谢子路老师，他的源码性的东西讲的非常的深入和细致。我也是听了他的课之后做一个总结，再次感谢！</p>
+]]></content>
+      <categories>
+        <category>Spring源码</category>
+      </categories>
+      <tags>
+        <tag>Spring源码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电信机顶盒创维E900-S刷机简易教程</title>
+    <url>/2023/06/05/20230605-1/</url>
+    <content><![CDATA[<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100 height=86 src="/download/离开北京.mp3"></iframe> -->
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;上周六宝和发小出去玩耍，一个人在家里闲来无事，打算把一直闲置的电信IPTV智能机顶盒刷下机，刷成一个全网通用的网络机顶盒，只要有无线网或者是有线网就可以正常使用，连接在显示器或电视上就可以当做智能电视来使用了。<br><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/8.1tcm7p7jozgg.jpg" alt="1.png"></p>
+<h2 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h2><ul>
+<li>螺丝刀(用于将机顶盒后盖的螺丝拧下)</li>
+<li>翘片或平头螺丝刀头(用于将机顶盒的后盖和主板撬起，因为机顶盒太小了主板卡的很牢固需要用工具来撬起来)</li>
+<li>U盘(U盘中存放刷机用到的程序和需要安装的软件)</li>
+<li>显示器、HDMI高清线(在升级后需要进行例如网络的配置所以需要有显示器)</li>
+<li>螺丝钉或者镊子或其他可以导电的物体(因为在升级过程中需要短接操作)</li>
+</ul>
+<h2 id="刷机步骤"><a href="#刷机步骤" class="headerlink" title="刷机步骤"></a>刷机步骤</h2><p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/1.55elghg8qlo0.jpg" alt="2.png"><br>首先用合适的螺丝刀将机顶盒背面的三个螺丝拧下,注意本刷机教程只适用于同型号的机顶盒，其他型号机顶盒未尝试所以不确定成功率，同型号的绝对没有问题。同型号的机顶盒背部的螺丝孔应该是有三个，如果没找到的话别着急，需要将底部的胶条撕下，螺丝孔藏在胶条下面。</p>
+<p>螺丝拆下后就需要用翘片或是平头的螺丝刀头从缝隙中一点一点将后盖撬起，这里需要用一点力，我这个设备还是很紧的。撬开后盖后就可以看到主板了<br><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/2.2gb0wyxbb78k.jpg" alt="3.png"></p>
+<p>接着还是用翘片从底部继续将主板翘起，有电源按钮的那一面是上部对着的就是底部了。这里注意主板的侧边有一跟线连着的信号接收器，它可能是粘在侧边的外壳上的所以如果粘的比较牢固的话我们需要想办法将这个接收器先与侧边的外壳分离开，可以用吹风机暖风吹一吹后在取回好取一些。总之就是在撬主板时不要将这个信号接收器给损坏了就行。撬主版时翘起来一点后可以用手将主板取出即可。</p>
+<p>然后将主板翻过来，主板的背部的这个地方就是我前面要说的短接操作</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/1685951953559.6mzi7n2beyk0.jpg" alt="4.png"></p>
+<p>刷机时需要用螺丝头或者镊子将这个两个地方抵住使主版短接从而读取U盘里的数据进行刷机和升级，我是用的镊子。</p>
+<p>将准备好的U盘格式化后把这些文件放到U盘根目录中即可，YueMe_BOX文件夹中放入你想要安装的软件，在刷机时会自动安装这些软件。<br>链接：<a href="https://pan.baidu.com/s/1HHOXbAw7ckDhPIHxxOLqlA">https://pan.baidu.com/s/1HHOXbAw7ckDhPIHxxOLqlA</a><br>提取码：wiyo</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/1685953082982.5hwkr7mt5xw0.jpg" alt="5.png"></p>
+<p>接入显示器的HDMI高清线和电源，插入已经准备好的U盘。此时应确保机顶盒的电源按钮为关闭状态。</p>
+<p>接着用小镊子抵住上面所说到的两个短接点。开机（这里我说明下点击完开机按钮会过一会才会有反应不知道是我设备的事情还是短接的问题，我第一次尝试没有成功开机后还是进入了原先的IPTV系统，不用着急多试几次，也可以尝试换用其他的类似螺丝头这样的工具多试几次一定可以）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/8.1tcm7p7jozgg.jpg" alt="6.png"></p>
+<p>此时如果成功的话会进入到下面的这个界面，说明机顶盒已经开始在刷机了，看到这个界面后就可以不用短接了，将小镊子拿下来，等待自动升级即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/7.2oxvjopi2du0.jpg" alt="7.png"></p>
+<p>到这个页面的话就是自动在安装已经放在YueMe_BOX文件夹下的软件了<br><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/5.ujgrictps9c.jpg" alt="8.png"></p>
+<p>安装完成<br><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/4.3naz7jwdea80.jpg" alt="9.png"></p>
+<p>剩下就可以进行网络连接然后找个视屏试看了。<br><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/3.78v7ufoxu5g0.jpg" alt="10.png"></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring 源码编译</title>
+    <url>/2023/06/08/20230608-1/</url>
+    <content><![CDATA[<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100 height=86 src="/download/离开北京.mp3"></iframe> -->
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Spring源码是我一直在追求的东西，也是一直在学习，近两年公司的事情实在是太多了，所以并没有真正的继续系统的学习，以前在学习的过程中积累了很多多笔记，也是整理出来做一个分享吧！后续会陆续的公开到博客当中</p>
+<h2 id="1、下载源码"><a href="#1、下载源码" class="headerlink" title="1、下载源码"></a>1、下载源码</h2><p>这里我推荐使用码云下载源码速度稍微快一些，如果你可以科学上网访问github的话那其实都一样。<br>码云地址：<a href="https://gitee.com/mirrors/spring-framework">https://gitee.com/mirrors/spring-framework</a><br>github地址：<a href="https://github.com/spring-projects/spring-framework">https://github.com/spring-projects/spring-framework</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1emkq1cm2r0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1emkq1cm2r0.jpg"></p>
+<h2 id="2、编译前的优化"><a href="#2、编译前的优化" class="headerlink" title="2、编译前的优化"></a>2、编译前的优化</h2><p>首先切换一下分支 我这里选择spring5.2的版本去编译的</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.6ayybrsdngs0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.6ayybrsdngs0.jpg"></p>
+<p>找到这个文件，将从远程下载gradle的地址修改为本地自己已经下载gradle的本地路径，(因为Spring源码是使用Gradle来编译的并不是我们原来熟悉的maven，所以想要学习Spring源码的话是需要掌握Gradle的，关于Gradle本文就不做多的解释请自行查阅先关资料。)</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.3oblu8frw580.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.3oblu8frw580.jpg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.4apmsda5cjc0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.4apmsda5cjc0.jpg"></p>
+<p>打开spring源码中build.gradle文件配置阿里镜像</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.2i0yj95yerm0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.2i0yj95yerm0.jpg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1ak9n2z11an4.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1ak9n2z11an4.jpg"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">maven &#123; url &quot;https://repo.spring.io/libs-spring-framework-build&quot; &#125;</span><br><span class="line">maven &#123; url &quot;https://repo.spring.io/snapshot&quot; &#125; // Reactor</span><br><span class="line">maven &#123;url &#x27;https://maven.aliyun.com/nexus/content/groups/public/&#x27;&#125; //阿里云</span><br><span class="line">maven &#123;url &#x27;https://maven.aliyun.com/nexus/content/repositories/jcenter&#x27;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>至此编译spring源码前的准备工作就算完成了</p>
+<h3 id="为什么要做前面这几步？"><a href="#为什么要做前面这几步？" class="headerlink" title="为什么要做前面这几步？"></a>为什么要做前面这几步？</h3><p>首先得了解gradlew.bat做了什么，运行这个命令spring首先会下载一个gradle到本地来，然后通过gradle去编译spring源码。一旦运行了之后下载到哪里也是自动指定的而且会很慢，因为是国外的网站，然后可能一些jar包也下载不下来，所以我们进行一系列的操作都是为了去更快更不容易出错得去编译spring源码。</p>
+<h2 id="3、编译源码"><a href="#3、编译源码" class="headerlink" title="3、编译源码"></a>3、编译源码</h2><p>cmd执行命令</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1s09riha94o0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1s09riha94o0.jpg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.yjbkrtwtnds.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.yjbkrtwtnds.jpg"></p>
+<p>这样就编译成功了 之后就可以导入idea里了</p>
+<p>导入idea的文档请查阅 <a href="https://github.com/spring-projects/spring-framework/blob/master/import-into-idea.md">https://github.com/spring-projects/spring-framework/blob/master/import-into-idea.md</a> ﻿</p>
+<p>根据文档的提示导入idea之前需要去 Precompile spring-oxm 也就是预编译oxm这个项目；运行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gradlew :spring-oxm:compileTestJava</span><br></pre></td></tr></table></figure>
+
+<p>这里运行时间会很长</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.3ns3zkzu2j00.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.3ns3zkzu2j00.jpg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.33o3s1bmfqe0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.33o3s1bmfqe0.jpg"></p>
+<h2 id="4、导入idea"><a href="#4、导入idea" class="headerlink" title="4、导入idea"></a>4、导入idea</h2><p>导入idea之前需要先进行一下idea的一些环境设置，比如gradle、jdk等等的设置（如果已经全局设置过就不需要了）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.40cujde1p0y0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.40cujde1p0y0.jpg"></p>
+<p>这里一定要设置一下因为如果不设置的话导入idea时又会重新下载一遍jar包</p>
+<p>我的是在这个路径下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.3o34ztw4l3o0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.3o34ztw4l3o0.jpg"></p>
+<p>导入spring源码到idea</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1m4o70rppj8g.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1m4o70rppj8g.jpg"></p>
+<p>选择项目目录当中的build.gradle文件导入</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.3530e2j91tm0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.3530e2j91tm0.jpg"></p>
+<p>导入后idea会开始建立索引这个过程也会很漫长</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.2nvrqvdsqqg0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.2nvrqvdsqqg0.jpg"></p>
+<p>这里看一下刚才的设置有没有存在</p>
+<p>我这里看设置并没有生效所以需要在设置一下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.4es1rgz5i8m0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.4es1rgz5i8m0.jpg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.l2vmruvbdb4.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.l2vmruvbdb4.jpg"></p>
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>接下来验证源码能不能用，创建一个模块来引用spring源码然后进行一个简单的测试</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.pzfac58g0mo.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.pzfac58g0mo.jpg"></p>
+<p>这里选择gradle，因为spring源码就是使用的gradle所以我们也必须使用gradle不能使用maven</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.511ckcv47fw0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.511ckcv47fw0.jpg"></p>
+<p>我的模块已经建立好了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.4w7k5ustpns0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.4w7k5ustpns0.jpg"></p>
+<p>引入spring-context依赖</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.6n0hnqjt0fs0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.6n0hnqjt0fs0.jpg"></p>
+<p>这里只是简单的建立了一个配置类 什么都没有 只是加了两个注解 一个是配置类的注解、一个是扫描包路径的注解</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.51miod88vro0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.51miod88vro0.jpg"></p>
+<p>建立了一个普通的类 加了component注解，</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1urtgkd202zk.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1urtgkd202zk.jpg"></p>
+<p>运行spring源码然后调用api获取bean</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.4scby8h5qi20.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.4scby8h5qi20.jpg"></p>
+<p>这个时候跑一下 可能会有报错，比如找不到类之类的错误</p>
+<p>哪里报错就到哪个模块下面的test下run一下</p>
+<p>比如这个错误在spring-context下面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1h0cibhpxh5s.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.1h0cibhpxh5s.jpg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.60tnh32rlk00.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.60tnh32rlk00.jpg"></p>
+<p>在test上右键选择run all tests</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.6q9yhow1m1g0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.6q9yhow1m1g0.jpg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.5qad9vdcjpc0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.5qad9vdcjpc0.jpg"></p>
+<p>解决完这些错误之后再运行就可以了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.679c5vul16g0.jpg" alt="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/clipboard.679c5vul16g0.jpg"></p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>至此Spring源码从下载到编译然后引入Idea的过程就结束了。可能在实操中会遇到各种各样的问题，这都属于正常，因为环境不一样或者版本不一样。希望看到此文章的小伙伴遇到错误千万不要着急也希望千万不要放弃。因为这个解决错误的过程其实就是最好的学习Spring源码的过程。相信只要努力一定可以成功。有问题也可以联系我，我们互相讨论学习！</p>
 ]]></content>
       <categories>
         <category>Spring源码</category>
