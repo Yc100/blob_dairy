@@ -406,7 +406,7 @@ queueMicrotask(() => {
   const getComment = () => {
     const loadWaline = () => {
       Waline.RecentComments({
-        serverURL: 'https://mm-comment.zeabur.app',
+        serverURL: 'https://comforting-yeot-246e6a.netlify.app/.netlify/functions/comment',
         count: 6
       }).then(({comments}) => {
         const walineArray = comments.map(e => {
