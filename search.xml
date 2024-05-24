@@ -1,38 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Java 8 Stream 相关记录-持续更新</title>
-    <url>/2023/05/31/20230531-1/</url>
-    <content><![CDATA[<blockquote>
-<p>Java8中的Stream流现如今是我们在开发过程中必用的一项技术，它与 java.io 包里的 InputStream 和 OutputStream 是完全不同的概念。</p>
-<p>Java 8 中的 Stream 是对集合（Collection）对象功能的增强，它专注于对集合对象进行各种非常便利、高效的聚合操作（aggregate operation），或者大批量数据操作 (bulk data operation)。</p>
-<p>Stream API 借助于同样新出现的 Lambda 表达式，极大的提高编程效率和程序可读性。同时它提供串行和并行两种模式进行汇聚操作，并发模式能够充分利用多核处理器的优势，使用 fork/join 并行方式来拆分任务和加速处理过程。</p>
-</blockquote>
-<h2 id="为什么要用Stream"><a href="#为什么要用Stream" class="headerlink" title="为什么要用Stream"></a>为什么要用Stream</h2><ul>
-<li>有高效的并行操作</li>
-<li>有多种功能呢个性的聚合操作</li>
-<li>函数式编程，使代码更加简洁，提高编程效率</li>
-</ul>
-<h2 id="使用记录"><a href="#使用记录" class="headerlink" title="使用记录"></a>使用记录</h2><h3 id="处理List对象的某个属性转换成数组"><a href="#处理List对象的某个属性转换成数组" class="headerlink" title="处理List对象的某个属性转换成数组"></a>处理List对象的某个属性转换成数组</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">BigDecimal[] ranchPriceList = ranchPriceTitles.get(<span class="number">0</span>).getRanchPriceTitles()</span><br><span class="line">        .stream().map(RanchPriceTitle::getItemPrice).toArray(BigDecimal[]::<span class="keyword">new</span>);</span><br><span class="line">BigDecimal[] platformPriceList = priceValueList</span><br><span class="line">        .stream().map(PriceValue::getValPrice).toArray(BigDecimal[]::<span class="keyword">new</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="将List封装对象的某个属性转换为以逗号分隔的字符串"><a href="#将List封装对象的某个属性转换为以逗号分隔的字符串" class="headerlink" title="将List封装对象的某个属性转换为以逗号分隔的字符串"></a>将List封装对象的某个属性转换为以逗号分隔的字符串</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> String.join(<span class="string">&quot;,&quot;</span>, userList.stream().</span><br><span class="line">      map(User::getUserName).</span><br><span class="line">collect(Collectors.toList()));</span><br></pre></td></tr></table></figure>
-
-<h3 id="求平均数"><a href="#求平均数" class="headerlink" title="求平均数"></a>求平均数</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//如果list中属性不为null且不为0才参与计算</span></span><br><span class="line"><span class="type">Double</span> <span class="variable">allRanchAvgDValue</span> <span class="operator">=</span> ranchPriceAvgList.stream().</span><br><span class="line">        filter(</span><br><span class="line">                d -&gt; d.getAvgPrice() != <span class="literal">null</span></span><br><span class="line">                        &amp;&amp; d.getAvgPrice().compareTo(BigDecimal.ZERO) &gt; <span class="number">0</span>)</span><br><span class="line">        .mapToDouble(x -&gt; x.getAvgPrice().doubleValue()).average().getAsDouble();</span><br><span class="line"></span><br><span class="line"><span class="type">BigDecimal</span> <span class="variable">allRanchAvg</span> <span class="operator">=</span> BigDecimal.valueOf(allRanchAvgDValue);<span class="comment">//牧场采购均价</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="将List中封装对象其中的属性作为Key值转为Map-lt-String-Obj-gt"><a href="#将List中封装对象其中的属性作为Key值转为Map-lt-String-Obj-gt" class="headerlink" title="将List中封装对象其中的属性作为Key值转为Map&lt;String,Obj&gt;"></a>将List中封装对象其中的属性作为Key值转为Map&lt;String,Obj&gt;</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Map&lt;String, ItemPrice&gt; departmentMap = oldItemPrice.stream()</span><br><span class="line">    .collect(Collectors.toMap(x-&gt;x.getOrgCode()+<span class="string">&quot;#&quot;</span>+x.getPrcDate(), Function.identity()));</span><br></pre></td></tr></table></figure>
-
-<h3 id="根据List封装对象中的某个属性进行分组"><a href="#根据List封装对象中的某个属性进行分组" class="headerlink" title="根据List封装对象中的某个属性进行分组"></a>根据List封装对象中的某个属性进行分组</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Map&lt;Integer, List&lt;Department&gt;&gt; collect = departmentList.stream().</span><br><span class="line">    collect(Collectors.groupingBy(depart -&gt; depart.getId()));</span><br></pre></td></tr></table></figure>
-
-<h3 id="获取树形结构数据-递归"><a href="#获取树形结构数据-递归" class="headerlink" title="获取树形结构数据 -递归"></a>获取树形结构数据 -递归</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;MediaEntity&gt; <span class="title function_">getAllFile</span><span class="params">()</span> &#123;</span><br><span class="line">    List&lt;Long&gt; resourceIds = resourceVisitorScopeService.getCanVisitorResourceIds(CategoryCode.LEARNING.getCode()</span><br><span class="line">            , ResourceVisitorScopeTypeCode.MEDIA.getCode(),</span><br><span class="line">            <span class="number">2</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    List&lt;MediaEntity&gt; allFiles = mediaDao.getFileOne(resourceIds);</span><br><span class="line">    List&lt;MediaEntity&gt; rootFile = allFiles.stream()</span><br><span class="line">            .filter(s-&gt;s.getParentId()==<span class="number">0</span>)</span><br><span class="line">            .peek(s-&gt;s.setChildren(getChildren(s,allFiles)))</span><br><span class="line">            .collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rootFile;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> List&lt;MediaEntity&gt; <span class="title function_">getChildren</span><span class="params">(MediaEntity mediaEntity,List&lt;MediaEntity&gt; allFiles)</span>&#123;</span><br><span class="line">    List&lt;MediaEntity&gt; childList = allFiles.stream()</span><br><span class="line">            .filter(file-&gt;mediaEntity.getId()==file.getParentId())</span><br><span class="line">            .peek(s-&gt;s.setChildren(getChildren(s,allFiles)))</span><br><span class="line">            .collect(Collectors.toList());</span><br><span class="line">    <span class="keyword">return</span> childList;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>JAVA</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用 Github Pages 和 Hexo 搭建自己的独立博客</title>
     <url>/2023/05/26/20230526-1/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>首先感谢你能来访问我的 Blog，这是我搭建的第一个博客网站，使用的是 Github Pages + Hexo 的形式搭建，从小白一路走了过来也挺不容易的 hhh，前前后后几分钟就能搭建完成了叭，现在把它记录下来，将来也许会是一种怀念叭.</p>
@@ -249,6 +217,38 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java 8 Stream 相关记录-持续更新</title>
+    <url>/2023/05/31/20230531-1/</url>
+    <content><![CDATA[<blockquote>
+<p>Java8中的Stream流现如今是我们在开发过程中必用的一项技术，它与 java.io 包里的 InputStream 和 OutputStream 是完全不同的概念。</p>
+<p>Java 8 中的 Stream 是对集合（Collection）对象功能的增强，它专注于对集合对象进行各种非常便利、高效的聚合操作（aggregate operation），或者大批量数据操作 (bulk data operation)。</p>
+<p>Stream API 借助于同样新出现的 Lambda 表达式，极大的提高编程效率和程序可读性。同时它提供串行和并行两种模式进行汇聚操作，并发模式能够充分利用多核处理器的优势，使用 fork/join 并行方式来拆分任务和加速处理过程。</p>
+</blockquote>
+<h2 id="为什么要用Stream"><a href="#为什么要用Stream" class="headerlink" title="为什么要用Stream"></a>为什么要用Stream</h2><ul>
+<li>有高效的并行操作</li>
+<li>有多种功能呢个性的聚合操作</li>
+<li>函数式编程，使代码更加简洁，提高编程效率</li>
+</ul>
+<h2 id="使用记录"><a href="#使用记录" class="headerlink" title="使用记录"></a>使用记录</h2><h3 id="处理List对象的某个属性转换成数组"><a href="#处理List对象的某个属性转换成数组" class="headerlink" title="处理List对象的某个属性转换成数组"></a>处理List对象的某个属性转换成数组</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">BigDecimal[] ranchPriceList = ranchPriceTitles.get(<span class="number">0</span>).getRanchPriceTitles()</span><br><span class="line">        .stream().map(RanchPriceTitle::getItemPrice).toArray(BigDecimal[]::<span class="keyword">new</span>);</span><br><span class="line">BigDecimal[] platformPriceList = priceValueList</span><br><span class="line">        .stream().map(PriceValue::getValPrice).toArray(BigDecimal[]::<span class="keyword">new</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="将List封装对象的某个属性转换为以逗号分隔的字符串"><a href="#将List封装对象的某个属性转换为以逗号分隔的字符串" class="headerlink" title="将List封装对象的某个属性转换为以逗号分隔的字符串"></a>将List封装对象的某个属性转换为以逗号分隔的字符串</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> String.join(<span class="string">&quot;,&quot;</span>, userList.stream().</span><br><span class="line">      map(User::getUserName).</span><br><span class="line">collect(Collectors.toList()));</span><br></pre></td></tr></table></figure>
+
+<h3 id="求平均数"><a href="#求平均数" class="headerlink" title="求平均数"></a>求平均数</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//如果list中属性不为null且不为0才参与计算</span></span><br><span class="line"><span class="type">Double</span> <span class="variable">allRanchAvgDValue</span> <span class="operator">=</span> ranchPriceAvgList.stream().</span><br><span class="line">        filter(</span><br><span class="line">                d -&gt; d.getAvgPrice() != <span class="literal">null</span></span><br><span class="line">                        &amp;&amp; d.getAvgPrice().compareTo(BigDecimal.ZERO) &gt; <span class="number">0</span>)</span><br><span class="line">        .mapToDouble(x -&gt; x.getAvgPrice().doubleValue()).average().getAsDouble();</span><br><span class="line"></span><br><span class="line"><span class="type">BigDecimal</span> <span class="variable">allRanchAvg</span> <span class="operator">=</span> BigDecimal.valueOf(allRanchAvgDValue);<span class="comment">//牧场采购均价</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="将List中封装对象其中的属性作为Key值转为Map-lt-String-Obj-gt"><a href="#将List中封装对象其中的属性作为Key值转为Map-lt-String-Obj-gt" class="headerlink" title="将List中封装对象其中的属性作为Key值转为Map&lt;String,Obj&gt;"></a>将List中封装对象其中的属性作为Key值转为Map&lt;String,Obj&gt;</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Map&lt;String, ItemPrice&gt; departmentMap = oldItemPrice.stream()</span><br><span class="line">    .collect(Collectors.toMap(x-&gt;x.getOrgCode()+<span class="string">&quot;#&quot;</span>+x.getPrcDate(), Function.identity()));</span><br></pre></td></tr></table></figure>
+
+<h3 id="根据List封装对象中的某个属性进行分组"><a href="#根据List封装对象中的某个属性进行分组" class="headerlink" title="根据List封装对象中的某个属性进行分组"></a>根据List封装对象中的某个属性进行分组</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Map&lt;Integer, List&lt;Department&gt;&gt; collect = departmentList.stream().</span><br><span class="line">    collect(Collectors.groupingBy(depart -&gt; depart.getId()));</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取树形结构数据-递归"><a href="#获取树形结构数据-递归" class="headerlink" title="获取树形结构数据 -递归"></a>获取树形结构数据 -递归</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;MediaEntity&gt; <span class="title function_">getAllFile</span><span class="params">()</span> &#123;</span><br><span class="line">    List&lt;Long&gt; resourceIds = resourceVisitorScopeService.getCanVisitorResourceIds(CategoryCode.LEARNING.getCode()</span><br><span class="line">            , ResourceVisitorScopeTypeCode.MEDIA.getCode(),</span><br><span class="line">            <span class="number">2</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    List&lt;MediaEntity&gt; allFiles = mediaDao.getFileOne(resourceIds);</span><br><span class="line">    List&lt;MediaEntity&gt; rootFile = allFiles.stream()</span><br><span class="line">            .filter(s-&gt;s.getParentId()==<span class="number">0</span>)</span><br><span class="line">            .peek(s-&gt;s.setChildren(getChildren(s,allFiles)))</span><br><span class="line">            .collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rootFile;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> List&lt;MediaEntity&gt; <span class="title function_">getChildren</span><span class="params">(MediaEntity mediaEntity,List&lt;MediaEntity&gt; allFiles)</span>&#123;</span><br><span class="line">    List&lt;MediaEntity&gt; childList = allFiles.stream()</span><br><span class="line">            .filter(file-&gt;mediaEntity.getId()==file.getParentId())</span><br><span class="line">            .peek(s-&gt;s.setChildren(getChildren(s,allFiles)))</span><br><span class="line">            .collect(Collectors.toList());</span><br><span class="line">    <span class="keyword">return</span> childList;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
       </tags>
   </entry>
   <entry>
