@@ -3,215 +3,81 @@
   <entry>
     <title>使用 Github Pages 和 Hexo 搭建自己的独立博客</title>
     <url>/2023/05/26/20230526-1/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>首先感谢你能来访问我的 Blog，这是我搭建的第一个博客网站，使用的是 Github Pages + Hexo 的形式搭建，从小白一路走了过来也挺不容易的 hhh，前前后后几分钟就能搭建完成了叭，现在把它记录下来，将来也许会是一种怀念叭.</p>
-<h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><blockquote>
-<p>Github</p>
-</blockquote>
-<p>搭建一个这样的 Blog 首先你得知道什么是 Github 和 Github Pages，你可以理解为咱们没有服务器，咱们将页面托管到了 Github 上</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/0.png"><img src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/0.png"></a></p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/1.png"><img src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/1.png"></a></p>
-<blockquote>
-<p>Github Pages</p>
-</blockquote>
-<p>Github Pages 可以被认为是用户编写的、托管在 github 上的静态网页。使用 Github Pages 可以为你提供一个免费的服务器，免去了自己搭建服务器和写数据库的麻烦。此外还可以绑定自己的域名。</p>
-<p>这是 Github Pages 的官网 <a href="https://pages.github.com/">Github Pages</a></p>
-<blockquote>
-<p>Hexo</p>
-</blockquote>
-<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-<p>这是 Hexo 的官网 <a href="https://hexo.io/zh-cn/">Hexo</a></p>
-<h2 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h2><p>安装 node.js</p>
-<p>进入 node.js 官网： <a href="https://nodejs.org/en/download/">Node.js 官网</a></p>
-<p>按照自己的机器选择对应的版本下载，我是 windous 64 位</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/2.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<p>然后差不多就是一直下一步 hhh~</p>
-<p>具体可以参考 <a href="https://www.cnblogs.com/pengpengdeyuan/p/14434559.html">Node.js 安装教程</a></p>
-<p>如果遇到什么问题，一般百度都能解决，这里就不在赘述.</p>
-<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>安装 Git</p>
-<p>这是 Git 官网： <a href="https://git-scm.com/downloads">Git 官网</a></p>
-<p>一般就是下载好自己对应的版本后一直下一步就好了</p>
-<p>Git 的安装请参考： <a href="https://www.cnblogs.com/jytx/p/5602927.html">Git 安装教程</a></p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/3.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<p>具体的 git 学习可以访问： <a href="http://git.oschina.net/progit/">Pro Git 中文版</a></p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/4.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<h2 id="检验软件是否安装成功"><a href="#检验软件是否安装成功" class="headerlink" title="检验软件是否安装成功"></a>检验软件是否安装成功</h2><p>同时按下 Win 键和 R 键打开运行窗口,输入 <code>cmd</code> ，然后输入以下命令，有相应版本信息显示则安装成功，若不正确可以卸载软件重新安装。</p>
-<p>bash</p>
+    <content><![CDATA[<h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><div class="note blue icon-padding flat"><i class="note-icon fas fa-bullhorn"></i><p><a href="https://github.com/">Github</a></p>
+</div>
+<p>搭建一个这样的 Blog 首先需要了解的是 Github 和 Github Pages。</p>
+<div class="note default simple"><p>Github是一个面向开源及私有软件项目的托管平台，因为只支持Git作为唯一的版本库格式进行托管，故名Github。</p>
+</div>
+
+<p><a href="https://github.com/Yc100/">访问博主的Github主页</a></p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240607/github.2vel9upa8k.jpg"/></div></div>
+
+
+
+<div class="note blue icon-padding flat"><i class="note-icon fas fa-bullhorn"></i><p><a href="https://pages.github.com/">Github Pages</a></p>
+</div>
+
+<div class="note default simple"><p>Github Pages 可以被认为是用户编写的、托管在 github 上的静态网页。使用 Github Pages 可以为你提供一个免费的服务器，免去了自己搭建服务器和写数据库的麻烦。此外还可以绑定自己的域名。</p>
+</div>
+
+
+<div class="note blue icon-padding flat"><i class="note-icon fas fa-bullhorn"></i><p><a href="https://hexo.io/zh-cn/">Hexo</a></p>
+</div>
+
+<div class="note default simple"><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+</div>
+
+<h1 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h1><details class="folding-tag" cyan open><summary> 安装Node.js </summary>
+              <div class='content'>
+              <p>进入 node.js 官网：<a href="https://nodejs.org/en/download/package-manager">Node.js 官网</a><br>按照自己的机器选择对应的版本下载，我是 windous 64 位</p><div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240607/node.8ojjj664vh.jpg"/></div></div>具体可以参考[Node.js 安装教程](https://www.cnblogs.com/pengpengdeyuan/p/14434559.html)
+              </div>
+            </details>
+
+<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><details class="folding-tag" cyan open><summary> 安装Git </summary>
+              <div class='content'>
+              <p>这是 Git 官网：<a href="https://git-scm.com/downloads">Git 官网</a></p><p>一般就是下载好自己对应的版本后一直下一步就好了</p><p>Git 的安装请参考：<a href="https://www.cnblogs.com/jytx/p/5602927.html">Git 安装教程</a></p><div class="img-wrap"><div class="img-bg"><img class="img" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/3.png"/></div></div>具体的 git 学习可以访问：[Pro Git 中文版](https://gitee.com/progit/)
+              </div>
+            </details>
+
+<h1 id="检验软件是否安装成功"><a href="#检验软件是否安装成功" class="headerlink" title="检验软件是否安装成功"></a>检验软件是否安装成功</h1><p>打开<mark class="hl-label blue">CMD</mark> 输入下面的命令</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git --version</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240607/cmd.sysm1py3z.jpg"/></div></div>
 
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/5.png"><img src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/5.png"></a></p>
-<p>此外若安装成功，在桌面右键鼠标，可以看到菜单里多了 <code>Git GUI Here</code> 和 <code>Git Bash Here</code> 两个选项，第一个是 <code>图形界面的Git操作</code>，另一个 <code>是命令行</code>，我们一般使用第二个</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/6.png"><img src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/6.png"></a></p>
-<h2 id="Hexo-安装"><a href="#Hexo-安装" class="headerlink" title="Hexo 安装"></a>Hexo 安装</h2><p>选择一个磁盘，新建一个文件夹，自己重命名文件夹（如：我的文件夹为：F\QiQi_Blog），博客相关文件将储存在此文件夹下，在该文件夹下右键鼠标，点击 Git Bash Here，输入以下 npm 命令即可安装,第一次可能需要久一点输入命令后等一等，再输入第二条命令</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<p>此处若安装成功，在桌面右键鼠标，可以看到菜单中多了<mark class="hl-label blue">Git GUI Here</mark> 和<mark class="hl-label blue">Git Bash Here</mark> 两个选项，第一个是<mark class="hl-label blue">图形界面的Git操作</mark> ，第二个是<mark class="hl-label blue">是命令行</mark> ,一般使用第二个</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/6.png"/></div></div>
 
+<h1 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h1><p>选择一个磁盘，新建一个文件夹，自己重命名文件夹（如：我的文件夹为：D:\user\yc\personal），博客相关文件将储存在此文件夹下，在该文件夹下右键鼠标，点击 Git Bash Here，输入以下 npm 命令即可安装,第一次可能需要久一点输入命令后等一等，再输入第二条命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <p>这个命令表示安装 hexo 的脚手架，如图所示即为安装成功</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/7.png"><img src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/7.png"></a></p>
-<h2 id="Hexo-初始化配置"><a href="#Hexo-初始化配置" class="headerlink" title="Hexo 初始化配置"></a>Hexo 初始化配置</h2><p>初始化配置 Hexo</p>
-<p>第一个命令，如图所示则安装成功如果失败了就再输入一次，比如说我就错了 ，第二个命令表示安装 hexo 部署到 git page 的 deployer</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/7.png"/></div></div>
 
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/8.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<p>Hexo 安装完成后，将会在指定文件夹中新建所需要的文件，Hexo 文件夹下的目录如下：</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/9.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<h2 id="本地查看效果"><a href="#本地查看效果" class="headerlink" title="本地查看效果"></a>本地查看效果</h2><p>执行以下命令</p>
-<p>bash</p>
+<h1 id="Hexo-初始化配置"><a href="#Hexo-初始化配置" class="headerlink" title="Hexo 初始化配置"></a>Hexo 初始化配置</h1><details class="folding-tag" cyan><summary> 初始化配置 </summary>
+              <div class='content'>
+              <p>第一个命令，如图所示则安装成功如果失败了就再输入一次，第二个命令表示安装 hexo 部署到 git page 的 deployer</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><div class="img-wrap"><div class="img-bg"><img class="img" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/8.png"/></div></div><p>Hexo 安装完成后，将会在指定文件夹中新建所需要的文件，Hexo 文件夹下的目录如下：</p><div class="img-wrap"><div class="img-bg"><img class="img" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/9.png"/></div></div>
+              </div>
+            </details>
+
+<h1 id="本地查看效果"><a href="#本地查看效果" class="headerlink" title="本地查看效果"></a>本地查看效果</h1><p>执行以下命令</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p>执行完即可登录 <a href="http://localhost:4000/">http://localhost:4000/</a> 查看效果<br>显示以下信息说明操作成功：</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240607/hexostart.7zq9zfhhfb.jpg"/></div></div>
 
-<p>执行完即可登录 <a href="http://localhost:4000/">http://localhost:4000/</a> 查看效果</p>
-<p>显示以下信息说明操作成功：</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/10.png"><img src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/10.png"></a></p>
 <p>登录 <a href="http://localhost:4000/">http://localhost:4000/</a> 查看效果：</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/11.png"><img src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/11.png"></a></p>
-<h2 id="将博客部署到-Github-Pages-上"><a href="#将博客部署到-Github-Pages-上" class="headerlink" title="将博客部署到 Github Pages 上"></a>将博客部署到 Github Pages 上</h2><p>到目前为止，我们的本地博客就成功搭建了，但是现在我们只能通过本地连接查看博客，我们要做的是让其他人也能够访问我们的博客，这就需要我们将博客部署到 Github Pages 上</p>
-<p>部署前置步骤</p>
-<p>一、注册 Github 账户：点击此处访问 <a href="https://github.com/">Github 官网</a>，点击 Sign Up 注册账户</p>
-<p>二、创建项目代码库：点击 New repository 开始创建，步骤及注意事项见图：</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/12.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/13.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<p>三、配置 <code>SSH</code> 密钥：只有配置好 <code>SSH</code> 密钥后，我们才可以通过 git 操作实现本地代码库与 Github 代码库同步，在你第一次新建的文件夹里面（如：我的文件夹为： <code>F\QiQi_Blog</code>） <code>Git Bash Here</code> 输入以下命令</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;your email@example.com&quot;</span></span><br><span class="line">//引号里面填写你的邮箱地址，比如我的是2268025923@qq.com</span><br></pre></td></tr></table></figure>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/11.png"/></div></div>
 
-<p>之后会出现：</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/c/Users/you/.ssh/id_rsa):</span><br><span class="line">//到这里可以直接回车将密钥按默认文件进行存储</span><br></pre></td></tr></table></figure>
+<h1 id="将博客部署到Github-Pages-上"><a href="#将博客部署到Github-Pages-上" class="headerlink" title="将博客部署到Github Pages 上"></a>将博客部署到Github Pages 上</h1><p>目前为止，我们的本地博客就搭建成功了，但是现在我们只能通过本地连接查看博客，我们要做的是让其他人也能够访问我们的博客，这就需要我们将博客部署到 Github Pages 上</p>
+<details class="folding-tag" cyan><summary> 部署前置步骤 </summary>
+              <div class='content'>
+              <p>一、注册 Github 账户：点击此处访问 Github 官网，点击 Sign Up 注册账户</p><p>二、创建项目代码库：点击 New repository 开始创建，步骤及注意事项见图：</p><div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240607/githubnewreps.5q79fy39d9.jpg"/></div></div><div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240607/create.5xahbdu6wf.jpg"/></div></div><p>三、配置 <mark class="hl-label blue">SSH</mark>  密钥：只有配置好 <mark class="hl-label blue">SSH</mark>  密钥后，我们才可以通过 git 操作实现本地代码库与 Github 代码库同步，在你第一次新建的文件夹里面 Git Bash Here 输入以下命令</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;your email@example.com&quot;</span></span><br><span class="line">//引号里面填写你的邮箱地址</span><br></pre></td></tr></table></figure><p>之后会出现</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/c/Users/you/.ssh/id_rsa):</span><br><span class="line">//到这里可以直接回车将密钥按默认文件进行存储</span><br></pre></td></tr></table></figure><p>然后会出现</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase):</span><br><span class="line">//这里是要你输入密码，其实不需要输什么密码，直接回车就行</span><br><span class="line">Enter same passphrase again:</span><br></pre></td></tr></table></figure><p>接下来会显示</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Your identification has been saved <span class="keyword">in</span> /c/Users/you/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /c/Users/you/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">这里是各种字母数字组成的字符串，结尾是你的邮箱</span><br><span class="line">The key<span class="string">&#x27;s randomart image is:</span></span><br><span class="line"><span class="string">这里也是各种字母数字符号组成的字符串</span></span><br></pre></td></tr></table></figure><p>运行以下命令，将公钥的内容复制到系统粘贴板上</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">clip &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure><p>四、在 GitHub 账户中添加你的公钥</p><p>1.登陆 GitHub，进入 <mark class="hl-label blue">Settings</mark> </p><div class="img-wrap"><div class="img-bg"><img class="img" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/14.png"/></div></div><p>2.点击 <mark class="hl-label blue">SSH and GPG Keys</mark> ：</p><div class="img-wrap"><div class="img-bg"><img class="img" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/15.png"/></div></div><p>3.选择 New SSH key：</p><div class="img-wrap"><div class="img-bg"><img class="img" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/16.png"/></div></div><p>4.粘贴密钥：</p><div class="img-wrap"><div class="img-bg"><img class="img" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/17.png"/></div></div><p>五、测试</p><p>直接在桌面右键 点击 Git Bash Here，输入以下命令输入以下命令：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure><p>之后会显示：</p><div class="img-wrap"><div class="img-bg"><img class="img" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/18.png"/></div></div>输入 <mark class="hl-label blue">yes</mark>  后会显示：<div class="img-wrap"><div class="img-bg"><img class="img" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/19.png"/></div></div><p>此时表示设置正确</p><p>六、配置 Git 个人信息</p><p>Git 会根据用户的名字和邮箱来记录提交，GitHub 也是用这些信息来做权限的处理，输入以下命令进行个人信息的设置，把名称和邮箱替换成你自己的，名字可以不是 GitHub 的昵称，但为了方便记忆，建议与 GitHub 一致</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;此处填你的用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;此处填你的邮箱&quot;</span></span><br></pre></td></tr></table></figure><p>到此为止 SSH Key 配置成功，本机已成功连接到 Github</p>
+              </div>
+            </details>
 
-<p>然后会出现：</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase):</span><br><span class="line">//这里是要你输入密码，其实不需要输什么密码，直接回车就行</span><br><span class="line">Enter same passphrase again:</span><br></pre></td></tr></table></figure>
 
-<p>接下来屏幕会显示：</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Your identification has been saved <span class="keyword">in</span> /c/Users/you/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /c/Users/you/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">这里是各种字母数字组成的字符串，结尾是你的邮箱</span><br><span class="line">The key<span class="string">&#x27;s randomart image is:</span></span><br><span class="line"><span class="string">这里也是各种字母数字符号组成的字符串</span></span><br></pre></td></tr></table></figure>
-
-<p>运行以下命令，将公钥的内容复制到系统粘贴板上</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">clip &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-
-<p>四、在 GitHub 账户中添加你的公钥</p>
-<p>1.登陆 GitHub，进入 <code>Settings</code>：</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/14.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<p>2.点击 <code>SSH and GPG Keys</code>：</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/15.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<p>3.选择 New SSH key：</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/16.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<p>4.粘贴密钥：</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/17.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<p>五、测试</p>
-<p>直接在桌面右键 点击 Git Bash Here，输入以下命令输入以下命令：注意： <a href="mailto:git@github.com">git@github.com</a> 不要做任何更改！</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-
-<p>之后会显示：</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/18.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<p>输入 <code>yes</code> 后会显示：</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/19.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<p>此时表示设置正确</p>
-<p>六、配置 Git 个人信息</p>
-<p>Git 会根据用户的名字和邮箱来记录提交，GitHub 也是用这些信息来做权限的处理，输入以下命令进行个人信息的设置，把名称和邮箱替换成你自己的，名字可以不是 GitHub 的昵称，但为了方便记忆，建议与 GitHub 一致</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;此处填你的用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;此处填你的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>到此为止 SSH Key 配置成功，本机已成功连接到 Github</p>
-<p>将本地的Hexo文件更新到Github的库中</p>
-<p>一、登录 Github 打开自己的项目 yourname.github.io</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/20.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<p>二、鼠标移到 Code 按钮，点击按钮复制，或者直接把 SSH 全部复制</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/21.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<p>三、一键复制地址</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/22.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<p>四、打开你创建的 Hexo 文件夹（如：F:\QiQi_Blog\Hexo），右键用记事本（或者 Notepad++、Vs Code 等）打开该文件夹下的 _config.yml 文件</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/23.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<p>五、滑到最下面,按下图修改 _config.yml 文件并保存</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/24.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<p>六、在 Hexo 文件夹下分别执行以下命令</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p>或者直接执行</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
-
-<p>执行完之后会让你输入你的 Github 的账号和密码，如果此时报以下错误，说明你的 deployer 没有安装成功</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ERROR Deployer not found: git</span><br></pre></td></tr></table></figure>
-
-<p>需要执行以下命令再安装一次：</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<p>再执行</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
-
-<p>你的博客就会部署到 Github 上了</p>
-<p>七、访问博客</p>
-<p>你的博客地址：https://你的用户名.github.io， 比如我的是： <a href="https://waterchen520.github.io/">https://waterchen520.github.io</a> ，现在每个人都可以通过此链接访问你的博客了</p>
-<h2 id="如何在博客上发表文章"><a href="#如何在博客上发表文章" class="headerlink" title="如何在博客上发表文章"></a>如何在博客上发表文章</h2><p>博客已经成功搭建了，但是我们该怎么写博客呢？</p>
-<p>一、新建一个空文章，输入以下命令，会在项目 \Hexo\source_posts 中生成 文章标题.md 文件，文章标题根据需要命名</p>
-<p>Code</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo n &quot;文章标题&quot;</span><br></pre></td></tr></table></figure>
-
-<p>也可以直接在 \Hexo\source_posts 目录下右键鼠标新建文本文档，改后缀为 .md 即可，这种方法比较方便</p>
-<p>二、用编辑器编写文章</p>
-<p>md 全称 Markdown， Markdown 是 2004 年由 John Gruberis 设计和开发的纯文本格式的语法，非常的简单实用，常用的标记符号屈指可数，几分钟即可学会， .md 文件可以使用支持 Markdown 语法的编辑器编辑，然后将写好的文章（.md 文件）保存到 \Hexo\source_posts 文件夹下即可当我们用编辑器写好文章后，可以使用以下命令将其推送到服务器上</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p>或者将两个命令合二为一输入以下命令：</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
-
-<p>现在访问你的博客就可以看见写好的文章啦！</p>
-<h2 id="如何为博客更换自己喜欢的主题"><a href="#如何为博客更换自己喜欢的主题" class="headerlink" title="如何为博客更换自己喜欢的主题"></a>如何为博客更换自己喜欢的主题</h2><p>博客也搭建好了，文章也会写了，但是！！！默认的主题并不喜欢怎么办？现在，我们就来为自己的博客更换自己喜欢的主题</p>
-<p>比如我的主题是 <code>butterfly</code></p>
-<p>里面也有一些安装教程, 可以自行学习</p>
-<p>butterfly 主题官网: <a href="https://butterfly.js.org/">https://butterfly.js.org/</a></p>
-<p>选择主题</p>
-<p>进入 Hexo 官网的主题专栏，我们可以看见有许多的主题供我们选择: <a href="https://hexo.io/themes/">主题商店</a></p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/25.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<p>我们要做的就是把主题克隆过来，在此我们以主题 butterfly 为例，点进去我们就可以看见该主题作者的博客，鼠标滑到底，我们可以看见 主题 butterfly 的字样（其他主题类似），点击 butterfly ，页面就会跳转到该主题所有的相关文件在 Github 上的地址，复制该地址</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/26.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/27.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a></p>
-<p>再打开 Hexo 文件夹下的 themes 目录（如：E:\TRHX_Blog\Hexo\themes），右键 Git Bash Here，输入以下命令：</p>
-<p>Code</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone 此处填写你刚才复制的主题地址</span><br></pre></td></tr></table></figure>
-
-<p>比如要安装 butterfly 主题，则输入命令：</p>
-<p>Code</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone git@github.com:jerryc127/hexo-theme-butterfly.git</span><br></pre></td></tr></table></figure>
-
-<p>等待下载完成后即可在 themes 目录下生成 butterfly 文件夹，然后打开 Hexo 文件夹下的配置文件 _config.yml ，找到关键字 theme，修改参数为：theme：butterfly（其他主题修改成相应名称即可），再次注意冒号后面有一个空格！</p>
-<p>返回 Hexo 目录，右键 Git Bash Here ，输入以下命令开始部署主题：</p>
-<p>Code</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p>此时打开浏览器，访问 <a href="http://localhost:4000/">http://localhost:4000/</a> 就可看见我们的主题已经更换了，如果感觉效果满意，我们就可以把它部署到 Github 上了</p>
-<p>打开 Hexo 文件夹，右键 Git Bash Here ，输入以下命令：</p>
-<p>Code</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">//该命令的作用是清除缓存，若不输入此命令，服务器有可能更新不了主题</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
-
-<p>此时访问自己的博客即可看见更换后的主题，但我们仍然需要对主题的相关配置进行修改，比如网站标题，图标等等，Hexo 中有两份主要的配置文件，名称都是 _config.yml ，它们均是用于站点配置使用的。其中，一份位于站点根目录下（比如我的：F:\QiQi_Blog\Hexo_config.yml），主要包含 Hexo 本身整站的配置；另一份位于主题目录下（比如我的：F:\Blog\Hexo\themes\butterfly_config.yml），这份配置由主题作者提供，主要用于配置主题相关的选项，一般 _config.yml 文件里都有相关注释，按需修改即可</p>
-<h2 id="为你的-Hexo-博客配置个性域名"><a href="#为你的-Hexo-博客配置个性域名" class="headerlink" title="为你的 Hexo 博客配置个性域名"></a>为你的 Hexo 博客配置个性域名</h2><p>为了方便用户记住我们的博客站点的话，我们可以配置域名</p>
-<p>配置域名</p>
-<p>首先我们要购买域名， <a href="https://www.aliyun.com/">阿里云</a>， <a href="https://cloud.tencent.com/">腾讯云</a> 都可以，也不贵，一年几十</p>
-<p>块钱，最便宜几块钱也能买到，以阿里云为例，我购买的域名是 anzhiy.cn，购买过程就不赘述了，选择阿里云的解析平台，来到阿里云的</p>
-<p><code>域名控制台</code>，点击进入域名解析列表或者直接点击域名后面的解析</p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/28.png"><img src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/28.png"></a></p>
-<p><code>方法一：点击添加记录，需要添加两个记录，两个记录类型都是 CNAME ，第一个主机记录为 @ ，第二个主机记录为 www ，记录值都是填你自己的博客地址（比如我的是：[](waterchen520.github.io)），保存之后域名解析就完成了！</code></p>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/29.png"><img src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/29.png"></a></p>
-<p>方法二：两个记录类型为 A ，第一个主机记录为 @ ，第二个主机记录为 www，记录值都为博客的 IP 地址，IP 地址可以 cmd 中输入 ping 你的博客地址 获得（比如我的：ping waterchen520.github.io），保存之后域名解析就完成了！</p>
-<p>为了使 GitHub 接收我们的域名，还需要在博客的根目录下添加一个名为 <strong>CNAME</strong> 的文件（ <strong>注意不要加.txt，没有任何后缀名</strong>！），这个文件放到 <strong>Hexo</strong> 文件夹的 <strong>source</strong> 里面，（比如我的是： <strong>F:\QiQi_Blog\Hexo\source</strong>），文件里面填写你的域名（ <strong>加不加 www 都行</strong>），比如要填写我的域名，文件里面就写： <a href="http://www.anzhiy.cn/">www.anzhiy.cn</a> 或者 anzhiy.cn，经过以上操作，别人就可以通过 <a href="http://www.anzhiy.cn/">www.anzhiy.cn</a> 、anzhiy.cn 、waterchen520.github.io 三个当中任意一个访问我的博客了！你的也一样！</p>
-<p>有关加不加 www 的问题有以下区别：</p>
-<ul>
-<li>如果你填写的是没有 www 的，比如 anzhiy.cn，那么无论是访问 <a href="https://www.anzhiy.cn/">https://www.anzhiy.cn</a> 还是 <a href="https://anzhiy.cn/">https://anzhiy.cn</a> ，都会自动跳转到 <a href="https://anzhiy.cn/">https://anzhiy.cn</a></li>
-<li>如果你填写的是带 www 的，比如 <a href="http://www.anzhiy.cn/">www.anzhiy.cn</a> ，那么无论是访问 <a href="https://www.anzhiy.cn/">https://www.anzhiy.cn</a> 还是 <a href="https://anzhiy.cn/">https://anzhiy.cn</a> ，都会自动跳转到 <a href="http://www.anzhiy.cn/">http://www.anzhiy.cn</a></li>
-</ul>
-<p><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/30.png"><img src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/30.png"></a></p>
-<p>本文转载自安知鱼 <a href="https://www.anzhiy.cn/">https://www.anzhiy.cn</a></p>
-]]></content>
+<details class="folding-tag" cyan><summary> 将本地的Hexo文件更新到Github仓库中 </summary>
+              <div class='content'>
+              <p>一、登录 Github 打开自己的项目 yourname.github.io</p><div class="img-wrap"><div class="img-bg"><img class="img" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/20.png"/></div></div><p>二、鼠标移到 Code 按钮，点击按钮复制，或者直接把 SSH 全部复制</p><div class="img-wrap"><div class="img-bg"><img class="img" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/21.png"/></div></div><p>三、一键复制地址</p><div class="img-wrap"><div class="img-bg"><img class="img" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/blog-construct/22.png"/></div></div><p>四、打开你创建的 Hexo 文件夹，右键用记事本（或者 Notepad++、Vs Code 等）打开该文件夹下的 _config.yml 文件</p><div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240607/config.45highoxp1.jpg"/></div></div><p>五、滑到最下面,按下图修改 _config.yml 文件并保存</p><div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240607/dep.4g4c9n6e6n.jpg"/></div></div><p>六、在 Hexo 文件夹下分别执行以下命令</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generat</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure><p>可以简写</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo c &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure><p>执行完之后会让你输入你的 Github 的账号和密码，如果此时报以下错误，说明你的 deployer 没有安装成功</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ERROR Deployer not found: git</span><br></pre></td></tr></table></figure><p>需要执行以下命令再安装一次：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><p>在执行</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure><p>你的博客就会部署到 Github 上了</p><p>七、访问博客</p><p>你的博客地址：https://你的用户名.github.io， 比如我的是：<a href="https://yc100.github.io/">https://yc100.github.io</a> ，现在每个人都可以通过此链接访问你的博客了</p>
+              </div>
+            </details>]]></content>
       <categories>
         <category>Hexo</category>
       </categories>
@@ -252,6 +118,40 @@
       </tags>
   </entry>
   <entry>
+    <title>不要问我北京怎么样，我只能说 去过</title>
+    <url>/2023/05/27/20230601-1/</url>
+    <content><![CDATA[<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100 height=86 src="/download/离开北京.mp3"></iframe> -->
+<p><audio src="/download/离开北京.mp3" autoplay="autoplay" controls="controls" loop="loop"></audio></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;上周去到了北京，我们又见面了。每次见面虽然短暂，但都很快乐。这也是我时隔多年再一次回到北京，北京没有什么变化，一样的车水马龙，一样的灯火通明。地铁上的一阵微风拂来，那一刻仿佛又回到了几年前，匆匆忙忙，忙忙碌碌。急速的脚步仿佛一刻都不能停下。北京的生活节奏的确是家乡所不能比的。工作在朝阳酒仙桥，住所在昌平天通苑，将近20公里的距离，四十四分钟的地铁三趟换乘，还得再坐半个多小时的公交车才能从公司到家。无论是公交还是地铁，无论是早上还是夜晚，人们都急匆匆地奔忙在路上。<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/3io6hb7tavc0.6ik4c82ld3.jpg" alt="1.png"></p>
+<h2 id="在北京的开始"><a href="#在北京的开始" class="headerlink" title="在北京的开始"></a>在北京的开始</h2><p>&nbsp; &nbsp; &nbsp; &nbsp; 很荣幸，也很庆幸，在2016年毕业后的那个夏天，我义无反顾，毅然决然地背上背包，拎着行李箱坐上了去往北京的火车。时间推回到2016年的夏天，那时我还没有毕业，却也曾每日每夜想象毕业以后得生活。我以后要干什么？以后每个月会挣多少钱？工作找不到怎么办？这是一个来自即将毕业人的三连问。说实话我从没有想过以后会做一名一线开发的程序员，甚至都不知道程序员到底是干什么的。因为我在的那个大学其实学习上并不太抓紧，甚至宿舍的舍友白天不上课，夜晚不睡觉！我好像是那个宿舍唯一的一个另类，会每天按时去上课，会想要去想应该学些什么，会自我内心考虑到是不是我再不努力我的人生就完了。所以从那时起就开始暗自努力下定决心，我一定要对自己负责。</p>
+<p><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/630ac40a46f1974d5dc4926a279a328.3y43vp5bau60.92pyovl3c7.jpg" alt="2.png"><br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/5b4468dd8a3af07ae98a93f984a45e7.1qyglil42cyo.4ckpqgv89q.jpg" alt="3.png"></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 说到这里我一定得感谢一个人，哦不，应该是感谢很多人。感谢身边的每一位老师。感谢每一位老师面对着一群不爱上课不爱学习的孩子，还是尽心尽力的想要去教会每一个人。我想这就是做老师的责任吧！感谢刘老师，刘老师是我的数据库启蒙老师，她每次上课都非常的认真，好像扯着嗓子在喊，生怕有哪个人听不到她说话。还记得有一次全班人都走了，只剩下我一个人，坚持把课上到结束，刘老师也一样。我想这就是老师与学生之间的互相尊重。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 感谢谷老师，谷老师给人的感觉是一位很有专业经验的老师。在这里也想对谷老师说一句对不起。因为我想起来发生过一次非常小的摩擦吧。因为其他同学来上课其实只是为了刷个课时，基本上不带书的，可恰巧那天我把书拿错了。谷老师那天对所有没有带书的学生都非常不客气，但这其实是我能理解的。因为谷老师没能得到他应得到的尊重。我原本想向谷老师解释我拿错书了。可谷老师非常的不客气说了我。我随后夺门而出，年轻气盛吧，我当时对谷老师没有听我解释的态度而感到恼火。没有带书的同学被请出去后都没有再返回那堂课，除了我。我立刻回到寝室找到正确的那本书随后返回教室。很显然谷老师看我的眼神改变了。从那之后，我们的关系也变得非常好。感谢谷老师。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 最后一位要感谢的是徐老师，可能我和徐老师，见面的次数一只手就能数的过来，也许这就是命运吧，如果没有遇到徐老师，没有听到徐老师讲的那节课外的公开课，我想至少我的工作行业一定不是现在的软件开发。也正是那节公开课，让我结识到了可以说改变我命运的知识和行业——编程。听徐老师生动形象地讲着一线开发人员每天的工作内容，生活，还有工作之余做的事情。我脑海里便开始浮想自己成为了那样的程序员。但说实话，最吸引我的还是高工资，高收入。啊哈哈哈。谁会跟钱过不去呢？</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 所以在毕业后的暑假里我几乎没有休息几天，就向着北京出发了。感觉那个夏天是我经历过最热的夏天，刚下了火车就感觉无比的闷热，我背着沉重的双肩包，拖着行李箱。上了地铁，那是我第一次感受到来自地铁的微风，非常的清爽。今后的我每一天上班下班都在享受着这种清风徐来的感觉。<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/5cf9956108adbde16ce81531e59b804.79no9j8ybcg0.3rb2464152.jpg" alt="4.png"></p>
+<h2 id="开始工作"><a href="#开始工作" class="headerlink" title="开始工作"></a>开始工作</h2><p>&nbsp; &nbsp; &nbsp; &nbsp; 经过了几个月的自我努力和熏陶，我成功的拿下了人生当中第一个offer，这期间的艰辛和辛苦我想没有人能深得体会，我也无法用苍白的言语去形容和描述，所以就像是人生一样。所有过不去的坎坷，到了最后我们回头看看时，也都过去了！正如我现在所遇到的问题，和正在经历的事情我相信最终我一定可以过去呀。</p>
+<p><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/9dd653675c812eb0d06c9e4aa1ffefb.1pnvyal11oao.6t6y5e882w.jpg" alt="5.png"></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;第一份工作上手快，同事和领导都很喜欢我，说真的有时候想想，难道是天赋吗，很多东西没有接触过甚至不知道是干嘛的。但是工作当中所有的任务我全部通过自己的努力完成了，所有遇到的问题也都自己解决了。那些见过的没见过的工具、插件、jar包、框架、语言，当时看来难的不能再难的需求，也都没有将我击倒。现在看来我想对那些正在学习或是打算学习编程的孩子们说，编程真的不难，做程序员真的很有趣！</p>
+<p><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/962b228e41f2e2ba90b222b7fc80633.5fjsrk3zdtk0.2h84xurazh.jpg" alt="6.png"></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;公司的所有同事也都还不错，时不时的聚餐活动，不过想想看来能够相处很长时间的其实还真没有，身边的同事有走的也有来的，总是在换新的面孔。好像每个人也得习惯了这样的节奏。</p>
+<h2 id="在北京的生活"><a href="#在北京的生活" class="headerlink" title="在北京的生活"></a>在北京的生活</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;刚到北京那会，我住在一个几乎不到50平米的公寓楼里面，八个人上下铺。条件属实艰苦。没有热水，没有独立的卫生间，好像除了能睡个觉其他的什么都没有。但就是这小小的房间，给了我们当时八个人些许的温暖。再往后我独自一人开始找房子，找到了距离天通苑地铁站还需半个小时公交车程的东沙各庄。当我第一次到那时简直是震惊，居然有这么多人，简直是太多人了！我独自一人租了个单人公寓也就20多30平米吧。独立卫生间，一张很破的床另加一张很破的桌子这就是当时全部的家具，其他什么都没有。不过当时那也是一种鸟枪换炮的感觉。</p>
+<p><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/e05be8b4cf323a9b522d9f7cf8d5f47.4zf96u19gzw0.2vekoq0wnv.jpg" alt="7.png"></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;也许北京和我一样的人太多太多了，一个人，喜欢独处。做什么都是自己。享受着每天上下班时戴着耳机，虽然哪里都是人但好像我的世界里只有自己的那种感觉。北京像是一个无情的城市对于我来说，因为北京的生活就好像没有感情的机器每天不停地、重复的运转着，一刻都不能停歇，仿佛只要停下脚步稍作休息后就赶不上那趟通往终点的直达列车。那里每个人的眼里都有光，但每个人的脸上都有一丝丝疲惫的痕迹。说实话我太了解外地人在北京的艰辛和不容易。</p>
+<p><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/72febbfa3cdd63d289ac6566115c844.awhsdlguh4g.9dcsi1estw.jpg" alt="8.png"><br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/0a41900004b34745e10d34a4ef1ecad.izy41vfgm4o.5q78uikz7j.jpg" alt="9.png"><br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/1cfdc3c1bc26700c570ecf8ca7827ef.3yyj6zjtv5e0.8s34vqp01k.jpg" alt="10.png"><br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/cee8eaf1a6776143cef6b1f8aafd798.mnoxd0m4qps.839vbq37dd.jpg" alt="11.png"></p>
+<h2 id="离开北京"><a href="#离开北京" class="headerlink" title="离开北京"></a>离开北京</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;我以为我会在北京生活工作很长很长时间，因为我早已习惯了那里的生活方式和习惯，可是由于家庭原因我还是选择了离开北京。<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/b8b9de2a8cb9e622b0be137cb2f3b42.7g7eabf5tyo0.26lb4pnvsu.jpg" alt="12.png"></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;离开北京前的最后一个工作日，早已交接完手头的所有工作，我坐在工位上不时地环顾四周，人在离别的时候心里是有些变化的。也不能说不舍吧，但是总会是有一点情绪的。那天像往常一样时间过得很快。下班后同事们想要给我送行，我们一起吃了散伙饭。说实话那是我第一次感觉喝酒喝的断片了，跟几位或许真的不太熟的好同事。不是因为关系不好，是因为相处最多的真的也就一年多吧。我们关系都非常好，只是不够了解。感谢他们为我送行。<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/8ed2d673ec6f2238e578d4c64ed9780.2tfy4o7biyi0.3nrg6gsyjo.jpg" alt="13.png"></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;发小老三知道我要回来，正好来北京顺便把我接回去。散伙饭结束后我被送到老三住的酒店，老三见到我后也是很诧异，“咋喝这么多？”老三问我，我说开心，实际上当时的心里我也说不上是开心还是难过，开心的是我要回家了可以短暂的休息放松下了，因为从毕业到现在我都从来没有好好的休息过。难过的是这几年在北京的艰辛？还是什么？我也只能说不知道，情感交杂说不出的滋味。就这样平平淡淡像往常过年过节回家一样，我不声不响地离开了北京。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;今天想想在北京的一些事现在已经有些记不清了。不过也许我还会回到北京，去出差，去玩，只是肯定的是再回去时已经不是当年那个背着双肩包，总是戴着耳机穿梭在人海里的少年了！</p>
+<p><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/f71b28ee7e5a5e14c7d24bb603107c3.k5hz73ybmts.2ruyr0k6r3.jpg" alt="14.png"></p>
+]]></content>
+      <categories>
+        <category>Dairy</category>
+      </categories>
+      <tags>
+        <tag>Dairy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>电信机顶盒创维E900-S刷机简易教程</title>
     <url>/2023/06/05/20230605-1/</url>
     <content><![CDATA[<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100 height=86 src="/download/离开北京.mp3"></iframe> -->
@@ -285,40 +185,6 @@
       </categories>
       <tags>
         <tag>教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>不要问我北京怎么样，我只能说 去过</title>
-    <url>/2023/05/27/20230601-1/</url>
-    <content><![CDATA[<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100 height=86 src="/download/离开北京.mp3"></iframe> -->
-<p><audio src="/download/离开北京.mp3" autoplay="autoplay" controls="controls" loop="loop"></audio></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;上周去到了北京，我们又见面了。每次见面虽然短暂，但都很快乐。这也是我时隔多年再一次回到北京，北京没有什么变化，一样的车水马龙，一样的灯火通明。地铁上的一阵微风拂来，那一刻仿佛又回到了几年前，匆匆忙忙，忙忙碌碌。急速的脚步仿佛一刻都不能停下。北京的生活节奏的确是家乡所不能比的。工作在朝阳酒仙桥，住所在昌平天通苑，将近20公里的距离，四十四分钟的地铁三趟换乘，还得再坐半个多小时的公交车才能从公司到家。无论是公交还是地铁，无论是早上还是夜晚，人们都急匆匆地奔忙在路上。<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/3io6hb7tavc0.6ik4c82ld3.jpg" alt="1.png"></p>
-<h2 id="在北京的开始"><a href="#在北京的开始" class="headerlink" title="在北京的开始"></a>在北京的开始</h2><p>&nbsp; &nbsp; &nbsp; &nbsp; 很荣幸，也很庆幸，在2016年毕业后的那个夏天，我义无反顾，毅然决然地背上背包，拎着行李箱坐上了去往北京的火车。时间推回到2016年的夏天，那时我还没有毕业，却也曾每日每夜想象毕业以后得生活。我以后要干什么？以后每个月会挣多少钱？工作找不到怎么办？这是一个来自即将毕业人的三连问。说实话我从没有想过以后会做一名一线开发的程序员，甚至都不知道程序员到底是干什么的。因为我在的那个大学其实学习上并不太抓紧，甚至宿舍的舍友白天不上课，夜晚不睡觉！我好像是那个宿舍唯一的一个另类，会每天按时去上课，会想要去想应该学些什么，会自我内心考虑到是不是我再不努力我的人生就完了。所以从那时起就开始暗自努力下定决心，我一定要对自己负责。</p>
-<p><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/630ac40a46f1974d5dc4926a279a328.3y43vp5bau60.92pyovl3c7.jpg" alt="2.png"><br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/5b4468dd8a3af07ae98a93f984a45e7.1qyglil42cyo.4ckpqgv89q.jpg" alt="3.png"></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; 说到这里我一定得感谢一个人，哦不，应该是感谢很多人。感谢身边的每一位老师。感谢每一位老师面对着一群不爱上课不爱学习的孩子，还是尽心尽力的想要去教会每一个人。我想这就是做老师的责任吧！感谢刘老师，刘老师是我的数据库启蒙老师，她每次上课都非常的认真，好像扯着嗓子在喊，生怕有哪个人听不到她说话。还记得有一次全班人都走了，只剩下我一个人，坚持把课上到结束，刘老师也一样。我想这就是老师与学生之间的互相尊重。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; 感谢谷老师，谷老师给人的感觉是一位很有专业经验的老师。在这里也想对谷老师说一句对不起。因为我想起来发生过一次非常小的摩擦吧。因为其他同学来上课其实只是为了刷个课时，基本上不带书的，可恰巧那天我把书拿错了。谷老师那天对所有没有带书的学生都非常不客气，但这其实是我能理解的。因为谷老师没能得到他应得到的尊重。我原本想向谷老师解释我拿错书了。可谷老师非常的不客气说了我。我随后夺门而出，年轻气盛吧，我当时对谷老师没有听我解释的态度而感到恼火。没有带书的同学被请出去后都没有再返回那堂课，除了我。我立刻回到寝室找到正确的那本书随后返回教室。很显然谷老师看我的眼神改变了。从那之后，我们的关系也变得非常好。感谢谷老师。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; 最后一位要感谢的是徐老师，可能我和徐老师，见面的次数一只手就能数的过来，也许这就是命运吧，如果没有遇到徐老师，没有听到徐老师讲的那节课外的公开课，我想至少我的工作行业一定不是现在的软件开发。也正是那节公开课，让我结识到了可以说改变我命运的知识和行业——编程。听徐老师生动形象地讲着一线开发人员每天的工作内容，生活，还有工作之余做的事情。我脑海里便开始浮想自己成为了那样的程序员。但说实话，最吸引我的还是高工资，高收入。啊哈哈哈。谁会跟钱过不去呢？</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; 所以在毕业后的暑假里我几乎没有休息几天，就向着北京出发了。感觉那个夏天是我经历过最热的夏天，刚下了火车就感觉无比的闷热，我背着沉重的双肩包，拖着行李箱。上了地铁，那是我第一次感受到来自地铁的微风，非常的清爽。今后的我每一天上班下班都在享受着这种清风徐来的感觉。<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/5cf9956108adbde16ce81531e59b804.79no9j8ybcg0.3rb2464152.jpg" alt="4.png"></p>
-<h2 id="开始工作"><a href="#开始工作" class="headerlink" title="开始工作"></a>开始工作</h2><p>&nbsp; &nbsp; &nbsp; &nbsp; 经过了几个月的自我努力和熏陶，我成功的拿下了人生当中第一个offer，这期间的艰辛和辛苦我想没有人能深得体会，我也无法用苍白的言语去形容和描述，所以就像是人生一样。所有过不去的坎坷，到了最后我们回头看看时，也都过去了！正如我现在所遇到的问题，和正在经历的事情我相信最终我一定可以过去呀。</p>
-<p><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/9dd653675c812eb0d06c9e4aa1ffefb.1pnvyal11oao.6t6y5e882w.jpg" alt="5.png"></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp;第一份工作上手快，同事和领导都很喜欢我，说真的有时候想想，难道是天赋吗，很多东西没有接触过甚至不知道是干嘛的。但是工作当中所有的任务我全部通过自己的努力完成了，所有遇到的问题也都自己解决了。那些见过的没见过的工具、插件、jar包、框架、语言，当时看来难的不能再难的需求，也都没有将我击倒。现在看来我想对那些正在学习或是打算学习编程的孩子们说，编程真的不难，做程序员真的很有趣！</p>
-<p><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/962b228e41f2e2ba90b222b7fc80633.5fjsrk3zdtk0.2h84xurazh.jpg" alt="6.png"></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp;公司的所有同事也都还不错，时不时的聚餐活动，不过想想看来能够相处很长时间的其实还真没有，身边的同事有走的也有来的，总是在换新的面孔。好像每个人也得习惯了这样的节奏。</p>
-<h2 id="在北京的生活"><a href="#在北京的生活" class="headerlink" title="在北京的生活"></a>在北京的生活</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;刚到北京那会，我住在一个几乎不到50平米的公寓楼里面，八个人上下铺。条件属实艰苦。没有热水，没有独立的卫生间，好像除了能睡个觉其他的什么都没有。但就是这小小的房间，给了我们当时八个人些许的温暖。再往后我独自一人开始找房子，找到了距离天通苑地铁站还需半个小时公交车程的东沙各庄。当我第一次到那时简直是震惊，居然有这么多人，简直是太多人了！我独自一人租了个单人公寓也就20多30平米吧。独立卫生间，一张很破的床另加一张很破的桌子这就是当时全部的家具，其他什么都没有。不过当时那也是一种鸟枪换炮的感觉。</p>
-<p><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/e05be8b4cf323a9b522d9f7cf8d5f47.4zf96u19gzw0.2vekoq0wnv.jpg" alt="7.png"></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp;也许北京和我一样的人太多太多了，一个人，喜欢独处。做什么都是自己。享受着每天上下班时戴着耳机，虽然哪里都是人但好像我的世界里只有自己的那种感觉。北京像是一个无情的城市对于我来说，因为北京的生活就好像没有感情的机器每天不停地、重复的运转着，一刻都不能停歇，仿佛只要停下脚步稍作休息后就赶不上那趟通往终点的直达列车。那里每个人的眼里都有光，但每个人的脸上都有一丝丝疲惫的痕迹。说实话我太了解外地人在北京的艰辛和不容易。</p>
-<p><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/72febbfa3cdd63d289ac6566115c844.awhsdlguh4g.9dcsi1estw.jpg" alt="8.png"><br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/0a41900004b34745e10d34a4ef1ecad.izy41vfgm4o.5q78uikz7j.jpg" alt="9.png"><br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/1cfdc3c1bc26700c570ecf8ca7827ef.3yyj6zjtv5e0.8s34vqp01k.jpg" alt="10.png"><br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/cee8eaf1a6776143cef6b1f8aafd798.mnoxd0m4qps.839vbq37dd.jpg" alt="11.png"></p>
-<h2 id="离开北京"><a href="#离开北京" class="headerlink" title="离开北京"></a>离开北京</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;我以为我会在北京生活工作很长很长时间，因为我早已习惯了那里的生活方式和习惯，可是由于家庭原因我还是选择了离开北京。<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/b8b9de2a8cb9e622b0be137cb2f3b42.7g7eabf5tyo0.26lb4pnvsu.jpg" alt="12.png"></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp;离开北京前的最后一个工作日，早已交接完手头的所有工作，我坐在工位上不时地环顾四周，人在离别的时候心里是有些变化的。也不能说不舍吧，但是总会是有一点情绪的。那天像往常一样时间过得很快。下班后同事们想要给我送行，我们一起吃了散伙饭。说实话那是我第一次感觉喝酒喝的断片了，跟几位或许真的不太熟的好同事。不是因为关系不好，是因为相处最多的真的也就一年多吧。我们关系都非常好，只是不够了解。感谢他们为我送行。<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/8ed2d673ec6f2238e578d4c64ed9780.2tfy4o7biyi0.3nrg6gsyjo.jpg" alt="13.png"></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp;发小老三知道我要回来，正好来北京顺便把我接回去。散伙饭结束后我被送到老三住的酒店，老三见到我后也是很诧异，“咋喝这么多？”老三问我，我说开心，实际上当时的心里我也说不上是开心还是难过，开心的是我要回家了可以短暂的休息放松下了，因为从毕业到现在我都从来没有好好的休息过。难过的是这几年在北京的艰辛？还是什么？我也只能说不知道，情感交杂说不出的滋味。就这样平平淡淡像往常过年过节回家一样，我不声不响地离开了北京。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp;今天想想在北京的一些事现在已经有些记不清了。不过也许我还会回到北京，去出差，去玩，只是肯定的是再回去时已经不是当年那个背着双肩包，总是戴着耳机穿梭在人海里的少年了！</p>
-<p><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/f71b28ee7e5a5e14c7d24bb603107c3.k5hz73ybmts.2ruyr0k6r3.jpg" alt="14.png"></p>
-]]></content>
-      <categories>
-        <category>Dairy</category>
-      </categories>
-      <tags>
-        <tag>Dairy</tag>
       </tags>
   </entry>
   <entry>
@@ -398,6 +264,68 @@
       </categories>
       <tags>
         <tag>Spring源码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringBoot+screw 生成数据库文档，堪称数据库界的Swagger</title>
+    <url>/2024/05/23/20240523-1/</url>
+    <content><![CDATA[<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100 height=86 src="/download/离开北京.mp3"></iframe> -->
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近发现公司的数据库越来越庞大了，生产竟然有上千张表。但是每个业务库都没有相应的数据库文档，开始其实打算手写文档但是表实在太多了，包括后期的运维开发也需要手动进行文档维护。为了不进行重复的CV操作所以借助这个宝藏工具screw（螺丝钉）一键生成数据库文档。<br>至于工具为什么叫螺丝钉，引用作者的话来讲摘自雷锋日记：虽然是细小的螺丝钉，是个细微的小齿轮，然而如果缺了它，那整个的机器就无法运转了，即使是一枚小螺丝钉没拧紧，一个小齿轮略有破损，也可能会使机器的运转发生故障。</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li>简洁、轻量、设计良好</li>
+<li>多数据库支持</li>
+<li>多种格式文档</li>
+<li>灵活扩展</li>
+<li>支持自定义模板</li>
+</ul>
+<h2 id="数据库支持"><a href="#数据库支持" class="headerlink" title="数据库支持"></a>数据库支持</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> Mysql</li>
+<li><input checked="" disabled="" type="checkbox"> MariaDB</li>
+<li><input checked="" disabled="" type="checkbox"> TIDB</li>
+<li><input checked="" disabled="" type="checkbox"> Oracle</li>
+<li><input checked="" disabled="" type="checkbox"> SqlServer</li>
+<li><input checked="" disabled="" type="checkbox"> PostgreSQL</li>
+<li><input checked="" disabled="" type="checkbox"> Cache DB（2016）</li>
+<li><input checked="" disabled="" type="checkbox"> Cache DB（2016）</li>
+<li><input disabled="" type="checkbox"> H2（开发中）</li>
+<li><input disabled="" type="checkbox"> DB2（开发中）</li>
+<li><input disabled="" type="checkbox"> HSQL（开发中）</li>
+<li><input disabled="" type="checkbox"> SQLite（开发中）</li>
+<li><input disabled="" type="checkbox"> 瀚高（开发中）</li>
+<li><input disabled="" type="checkbox"> 达梦（开发中）</li>
+<li><input disabled="" type="checkbox"> 虚谷（开发中）</li>
+</ul>
+<ul>
+<li><input disabled="" type="checkbox"> 人大金仓（开发中）</li>
+</ul>
+<h2 id="生成文档格式支持"><a href="#生成文档格式支持" class="headerlink" title="生成文档格式支持"></a>生成文档格式支持</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> hrml</li>
+<li><input checked="" disabled="" type="checkbox"> word</li>
+<li><input checked="" disabled="" type="checkbox"> markdown</li>
+</ul>
+<h2 id="文档截图"><a href="#文档截图" class="headerlink" title="文档截图"></a>文档截图</h2><ul>
+<li><p>html<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/1.45hhv3199z.jpg" alt="html-1.jpg"><br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/2.5j40z4chel.jpg" alt="html-2.jpg"></p>
+</li>
+<li><p>word<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/3.lvk59ys1v.jpg" alt="word-1.jpg"></p>
+</li>
+</ul>
+<ul>
+<li>markdown<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/4.26lb4qw1m4.jpg" alt="html-1.jpg"><br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/5.5j40z4coak.jpg" alt="html-2.jpg"></li>
+</ul>
+<h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><h3 id="1、普通方式"><a href="#1、普通方式" class="headerlink" title="1、普通方式"></a>1、普通方式</h3><p>普通方式是编写执行代码调用工具类进行文档生成<br>添加依赖，检查是否最新版本，连接地址-&gt; <a href="https://mvnrepository.com/artifact/cn.smallbun.screw/screw-core">最新版本</a></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--螺丝钉 数据库文档生成工具--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/cn.smallbun.screw/screw-core --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cn.smallbun.screw<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>screw-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.yc.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.Configuration;</span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.engine.EngineConfig;</span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.engine.EngineFileType;</span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.engine.EngineTemplateType;</span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.execute.DocumentationExecute;</span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.process.ProcessConfig;</span><br><span class="line"><span class="keyword">import</span> com.zaxxer.hikari.HikariConfig;</span><br><span class="line"><span class="keyword">import</span> com.zaxxer.hikari.HikariDataSource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.sql.DataSource;</span><br><span class="line"><span class="keyword">import</span> java.time.LocalDateTime;</span><br><span class="line"><span class="keyword">import</span> java.time.format.DateTimeFormatter;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GenerateDataDoc</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 文档生成</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">documentGeneration</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//数据源</span></span><br><span class="line">        <span class="type">HikariConfig</span> <span class="variable">hikariConfig</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HikariConfig</span>();</span><br><span class="line">        hikariConfig.setDriverClassName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>);</span><br><span class="line">        hikariConfig.setJdbcUrl(<span class="string">&quot;jdbc:mysql://localhost:3306/platform?characterEncoding=UTF-8&quot;</span>);</span><br><span class="line">        hikariConfig.setUsername(<span class="string">&quot;root&quot;</span>);</span><br><span class="line">        hikariConfig.setPassword(<span class="string">&quot;root&quot;</span>);</span><br><span class="line">        <span class="comment">//设置可以获取tables remarks信息</span></span><br><span class="line">        hikariConfig.addDataSourceProperty(<span class="string">&quot;useInformationSchema&quot;</span>, <span class="string">&quot;true&quot;</span>);</span><br><span class="line">        hikariConfig.setMinimumIdle(<span class="number">2</span>);</span><br><span class="line">        hikariConfig.setMaximumPoolSize(<span class="number">5</span>);</span><br><span class="line">        <span class="type">DataSource</span> <span class="variable">dataSource</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HikariDataSource</span>(hikariConfig);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//生成配置</span></span><br><span class="line">        <span class="type">EngineConfig</span> <span class="variable">engineConfig</span> <span class="operator">=</span> EngineConfig.builder()</span><br><span class="line">                <span class="comment">//生成文件路径</span></span><br><span class="line">                .fileOutputDir(<span class="string">&quot;D:\\dataBaseDoc\\&quot;</span>)</span><br><span class="line">                <span class="comment">//打开目录</span></span><br><span class="line">                .openOutputDir(<span class="literal">true</span>)</span><br><span class="line">                <span class="comment">//文件类型</span></span><br><span class="line">                .fileType(EngineFileType.MD)</span><br><span class="line">                <span class="comment">//生成模板实现</span></span><br><span class="line">                .produceType(EngineTemplateType.freemarker)</span><br><span class="line">                <span class="comment">//自定义文件名称</span></span><br><span class="line">                .fileName(<span class="string">&quot;AYN-platform&quot;</span>).build();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//忽略表</span></span><br><span class="line">        ArrayList&lt;String&gt; ignoreTableName = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        ignoreTableName.add(<span class="string">&quot;test_user&quot;</span>);</span><br><span class="line">        ignoreTableName.add(<span class="string">&quot;test_group&quot;</span>);</span><br><span class="line">        <span class="comment">//忽略表前缀</span></span><br><span class="line">        ArrayList&lt;String&gt; ignorePrefix = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        ignorePrefix.add(<span class="string">&quot;test_&quot;</span>);</span><br><span class="line">        <span class="comment">//忽略表后缀</span></span><br><span class="line">        ArrayList&lt;String&gt; ignoreSuffix = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        ignoreSuffix.add(<span class="string">&quot;_test&quot;</span>);</span><br><span class="line">        <span class="type">ProcessConfig</span> <span class="variable">processConfig</span> <span class="operator">=</span> ProcessConfig.builder()</span><br><span class="line">                <span class="comment">//指定生成逻辑、当存在指定表、指定表前缀、指定表后缀时，将生成指定表，其余表不生成、并跳过忽略表配置</span></span><br><span class="line">                <span class="comment">//根据名称指定表生成</span></span><br><span class="line">                .designatedTableName(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;())</span><br><span class="line">                <span class="comment">//根据表前缀生成</span></span><br><span class="line">                .designatedTablePrefix(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;())</span><br><span class="line">                <span class="comment">//根据表后缀生成</span></span><br><span class="line">                .designatedTableSuffix(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;())</span><br><span class="line">                <span class="comment">//忽略表名</span></span><br><span class="line">                .ignoreTableName(ignoreTableName)</span><br><span class="line">                <span class="comment">//忽略表前缀</span></span><br><span class="line">                .ignoreTablePrefix(ignorePrefix)</span><br><span class="line">                <span class="comment">//忽略表后缀</span></span><br><span class="line">                .ignoreTableSuffix(ignoreSuffix).build();</span><br><span class="line">        <span class="comment">//配置</span></span><br><span class="line">        <span class="type">DateTimeFormatter</span> <span class="variable">df</span> <span class="operator">=</span> DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">nowDate</span> <span class="operator">=</span> LocalDateTime.now().format(df);</span><br><span class="line">        <span class="type">Configuration</span> <span class="variable">config</span> <span class="operator">=</span> Configuration.builder()</span><br><span class="line">                <span class="comment">//版本</span></span><br><span class="line">                .version(<span class="string">&quot;1.0.0&quot;</span>)</span><br><span class="line">                <span class="comment">//描述</span></span><br><span class="line">                .description(<span class="string">&quot;platform数据库设计文档生成-&quot;</span> + nowDate)</span><br><span class="line">                <span class="comment">//数据源</span></span><br><span class="line">                .dataSource(dataSource)</span><br><span class="line">                <span class="comment">//生成配置</span></span><br><span class="line">                .engineConfig(engineConfig)</span><br><span class="line">                <span class="comment">//生成配置</span></span><br><span class="line">                .produceConfig(processConfig)</span><br><span class="line">                .build();</span><br><span class="line">        <span class="comment">//执行生成</span></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">DocumentationExecute</span>(config).execute();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2、Maven插件方式"><a href="#2、Maven插件方式" class="headerlink" title="2、Maven插件方式"></a>2、Maven插件方式</h3><p>使用Maven插件执行生成数据库文档<br>pom文件配置</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cn.smallbun.screw<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>screw-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;lastVersion&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- HikariCP --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.zaxxer<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>HikariCP<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.4.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--mysql driver--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">version</span>&gt;</span>8.0.20<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--username--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">username</span>&gt;</span>root<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--password--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">password</span>&gt;</span>password<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--driver--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">driverClassName</span>&gt;</span>com.mysql.cj.jdbc.Driver<span class="tag">&lt;/<span class="name">driverClassName</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--jdbc url--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">jdbcUrl</span>&gt;</span>jdbc:mysql://127.0.0.1:3306/xxxx<span class="tag">&lt;/<span class="name">jdbcUrl</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--生成文件类型--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">fileType</span>&gt;</span>HTML<span class="tag">&lt;/<span class="name">fileType</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--打开文件输出目录--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">openOutputDir</span>&gt;</span>false<span class="tag">&lt;/<span class="name">openOutputDir</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--生成模板--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">produceType</span>&gt;</span>freemarker<span class="tag">&lt;/<span class="name">produceType</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--文档名称 为空时:将采用[数据库名称-描述-版本号]作为文档名称--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">fileName</span>&gt;</span>测试文档名称<span class="tag">&lt;/<span class="name">fileName</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--描述--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">description</span>&gt;</span>数据库文档生成<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--版本--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;project.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--标题--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">title</span>&gt;</span>数据库文档<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">phase</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">goal</span>&gt;</span>run<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>配置完成后在 maven project-&gt;screw双击执行<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/6.4uarf52fba.jpg" alt="6.jpg"></p>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>文档工具 screw <a href="https://github.com/pingfangushi/screw">https://github.com/pingfangushi/screw</a></p>
+]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
       </tags>
   </entry>
   <entry>
@@ -501,273 +429,6 @@
       </categories>
       <tags>
         <tag>面试题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringBoot+screw 生成数据库文档，堪称数据库界的Swagger</title>
-    <url>/2024/05/23/20240523-1/</url>
-    <content><![CDATA[<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100 height=86 src="/download/离开北京.mp3"></iframe> -->
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近发现公司的数据库越来越庞大了，生产竟然有上千张表。但是每个业务库都没有相应的数据库文档，开始其实打算手写文档但是表实在太多了，包括后期的运维开发也需要手动进行文档维护。为了不进行重复的CV操作所以借助这个宝藏工具screw（螺丝钉）一键生成数据库文档。<br>至于工具为什么叫螺丝钉，引用作者的话来讲摘自雷锋日记：虽然是细小的螺丝钉，是个细微的小齿轮，然而如果缺了它，那整个的机器就无法运转了，即使是一枚小螺丝钉没拧紧，一个小齿轮略有破损，也可能会使机器的运转发生故障。</p>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
-<li>简洁、轻量、设计良好</li>
-<li>多数据库支持</li>
-<li>多种格式文档</li>
-<li>灵活扩展</li>
-<li>支持自定义模板</li>
-</ul>
-<h2 id="数据库支持"><a href="#数据库支持" class="headerlink" title="数据库支持"></a>数据库支持</h2><ul>
-<li><input checked="" disabled="" type="checkbox"> Mysql</li>
-<li><input checked="" disabled="" type="checkbox"> MariaDB</li>
-<li><input checked="" disabled="" type="checkbox"> TIDB</li>
-<li><input checked="" disabled="" type="checkbox"> Oracle</li>
-<li><input checked="" disabled="" type="checkbox"> SqlServer</li>
-<li><input checked="" disabled="" type="checkbox"> PostgreSQL</li>
-<li><input checked="" disabled="" type="checkbox"> Cache DB（2016）</li>
-<li><input checked="" disabled="" type="checkbox"> Cache DB（2016）</li>
-<li><input disabled="" type="checkbox"> H2（开发中）</li>
-<li><input disabled="" type="checkbox"> DB2（开发中）</li>
-<li><input disabled="" type="checkbox"> HSQL（开发中）</li>
-<li><input disabled="" type="checkbox"> SQLite（开发中）</li>
-<li><input disabled="" type="checkbox"> 瀚高（开发中）</li>
-<li><input disabled="" type="checkbox"> 达梦（开发中）</li>
-<li><input disabled="" type="checkbox"> 虚谷（开发中）</li>
-</ul>
-<ul>
-<li><input disabled="" type="checkbox"> 人大金仓（开发中）</li>
-</ul>
-<h2 id="生成文档格式支持"><a href="#生成文档格式支持" class="headerlink" title="生成文档格式支持"></a>生成文档格式支持</h2><ul>
-<li><input checked="" disabled="" type="checkbox"> hrml</li>
-<li><input checked="" disabled="" type="checkbox"> word</li>
-<li><input checked="" disabled="" type="checkbox"> markdown</li>
-</ul>
-<h2 id="文档截图"><a href="#文档截图" class="headerlink" title="文档截图"></a>文档截图</h2><ul>
-<li><p>html<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/1.45hhv3199z.jpg" alt="html-1.jpg"><br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/2.5j40z4chel.jpg" alt="html-2.jpg"></p>
-</li>
-<li><p>word<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/3.lvk59ys1v.jpg" alt="word-1.jpg"></p>
-</li>
-</ul>
-<ul>
-<li>markdown<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/4.26lb4qw1m4.jpg" alt="html-1.jpg"><br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/5.5j40z4coak.jpg" alt="html-2.jpg"></li>
-</ul>
-<h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><h3 id="1、普通方式"><a href="#1、普通方式" class="headerlink" title="1、普通方式"></a>1、普通方式</h3><p>普通方式是编写执行代码调用工具类进行文档生成<br>添加依赖，检查是否最新版本，连接地址-&gt; <a href="https://mvnrepository.com/artifact/cn.smallbun.screw/screw-core">最新版本</a></p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--螺丝钉 数据库文档生成工具--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/cn.smallbun.screw/screw-core --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cn.smallbun.screw<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>screw-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.yc.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.Configuration;</span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.engine.EngineConfig;</span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.engine.EngineFileType;</span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.engine.EngineTemplateType;</span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.execute.DocumentationExecute;</span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.process.ProcessConfig;</span><br><span class="line"><span class="keyword">import</span> com.zaxxer.hikari.HikariConfig;</span><br><span class="line"><span class="keyword">import</span> com.zaxxer.hikari.HikariDataSource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.sql.DataSource;</span><br><span class="line"><span class="keyword">import</span> java.time.LocalDateTime;</span><br><span class="line"><span class="keyword">import</span> java.time.format.DateTimeFormatter;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GenerateDataDoc</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 文档生成</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">documentGeneration</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//数据源</span></span><br><span class="line">        <span class="type">HikariConfig</span> <span class="variable">hikariConfig</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HikariConfig</span>();</span><br><span class="line">        hikariConfig.setDriverClassName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>);</span><br><span class="line">        hikariConfig.setJdbcUrl(<span class="string">&quot;jdbc:mysql://localhost:3306/platform?characterEncoding=UTF-8&quot;</span>);</span><br><span class="line">        hikariConfig.setUsername(<span class="string">&quot;root&quot;</span>);</span><br><span class="line">        hikariConfig.setPassword(<span class="string">&quot;root&quot;</span>);</span><br><span class="line">        <span class="comment">//设置可以获取tables remarks信息</span></span><br><span class="line">        hikariConfig.addDataSourceProperty(<span class="string">&quot;useInformationSchema&quot;</span>, <span class="string">&quot;true&quot;</span>);</span><br><span class="line">        hikariConfig.setMinimumIdle(<span class="number">2</span>);</span><br><span class="line">        hikariConfig.setMaximumPoolSize(<span class="number">5</span>);</span><br><span class="line">        <span class="type">DataSource</span> <span class="variable">dataSource</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HikariDataSource</span>(hikariConfig);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//生成配置</span></span><br><span class="line">        <span class="type">EngineConfig</span> <span class="variable">engineConfig</span> <span class="operator">=</span> EngineConfig.builder()</span><br><span class="line">                <span class="comment">//生成文件路径</span></span><br><span class="line">                .fileOutputDir(<span class="string">&quot;D:\\dataBaseDoc\\&quot;</span>)</span><br><span class="line">                <span class="comment">//打开目录</span></span><br><span class="line">                .openOutputDir(<span class="literal">true</span>)</span><br><span class="line">                <span class="comment">//文件类型</span></span><br><span class="line">                .fileType(EngineFileType.MD)</span><br><span class="line">                <span class="comment">//生成模板实现</span></span><br><span class="line">                .produceType(EngineTemplateType.freemarker)</span><br><span class="line">                <span class="comment">//自定义文件名称</span></span><br><span class="line">                .fileName(<span class="string">&quot;AYN-platform&quot;</span>).build();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//忽略表</span></span><br><span class="line">        ArrayList&lt;String&gt; ignoreTableName = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        ignoreTableName.add(<span class="string">&quot;test_user&quot;</span>);</span><br><span class="line">        ignoreTableName.add(<span class="string">&quot;test_group&quot;</span>);</span><br><span class="line">        <span class="comment">//忽略表前缀</span></span><br><span class="line">        ArrayList&lt;String&gt; ignorePrefix = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        ignorePrefix.add(<span class="string">&quot;test_&quot;</span>);</span><br><span class="line">        <span class="comment">//忽略表后缀</span></span><br><span class="line">        ArrayList&lt;String&gt; ignoreSuffix = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        ignoreSuffix.add(<span class="string">&quot;_test&quot;</span>);</span><br><span class="line">        <span class="type">ProcessConfig</span> <span class="variable">processConfig</span> <span class="operator">=</span> ProcessConfig.builder()</span><br><span class="line">                <span class="comment">//指定生成逻辑、当存在指定表、指定表前缀、指定表后缀时，将生成指定表，其余表不生成、并跳过忽略表配置</span></span><br><span class="line">                <span class="comment">//根据名称指定表生成</span></span><br><span class="line">                .designatedTableName(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;())</span><br><span class="line">                <span class="comment">//根据表前缀生成</span></span><br><span class="line">                .designatedTablePrefix(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;())</span><br><span class="line">                <span class="comment">//根据表后缀生成</span></span><br><span class="line">                .designatedTableSuffix(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;())</span><br><span class="line">                <span class="comment">//忽略表名</span></span><br><span class="line">                .ignoreTableName(ignoreTableName)</span><br><span class="line">                <span class="comment">//忽略表前缀</span></span><br><span class="line">                .ignoreTablePrefix(ignorePrefix)</span><br><span class="line">                <span class="comment">//忽略表后缀</span></span><br><span class="line">                .ignoreTableSuffix(ignoreSuffix).build();</span><br><span class="line">        <span class="comment">//配置</span></span><br><span class="line">        <span class="type">DateTimeFormatter</span> <span class="variable">df</span> <span class="operator">=</span> DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">nowDate</span> <span class="operator">=</span> LocalDateTime.now().format(df);</span><br><span class="line">        <span class="type">Configuration</span> <span class="variable">config</span> <span class="operator">=</span> Configuration.builder()</span><br><span class="line">                <span class="comment">//版本</span></span><br><span class="line">                .version(<span class="string">&quot;1.0.0&quot;</span>)</span><br><span class="line">                <span class="comment">//描述</span></span><br><span class="line">                .description(<span class="string">&quot;platform数据库设计文档生成-&quot;</span> + nowDate)</span><br><span class="line">                <span class="comment">//数据源</span></span><br><span class="line">                .dataSource(dataSource)</span><br><span class="line">                <span class="comment">//生成配置</span></span><br><span class="line">                .engineConfig(engineConfig)</span><br><span class="line">                <span class="comment">//生成配置</span></span><br><span class="line">                .produceConfig(processConfig)</span><br><span class="line">                .build();</span><br><span class="line">        <span class="comment">//执行生成</span></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">DocumentationExecute</span>(config).execute();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="2、Maven插件方式"><a href="#2、Maven插件方式" class="headerlink" title="2、Maven插件方式"></a>2、Maven插件方式</h3><p>使用Maven插件执行生成数据库文档<br>pom文件配置</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cn.smallbun.screw<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>screw-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;lastVersion&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- HikariCP --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.zaxxer<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>HikariCP<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.4.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--mysql driver--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">version</span>&gt;</span>8.0.20<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--username--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">username</span>&gt;</span>root<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--password--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">password</span>&gt;</span>password<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--driver--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">driverClassName</span>&gt;</span>com.mysql.cj.jdbc.Driver<span class="tag">&lt;/<span class="name">driverClassName</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--jdbc url--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">jdbcUrl</span>&gt;</span>jdbc:mysql://127.0.0.1:3306/xxxx<span class="tag">&lt;/<span class="name">jdbcUrl</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--生成文件类型--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">fileType</span>&gt;</span>HTML<span class="tag">&lt;/<span class="name">fileType</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--打开文件输出目录--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">openOutputDir</span>&gt;</span>false<span class="tag">&lt;/<span class="name">openOutputDir</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--生成模板--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">produceType</span>&gt;</span>freemarker<span class="tag">&lt;/<span class="name">produceType</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--文档名称 为空时:将采用[数据库名称-描述-版本号]作为文档名称--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">fileName</span>&gt;</span>测试文档名称<span class="tag">&lt;/<span class="name">fileName</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--描述--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">description</span>&gt;</span>数据库文档生成<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--版本--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;project.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--标题--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">title</span>&gt;</span>数据库文档<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">phase</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">goal</span>&gt;</span>run<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>配置完成后在 maven project-&gt;screw双击执行<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/6.4uarf52fba.jpg" alt="6.jpg"></p>
-<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>文档工具 screw <a href="https://github.com/pingfangushi/screw">https://github.com/pingfangushi/screw</a></p>
-]]></content>
-      <categories>
-        <category>JAVA</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>spring循环引用</title>
-    <url>/2021/06/03/hello-world/</url>
-    <content><![CDATA[<h1 id="spring源码（一）spring循环引用"><a href="#spring源码（一）spring循环引用" class="headerlink" title="spring源码（一）spring循环引用"></a>spring源码（一）spring循环引用</h1><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c51742c7390f4b18b17450540e177d40~tplv-k3u1fbpfcp-zoom-crop-mark:1512:1512:1512:851.awebp" alt="spring源码（一）spring循环引用"></p>
-<h2 id="spring在默认单例的情况下是支持循环引用的"><a href="#spring在默认单例的情况下是支持循环引用的" class="headerlink" title="spring在默认单例的情况下是支持循环引用的"></a>spring在默认单例的情况下是支持循环引用的</h2><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59d767659456403ca508bf2501241ee8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="1.png"></p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee8324aeed0c45dab44388e37281416f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="2.png"></p>
-<p>上图这两个类相互引用了对方（循环依赖）spring在单例、非构造方法注入的情况下是允许这样的循环依赖 上面的代码可以正常输出 从容器中可以获取到Xbean Ybean</p>
-<h2 id="Spring的循环依赖可以关闭"><a href="#Spring的循环依赖可以关闭" class="headerlink" title="Spring的循环依赖可以关闭"></a>Spring的循环依赖可以关闭</h2><p>1、spring提供的APi</p>
-<p>2、修改源码</p>
-<p>循环依赖无非就是属性注入</p>
-<p>spring的属性注入属于Spring bean的生命周期的一部分</p>
-<h2 id="两个相关概念："><a href="#两个相关概念：" class="headerlink" title="两个相关概念："></a>两个相关概念：</h2><p>1、spring bean——受spring容器管理的对象，可能经过了完整的spring生命周期（为什么是可能？难道还有bean是没有经过bean生命周期的？答案是有的），最终存在spring容器当中；一个bean一定是个对象。</p>
-<p>2、对象——任何符合java语法规则实例化出来的对象，一个对象并不一定是spring bean 所谓bean的生命周期就是磁盘上的类通过扫描，然后实例化，跟着初始化，继而放到容器当中的过程。</p>
-<h2 id="spring-bean的生命周期经历步骤"><a href="#spring-bean的生命周期经历步骤" class="headerlink" title="spring bean的生命周期经历步骤"></a>spring bean的生命周期经历步骤</h2><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/affea5305668421dbf4a3c0c7535aaf3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="3.png"></p>
-<p>1：实例化一个ApplicationContext的对象；</p>
-<p>2：调用bean工厂后置处理器完成扫描；</p>
-<p>3：循环解析扫描出来的类信息；</p>
-<p>4：实例化一个BeanDefinition对象来存储解析出来的信息；</p>
-<p>5：把实例化好的beanDefinition对象put到beanDefinitionMap当中缓存起来，以便后面实例化bean；</p>
-<p>6：再次调用bean工厂后置处理器；</p>
-<p>7：当然spring还会干很多事情，比如国际化，比如注册BeanPostProcessor等等，如果我们只关心如何实例化一个bean的话那么这一步就是spring调用finishBeanFactoryInitialization方法来实例化单例的bean，实例化之前spring要做验证，需要遍历所有扫描出来的类，依次判断这个bean是否Lazy，是否prototype，是否abstract等等；</p>
-<p>8：如果验证完成spring在实例化一个bean之前需要推断构造方法，因为spring实例化对象是通过构造方法反射，故而需要知道用哪个构造方法；</p>
-<p>9：推断完构造方法之后spring调用构造方法反射实例化一个对象；注意这里说的是对象、对象、对象；这个时候对象已经实例化出来了，但是并不是一个完整的bean，最简单的体现是这个时候实例化出来的对象属性是没有注入，所以不是一个完整的bean；</p>
-<p>10：spring处理合并后的beanDefinition(合并？是spring当中非常重要的一块内容，后面会分析)；</p>
-<p>11：判断是否支持循环依赖，如果支持则提前把一个工厂存入singletonFactories——map；</p>
-<p>12：判断是否需要完成属性注入</p>
-<p>13：如果需要完成属性注入，则开始注入属性</p>
-<p>14：判断bean的类型回调Aware接口</p>
-<p>15：调用生命周期回调方法</p>
-<p>16：如果需要代理则完成代理</p>
-<p>17：put到单例池——bean完成——存在spring容器当中</p>
-<h2 id="spring大概在什么时候实例化bean的"><a href="#spring大概在什么时候实例化bean的" class="headerlink" title="spring大概在什么时候实例化bean的"></a>spring大概在什么时候实例化bean的</h2><p>spring在AbstractApplicationContext#finishBeanFactoryInitialization方法中完成了bean的实例化。这点需要记住</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6925e0a51b2c4361889b41137d0cce85~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="4.png"></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/035db7616b2b4e0da7e5f935f0924893~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="5.png"></p>
-<h2 id="spring-bean实例化的过程理论："><a href="#spring-bean实例化的过程理论：" class="headerlink" title="spring bean实例化的过程理论："></a>spring bean实例化的过程理论：</h2><p>假设磁盘上有X、Y类，spring启动时会扫描到X、Y被加了注解（@Autowired）然后会把X、Y的class信息封装成为一个beanDefinition对象，这个beanDefinition对象包含了当前类的信息，比如当前类是不是抽象的、当前这个类的描述、当前这个类的类型、当前这个类是不是懒加载等等这些信息。封装完之后会把beanDefinition对象放到一个Map集合当中，如果有的话执行beanFactoryPostProcessor（扩展）。然后开始验证，如果验证都通过的话调用prelnstantiateSingletons方法（过程相当复杂） 开始实例化当前类，实例化之后成为一个spring bean放到单例池里面。</p>
-<h2 id="源码验证："><a href="#源码验证：" class="headerlink" title="源码验证："></a>源码验证：</h2><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/daebedcb97704baeb10c6f0740ecc997~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="6.png"></p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/60657df2ee4a40fb9f13b91622c26f1b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="7png.png"></p>
-<p>这段代码用来初始化spring容器，当这段代码执行完之后，XY已经被实例化好了</p>
-<p>debug源码找到在哪里实例化好的bean</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf9ca3c9d62745659ac18cc6b3ef345e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="8.png"></p>
-<p>beanFactory-&gt;beanDefinitionMap中还不存在x、y类</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f219fe7828044bb3a7dc18bd9529c2a7~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="9.png"></p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb93097de6e443f0a25e71f2df8526e0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="10.png"></p>
-<p>扫描具体的实现代码</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a661e87ae6614f8487a4885f964932da~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="11.png"></p>
-<p>put到beanDefinitionMap</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/704dea404eae4e8380ac156cf67ee733~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="12.png"></p>
-<p>调用太多了</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5cc9222c882c4b72a76bf23dbb5e50ea~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="13.png"></p>
-<p>看源码中在AnnotationConfigApplicationContext类的父类定义了beanFactory</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/256a90e7d578464391bce40e0100c952~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="14.png"></p>
-<p>这个beanFactory就是我们常说的spring bean工厂 它是DefaultListableBeanFactory的实例</p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a2923d464a364b6c83b9d23b0786e0ec~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="15.png"></p>
-<p>在DefaultListableBeanFactory中有一个属性叫做 beanDefinitionMap ConcurrentHashMap 1.7、1.8 解决并发</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6584d185f0214099964a86031ceee550~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="17.png"></p>
-<p>执行完invokeBeanFactoryPostProcessors方法发现beanDefinitionMap中有了x、y</p>
-<p>所以nvokeBeanFactoryPostProcessors中完成了扫描把类变成了beanDefinition对象（注意这个时候spring并没有对bean进行实例化）</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/984c5af0955345a8bb33bbdfe92d5921~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="18.png"></p>
-<p>而是在finishBeanFactoryInitialization实例化单例的bean</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f7dcd464b865439d9d928de41c3daf93~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="19.png"></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6facbd83c22e402cb7f7fe5fd89e9323~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="20.png"></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cf594a0f9ca04c91abbe1e9dfbd90463~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="21.png"></p>
-<p>BeanFactoryPostProcessors:</p>
-<p>bean工厂后置处理器 能够干扰spring当中bean工厂初始化过程？</p>
-<p>扩展：可以在初始化前后做一些事情 实现这个接口可以拿到 beanFactory可以对beanFactory做一些改变等</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d522b4806104a179a69bf40068c44c8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="22.png"></p>
-<p>重点调用：finishBeanFactoryInitialization方法中beanFactory.preInstantiateSingletons();</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10e6a1d647d4460baf7646c8301234f8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="23.png"></p>
-<p>拿到beanNames集合 为了遍历</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a0e8eddb43ef470fa4f1d2fbc470dff0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="24.png"></p>
-<h2 id="为什么要有-beanDefinition："><a href="#为什么要有-beanDefinition：" class="headerlink" title="为什么要有 beanDefinition："></a>为什么要有 beanDefinition：</h2><p>用来描述spring bean的里面包含了spring bean的所有信息（因为普通的类 不能描述 scope lazy等等等等 ） 调用到doGetBean ac.getBean其实底层就是调用这个doGetBean方法</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/27f0b3fce4154459aad07f05379f7d9b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="25.png"></p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0cd7191344db4802a5ae6f6665e407d2~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="26.png"></p>
-<p>singletonObjects:单例池</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b7c48b4311f427eb5e12332658041d3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="27.png"></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/21856b5ac9f44db785f88ba9babcfe00~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="28.png"></p>
-<p>创建bean之前的关键代码</p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29da1c5cece34fdbb921ee1ba012909e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="29.png"></p>
-<p>singletonsCurrentlyInCreation 正在创建的单例bean的名字集合 放在这个集合当中</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc489d6b97d141d7aa8afb69c1bd81f4~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="30.png"></p>
-<p>关键代码 调用传过来的 ObjectFactory&lt;?&gt; singletonFactory的方法 lambda</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4aaa5d3a07f440d790020426c9124b10~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="31.png"></p>
-<p>再往下执行调到这里</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7631282aa0e4458f915db440a0cc39a0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="32.png"></p>
-<p>到此bean 还没有被创建</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fb11cdf96e664f74bf0a9628806d5d93~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="33.png"></p>
-<p>创建对象</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/632a136d4d62449c832a60e07318cd3f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="34.png"></p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46b1e0b283b443acbe9eefa3e234c6f7~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="35.png"></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b4b3a17c64924ead968cb41188e8f99e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="36.png"></p>
-<p>依次进入方法内部 <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cca5d717d1e94ab290daa838a9bbc7d6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="37.png"></p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f43ccb86709d4c54b6d8fbde05628656~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="38.png"></p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f5709f0f58b341ba824b38f349b2e88b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="39.png"></p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84af71355d3e4b38bab67e3bb03e0320~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="40.png"></p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c055d70c6d8949e2861d00ff36d2497f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="41.png"></p>
-<p>这个时候只是实例化出来了对象还不是一个bean</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb64638cd8724ffa857b9d4330653447~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="42.png"></p>
-<p>判断支持循环依赖 allowCircularReferences默认等于true</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/69459684f772461f886a39ffabd7735a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="43.png"></p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/767662e5f5fe41df83859c36f9c70ef7~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="44.png"></p>
-<p>spring处理循环依赖时候涉及的三个Map</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/315d38cf77fc473a9a7ec1381a25156d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="45.png"></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/165c59d251f5436a94383d4e965fa7e8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="46.png"></p>
-<p>执行完这个方法后注入的属性有值了</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a083393f8c1f4cbea875045b310deb9c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="47.png"></p>
-<p>接下来调用initializeBean这个方法</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84b8275a04b64d5591878d9c5435d88d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="48.png"></p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b36e7b52d4dd4c11a1f678527700663a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="49.png"></p>
-<p>//执行部分Aware接口</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c933192af5c5426c928353c13f84edcf~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="50.png"></p>
-<p>生命周期方法的回调</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a022dbb0c69c40ccaf2933357b34a293~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="51.png"></p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3372b097bed2426990186344b6a14940~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="52.png"></p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/36bee3d9b00c404aa4608ee82d95986d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="53.png"></p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d0d7660fa37b4f0e94a6d0e72e2720cd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="54.png"></p>
-<p>生命周期回调初始化方法有三种实现方式 可以同时存在一个bean当中</p>
-<p>因为在源码中执行时机是不一样的</p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9d12aeac1720444fa1a8c737bf2a4249~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="55.png"></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84508d3d66414e86b0a1c85959a4221d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="56.png"></p>
-<p>spring bean的生命周期 调用过程</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e5ce745f277446eda1c357cff391ae76~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="57.png"></p>
-<p>会按照字母顺序创建(可以更改)</p>
-<p>循环依赖！</p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89a035e95b2b4d66996a208bec8e59a9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="58.png"></p>
-<p>x属性注入 填充y 调到了doGetBean(“y”) 肯定拿不到</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06298c5dee864991849fc1ede0130100~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="59.png"></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f71fed3e5f674fec998b3dc44ae9ecde~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="60.png"></p>
-<p>正在创建x的过程当中创建y所以singletonsCurrentlyInCreation有x</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a01d15ce8a3409a9579519ced56875c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="61.png"></p>
-<p>X和Y正在被创建的过程当中</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/486d32de4dd84e0c96fedd442fb8f3fd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="62.png"></p>
-<p>执行这个方法之前y还没有别创建 一旦执行完 控制台打印y</p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97f86535d9d843e38d54f3ec7043e9c6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="63.png"></p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/02225196d66340ffb509dfb161429830~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="64.png"></p>
-<p>这个时候y要注入x所以回去getBean(“x”)</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e0471ee253774f7dbf26163cdd2e37d8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="65.png"></p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f51194ce80642d8954e086740100ffa~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="66.png"></p>
-<p>关键代码： 这个时候返回的肯定不能是null如果返回null的话就成了死循环了 又会去走创建x的步骤</p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1c7f12f69244fd3b7d3e75ab22e48d9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="67.png"></p>
-<p>（从单例池当中去拿x但是 x也肯定不在单例池当中因为它没有走完bean的生命周期）</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/71be49cf874f4c69ae55ac5042f1e2bf~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="68.png"></p>
-<p>getSingleton源码 注意第二个参数写死了true</p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/52dbafaa8d2b43f3bafeae87093dee47~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="69.png"></p>
-<p>单例池——一级缓存主要存放单例bean （所谓的容器）</p>
-<p>现在去从单例池当中去拿x 拿不到 返回 null</p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/80edca051bf6491681b5891cb8af57f8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="70.png"></p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6fd8d521ef644ab9bd7fe10187362937~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="71.png"></p>
-<p>这里判断x是不是正在被创建 true</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2aea760eaab4499ca4c0f9641f468c97~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="72.png"></p>
-<p>这里还是拿不到 原因很简单，因为前面根本就没有网这个map三级缓存中放入</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3ba42a9b448b4d928bb8f09c56a952a5~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="73.png"></p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89c02c94422e4dec97b0b0d63135450c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="74.png"></p>
-<p>这里肯定成立</p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a68ed83249f4e51a54c1eab7aa652cf~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="75.png"></p>
-<p>这个地方可以拿到 但是这个不是x类型 它是Factory</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3514dfaa7bc461ba46df2e686b418b3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="76.png"></p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/91b66bb704de422a9f96a61293a3283b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="77.png"></p>
-<p>问题： 1、工厂怎么来的？</p>
-<p>2、为什么不直接在二级缓存中存一个x，而要存一个工厂？</p>
-<p>3、x和工厂怎么联系起来？</p>
-<p>4、工厂造出来的x和正在创建的x是同一个吗 ？ 是同一个</p>
-<p>5、如果不是循环依赖的bean会不会执行三级缓存 ？ 答： 不会</p>
-<p>回答1：与bean的生命周期有关，下图</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/17bbe9955181492fa98b97eb11b0916e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="78.png"></p>
-<p>回答2：</p>
-<p>因为spring如果直接把x存进二级缓存，那么在y注入x的时候，需要的x不是当前存进去的x</p>
-<p>解释：存工厂可以产生任何对象，比存一个对象更加丰富 可以对x进行加工</p>
-<p>回答三：</p>
-<p>先把x传进去，然后增强，返回出来</p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2229f1aa5e104fc2b02098accbebf9eb~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="79.png"></p>
-<p>回答四： 默认是同一个</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eebe83be86a94ef3ab341db1702093a2~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="80.png"></p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c44019d268cd4c2c8b61e462c490dc24~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="81.png"></p>
-<p>为什么要添加到三级换存当中 ：把它放到三级缓存 （x依赖y，y依赖x，x依赖z，z依赖x的情况下，x就不需要重复从工厂产生了），说白了为了效率</p>
-<p>为什么要从二级缓存remove掉：为了gc 资源回收</p>
-<p>singletonsCurrentlyInCreation 这个集合80%是为了循环依赖而使用的</p>
-<p>beanDefinition A类去掉注解</p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9f7588fdb505485d9020e160aa21bbae~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="82.png"></p>
-<p>然后通过ac来获取a 肯定会报错 因为A不在spring容器当中</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/54d4b6190a53461aa3580cdf67f4cf04~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="83.png"></p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/60147a0abaa04165a6608c561cd26d86~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="84.png"></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa5ccf6e1e184f9abce637155a788b2e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="85.png"></p>
-<p>调用了程序员或者spring当中提供的所有的postProcessors</p>
-<p>//拿到spring当中所有的BeanFactoryPostProcessor对象 执行postProcessBeanDefinitionRegistry方法 完成的扫描，扫描之后就变成了beanDefinition</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa4e93993f6f49459cb6a8e631fb4ef9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="86.png"></p>
-<p>所谓的扫描就是执行spring内部的BeanFactoryPostProcessor的子类当中的postProcessBeanDefinitionRegistry方法完成的扫描</p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/423c14c5a9b14ba1a2ee3993fbcf4390~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="87.png"></p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/838ec2213a34472b83c6c8daa496bb44~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="88.png"></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/55f4f8b5242e4d38a370d8f5bc5cc704~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="89.png"></p>
-<p>怎么区分是spring内部和程序员自己提供的？</p>
-<p>找出所有实现了接口的子类，并且找了两次，代码几乎一摸一样 第一次找spring自己内部的 第二次找程序员写的</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2024cbb524e490babf3692e524487ba~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="90.png"></p>
-<p>spring 扩展点</p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3db00fed467548df88b48880bd4d88bf~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="91.png"></p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7568c4b96ee84d8a9b969899d326a601~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="92.png"></p>
-<p>比如：把class给改了 改成了A，现在就可以拿到A了 而B就拿不到了</p>
-<h1 id="写在后面："><a href="#写在后面：" class="headerlink" title="写在后面："></a>写在后面：</h1><p>我是YC一位普通的从事软件开发行业的工作者，工作了很多年第一次写的一篇技术博客。这也是我学习到的东西，做一个分享吧！再此感谢子路老师，他的源码性的东西讲的非常的深入和细致。我也是听了他的课之后做一个总结，再次感谢！</p>
-]]></content>
-      <categories>
-        <category>Spring源码</category>
-      </categories>
-      <tags>
-        <tag>Spring源码</tag>
       </tags>
   </entry>
   <entry>
@@ -1787,6 +1448,258 @@ title="MemoryDairy"><i class="anzhiyufont anzhiyu-icon-circle-arrow-right"></i><
       <tags>
         <tag>Hexo</tag>
         <tag>Tag Plugins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>更新 Anzhiyu 主题</title>
+    <url>/2024/06/12/20240607-1/</url>
+    <content><![CDATA[<h1 id="更新方法"><a href="#更新方法" class="headerlink" title="更新方法"></a>更新方法</h1><p>升级anzhiyu主题有两种方法</p>
+<ol>
+<li>通过Github或Release压缩包主题</li>
+<li>通过Npm更新主题</li>
+</ol>
+<div class="note info simple"><p>以上两种方法在选择上取决于你是使用什么方式去安装的主题，如果使用github方式使用第一种，如果使用npm进行安装的就使用第二种。我是使用github方式进行安装的所以我选择github方式进行主题更新</p>
+</div>
+
+<h2 id="Github方式"><a href="#Github方式" class="headerlink" title="Github方式"></a>Github方式</h2><div class="note blue icon-padding flat"><i class="note-icon fas fa-bullhorn"></i><p>为了避免升级失败导致博客不能正常使用，所以先进行当前主题的<mark class="hl-label blue">备份</mark> </p>
+</div>
+<ol>
+<li>将原文件夹重命名: 在我们博客项目\themes目录下的anzhiyu文件夹重命名例如<mark class="hl-label blue">anzhiyu-bk20240530</mark> <div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240612/bk.2ruzj8n885.jpg"/></div></div></li>
+<li>重新执行安装命令将最新版本的anzhiyu主题代码从github拉下来到本地<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b main https://github.com/anzhiyu-c/hexo-theme-anzhiyu.git</span><br></pre></td></tr></table></figure></li>
+</ol>
+<mark class="hl-label blue">Release</mark> ：按照安装步骤，下载 [release](https://github.com/anzhiyu-c/hexo-theme-anzhiyu/releases) 并解压重命名为 <mark class="hl-label blue">anzhiyu</mark> ；
+
+<ol start="3">
+<li>最关键的一步比对升级后的主题配置文件。</li>
+</ol>
+<div class="note blue icon-padding flat"><i class="note-icon fas fa-bullhorn"></i><p>如果某些配置发生了变化（改名或弃用），release的说明里会特别提示或给出配置文件版本对比diff，同步修改原配置文件即可</p>
+</div>
+
+<ul>
+<li>将我们博客根目录中的_config.anzhiyu.yml主题配置文件复制出来一份用于后续对别</li>
+<li>将刚才我们更新完成的anzhiyu目录下的_config.yml复制到博客根目录下重命名为_config.anzhiyu.yml</li>
+</ul>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240612/2.ibyzrkygi.jpg"/></div></div>
+
+<div class="tip success"><p>这个时候我们如果启动博客会发现博客已经更新成功，但是我们的博客内容已经被覆盖，所以接下来要进行比对配置文件将我们的内容恢复</p>
+</div>
+
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240612/diff.67xbbcjb38.jpg"/></div></div>
+
+<h2 id="Npm更新"><a href="#Npm更新" class="headerlink" title="Npm更新"></a>Npm更新</h2><p>在博客目录下执行命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm update --save hexo-theme-anzhiyu</span><br></pre></td></tr></table></figure>
+<p>同样升级后需要对比博客目录下的<mark class="hl-label blue">_config.anzhiyu.yml</mark> 配置文件和更新后的<mark class="hl-label blue">_config.yml</mark> 配置文件</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>spring循环引用</title>
+    <url>/2021/06/03/hello-world/</url>
+    <content><![CDATA[<h1 id="spring源码（一）spring循环引用"><a href="#spring源码（一）spring循环引用" class="headerlink" title="spring源码（一）spring循环引用"></a>spring源码（一）spring循环引用</h1><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c51742c7390f4b18b17450540e177d40~tplv-k3u1fbpfcp-zoom-crop-mark:1512:1512:1512:851.awebp" alt="spring源码（一）spring循环引用"></p>
+<h2 id="spring在默认单例的情况下是支持循环引用的"><a href="#spring在默认单例的情况下是支持循环引用的" class="headerlink" title="spring在默认单例的情况下是支持循环引用的"></a>spring在默认单例的情况下是支持循环引用的</h2><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59d767659456403ca508bf2501241ee8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="1.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee8324aeed0c45dab44388e37281416f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="2.png"></p>
+<p>上图这两个类相互引用了对方（循环依赖）spring在单例、非构造方法注入的情况下是允许这样的循环依赖 上面的代码可以正常输出 从容器中可以获取到Xbean Ybean</p>
+<h2 id="Spring的循环依赖可以关闭"><a href="#Spring的循环依赖可以关闭" class="headerlink" title="Spring的循环依赖可以关闭"></a>Spring的循环依赖可以关闭</h2><p>1、spring提供的APi</p>
+<p>2、修改源码</p>
+<p>循环依赖无非就是属性注入</p>
+<p>spring的属性注入属于Spring bean的生命周期的一部分</p>
+<h2 id="两个相关概念："><a href="#两个相关概念：" class="headerlink" title="两个相关概念："></a>两个相关概念：</h2><p>1、spring bean——受spring容器管理的对象，可能经过了完整的spring生命周期（为什么是可能？难道还有bean是没有经过bean生命周期的？答案是有的），最终存在spring容器当中；一个bean一定是个对象。</p>
+<p>2、对象——任何符合java语法规则实例化出来的对象，一个对象并不一定是spring bean 所谓bean的生命周期就是磁盘上的类通过扫描，然后实例化，跟着初始化，继而放到容器当中的过程。</p>
+<h2 id="spring-bean的生命周期经历步骤"><a href="#spring-bean的生命周期经历步骤" class="headerlink" title="spring bean的生命周期经历步骤"></a>spring bean的生命周期经历步骤</h2><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/affea5305668421dbf4a3c0c7535aaf3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="3.png"></p>
+<p>1：实例化一个ApplicationContext的对象；</p>
+<p>2：调用bean工厂后置处理器完成扫描；</p>
+<p>3：循环解析扫描出来的类信息；</p>
+<p>4：实例化一个BeanDefinition对象来存储解析出来的信息；</p>
+<p>5：把实例化好的beanDefinition对象put到beanDefinitionMap当中缓存起来，以便后面实例化bean；</p>
+<p>6：再次调用bean工厂后置处理器；</p>
+<p>7：当然spring还会干很多事情，比如国际化，比如注册BeanPostProcessor等等，如果我们只关心如何实例化一个bean的话那么这一步就是spring调用finishBeanFactoryInitialization方法来实例化单例的bean，实例化之前spring要做验证，需要遍历所有扫描出来的类，依次判断这个bean是否Lazy，是否prototype，是否abstract等等；</p>
+<p>8：如果验证完成spring在实例化一个bean之前需要推断构造方法，因为spring实例化对象是通过构造方法反射，故而需要知道用哪个构造方法；</p>
+<p>9：推断完构造方法之后spring调用构造方法反射实例化一个对象；注意这里说的是对象、对象、对象；这个时候对象已经实例化出来了，但是并不是一个完整的bean，最简单的体现是这个时候实例化出来的对象属性是没有注入，所以不是一个完整的bean；</p>
+<p>10：spring处理合并后的beanDefinition(合并？是spring当中非常重要的一块内容，后面会分析)；</p>
+<p>11：判断是否支持循环依赖，如果支持则提前把一个工厂存入singletonFactories——map；</p>
+<p>12：判断是否需要完成属性注入</p>
+<p>13：如果需要完成属性注入，则开始注入属性</p>
+<p>14：判断bean的类型回调Aware接口</p>
+<p>15：调用生命周期回调方法</p>
+<p>16：如果需要代理则完成代理</p>
+<p>17：put到单例池——bean完成——存在spring容器当中</p>
+<h2 id="spring大概在什么时候实例化bean的"><a href="#spring大概在什么时候实例化bean的" class="headerlink" title="spring大概在什么时候实例化bean的"></a>spring大概在什么时候实例化bean的</h2><p>spring在AbstractApplicationContext#finishBeanFactoryInitialization方法中完成了bean的实例化。这点需要记住</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6925e0a51b2c4361889b41137d0cce85~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="4.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/035db7616b2b4e0da7e5f935f0924893~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="5.png"></p>
+<h2 id="spring-bean实例化的过程理论："><a href="#spring-bean实例化的过程理论：" class="headerlink" title="spring bean实例化的过程理论："></a>spring bean实例化的过程理论：</h2><p>假设磁盘上有X、Y类，spring启动时会扫描到X、Y被加了注解（@Autowired）然后会把X、Y的class信息封装成为一个beanDefinition对象，这个beanDefinition对象包含了当前类的信息，比如当前类是不是抽象的、当前这个类的描述、当前这个类的类型、当前这个类是不是懒加载等等这些信息。封装完之后会把beanDefinition对象放到一个Map集合当中，如果有的话执行beanFactoryPostProcessor（扩展）。然后开始验证，如果验证都通过的话调用prelnstantiateSingletons方法（过程相当复杂） 开始实例化当前类，实例化之后成为一个spring bean放到单例池里面。</p>
+<h2 id="源码验证："><a href="#源码验证：" class="headerlink" title="源码验证："></a>源码验证：</h2><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/daebedcb97704baeb10c6f0740ecc997~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="6.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/60657df2ee4a40fb9f13b91622c26f1b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="7png.png"></p>
+<p>这段代码用来初始化spring容器，当这段代码执行完之后，XY已经被实例化好了</p>
+<p>debug源码找到在哪里实例化好的bean</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf9ca3c9d62745659ac18cc6b3ef345e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="8.png"></p>
+<p>beanFactory-&gt;beanDefinitionMap中还不存在x、y类</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f219fe7828044bb3a7dc18bd9529c2a7~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="9.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb93097de6e443f0a25e71f2df8526e0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="10.png"></p>
+<p>扫描具体的实现代码</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a661e87ae6614f8487a4885f964932da~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="11.png"></p>
+<p>put到beanDefinitionMap</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/704dea404eae4e8380ac156cf67ee733~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="12.png"></p>
+<p>调用太多了</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5cc9222c882c4b72a76bf23dbb5e50ea~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="13.png"></p>
+<p>看源码中在AnnotationConfigApplicationContext类的父类定义了beanFactory</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/256a90e7d578464391bce40e0100c952~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="14.png"></p>
+<p>这个beanFactory就是我们常说的spring bean工厂 它是DefaultListableBeanFactory的实例</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a2923d464a364b6c83b9d23b0786e0ec~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="15.png"></p>
+<p>在DefaultListableBeanFactory中有一个属性叫做 beanDefinitionMap ConcurrentHashMap 1.7、1.8 解决并发</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6584d185f0214099964a86031ceee550~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="17.png"></p>
+<p>执行完invokeBeanFactoryPostProcessors方法发现beanDefinitionMap中有了x、y</p>
+<p>所以nvokeBeanFactoryPostProcessors中完成了扫描把类变成了beanDefinition对象（注意这个时候spring并没有对bean进行实例化）</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/984c5af0955345a8bb33bbdfe92d5921~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="18.png"></p>
+<p>而是在finishBeanFactoryInitialization实例化单例的bean</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f7dcd464b865439d9d928de41c3daf93~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="19.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6facbd83c22e402cb7f7fe5fd89e9323~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="20.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cf594a0f9ca04c91abbe1e9dfbd90463~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="21.png"></p>
+<p>BeanFactoryPostProcessors:</p>
+<p>bean工厂后置处理器 能够干扰spring当中bean工厂初始化过程？</p>
+<p>扩展：可以在初始化前后做一些事情 实现这个接口可以拿到 beanFactory可以对beanFactory做一些改变等</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d522b4806104a179a69bf40068c44c8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="22.png"></p>
+<p>重点调用：finishBeanFactoryInitialization方法中beanFactory.preInstantiateSingletons();</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10e6a1d647d4460baf7646c8301234f8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="23.png"></p>
+<p>拿到beanNames集合 为了遍历</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a0e8eddb43ef470fa4f1d2fbc470dff0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="24.png"></p>
+<h2 id="为什么要有-beanDefinition："><a href="#为什么要有-beanDefinition：" class="headerlink" title="为什么要有 beanDefinition："></a>为什么要有 beanDefinition：</h2><p>用来描述spring bean的里面包含了spring bean的所有信息（因为普通的类 不能描述 scope lazy等等等等 ） 调用到doGetBean ac.getBean其实底层就是调用这个doGetBean方法</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/27f0b3fce4154459aad07f05379f7d9b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="25.png"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0cd7191344db4802a5ae6f6665e407d2~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="26.png"></p>
+<p>singletonObjects:单例池</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b7c48b4311f427eb5e12332658041d3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="27.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/21856b5ac9f44db785f88ba9babcfe00~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="28.png"></p>
+<p>创建bean之前的关键代码</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29da1c5cece34fdbb921ee1ba012909e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="29.png"></p>
+<p>singletonsCurrentlyInCreation 正在创建的单例bean的名字集合 放在这个集合当中</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc489d6b97d141d7aa8afb69c1bd81f4~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="30.png"></p>
+<p>关键代码 调用传过来的 ObjectFactory&lt;?&gt; singletonFactory的方法 lambda</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4aaa5d3a07f440d790020426c9124b10~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="31.png"></p>
+<p>再往下执行调到这里</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7631282aa0e4458f915db440a0cc39a0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="32.png"></p>
+<p>到此bean 还没有被创建</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fb11cdf96e664f74bf0a9628806d5d93~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="33.png"></p>
+<p>创建对象</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/632a136d4d62449c832a60e07318cd3f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="34.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46b1e0b283b443acbe9eefa3e234c6f7~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="35.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b4b3a17c64924ead968cb41188e8f99e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="36.png"></p>
+<p>依次进入方法内部 <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cca5d717d1e94ab290daa838a9bbc7d6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="37.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f43ccb86709d4c54b6d8fbde05628656~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="38.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f5709f0f58b341ba824b38f349b2e88b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="39.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84af71355d3e4b38bab67e3bb03e0320~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="40.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c055d70c6d8949e2861d00ff36d2497f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="41.png"></p>
+<p>这个时候只是实例化出来了对象还不是一个bean</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb64638cd8724ffa857b9d4330653447~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="42.png"></p>
+<p>判断支持循环依赖 allowCircularReferences默认等于true</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/69459684f772461f886a39ffabd7735a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="43.png"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/767662e5f5fe41df83859c36f9c70ef7~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="44.png"></p>
+<p>spring处理循环依赖时候涉及的三个Map</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/315d38cf77fc473a9a7ec1381a25156d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="45.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/165c59d251f5436a94383d4e965fa7e8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="46.png"></p>
+<p>执行完这个方法后注入的属性有值了</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a083393f8c1f4cbea875045b310deb9c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="47.png"></p>
+<p>接下来调用initializeBean这个方法</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84b8275a04b64d5591878d9c5435d88d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="48.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b36e7b52d4dd4c11a1f678527700663a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="49.png"></p>
+<p>//执行部分Aware接口</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c933192af5c5426c928353c13f84edcf~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="50.png"></p>
+<p>生命周期方法的回调</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a022dbb0c69c40ccaf2933357b34a293~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="51.png"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3372b097bed2426990186344b6a14940~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="52.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/36bee3d9b00c404aa4608ee82d95986d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="53.png"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d0d7660fa37b4f0e94a6d0e72e2720cd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="54.png"></p>
+<p>生命周期回调初始化方法有三种实现方式 可以同时存在一个bean当中</p>
+<p>因为在源码中执行时机是不一样的</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9d12aeac1720444fa1a8c737bf2a4249~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="55.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84508d3d66414e86b0a1c85959a4221d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="56.png"></p>
+<p>spring bean的生命周期 调用过程</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e5ce745f277446eda1c357cff391ae76~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="57.png"></p>
+<p>会按照字母顺序创建(可以更改)</p>
+<p>循环依赖！</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89a035e95b2b4d66996a208bec8e59a9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="58.png"></p>
+<p>x属性注入 填充y 调到了doGetBean(“y”) 肯定拿不到</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06298c5dee864991849fc1ede0130100~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="59.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f71fed3e5f674fec998b3dc44ae9ecde~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="60.png"></p>
+<p>正在创建x的过程当中创建y所以singletonsCurrentlyInCreation有x</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a01d15ce8a3409a9579519ced56875c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="61.png"></p>
+<p>X和Y正在被创建的过程当中</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/486d32de4dd84e0c96fedd442fb8f3fd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="62.png"></p>
+<p>执行这个方法之前y还没有别创建 一旦执行完 控制台打印y</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97f86535d9d843e38d54f3ec7043e9c6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="63.png"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/02225196d66340ffb509dfb161429830~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="64.png"></p>
+<p>这个时候y要注入x所以回去getBean(“x”)</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e0471ee253774f7dbf26163cdd2e37d8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="65.png"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f51194ce80642d8954e086740100ffa~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="66.png"></p>
+<p>关键代码： 这个时候返回的肯定不能是null如果返回null的话就成了死循环了 又会去走创建x的步骤</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1c7f12f69244fd3b7d3e75ab22e48d9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="67.png"></p>
+<p>（从单例池当中去拿x但是 x也肯定不在单例池当中因为它没有走完bean的生命周期）</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/71be49cf874f4c69ae55ac5042f1e2bf~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="68.png"></p>
+<p>getSingleton源码 注意第二个参数写死了true</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/52dbafaa8d2b43f3bafeae87093dee47~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="69.png"></p>
+<p>单例池——一级缓存主要存放单例bean （所谓的容器）</p>
+<p>现在去从单例池当中去拿x 拿不到 返回 null</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/80edca051bf6491681b5891cb8af57f8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="70.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6fd8d521ef644ab9bd7fe10187362937~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="71.png"></p>
+<p>这里判断x是不是正在被创建 true</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2aea760eaab4499ca4c0f9641f468c97~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="72.png"></p>
+<p>这里还是拿不到 原因很简单，因为前面根本就没有网这个map三级缓存中放入</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3ba42a9b448b4d928bb8f09c56a952a5~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="73.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89c02c94422e4dec97b0b0d63135450c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="74.png"></p>
+<p>这里肯定成立</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a68ed83249f4e51a54c1eab7aa652cf~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="75.png"></p>
+<p>这个地方可以拿到 但是这个不是x类型 它是Factory</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3514dfaa7bc461ba46df2e686b418b3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="76.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/91b66bb704de422a9f96a61293a3283b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="77.png"></p>
+<p>问题： 1、工厂怎么来的？</p>
+<p>2、为什么不直接在二级缓存中存一个x，而要存一个工厂？</p>
+<p>3、x和工厂怎么联系起来？</p>
+<p>4、工厂造出来的x和正在创建的x是同一个吗 ？ 是同一个</p>
+<p>5、如果不是循环依赖的bean会不会执行三级缓存 ？ 答： 不会</p>
+<p>回答1：与bean的生命周期有关，下图</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/17bbe9955181492fa98b97eb11b0916e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="78.png"></p>
+<p>回答2：</p>
+<p>因为spring如果直接把x存进二级缓存，那么在y注入x的时候，需要的x不是当前存进去的x</p>
+<p>解释：存工厂可以产生任何对象，比存一个对象更加丰富 可以对x进行加工</p>
+<p>回答三：</p>
+<p>先把x传进去，然后增强，返回出来</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2229f1aa5e104fc2b02098accbebf9eb~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="79.png"></p>
+<p>回答四： 默认是同一个</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eebe83be86a94ef3ab341db1702093a2~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="80.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c44019d268cd4c2c8b61e462c490dc24~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="81.png"></p>
+<p>为什么要添加到三级换存当中 ：把它放到三级缓存 （x依赖y，y依赖x，x依赖z，z依赖x的情况下，x就不需要重复从工厂产生了），说白了为了效率</p>
+<p>为什么要从二级缓存remove掉：为了gc 资源回收</p>
+<p>singletonsCurrentlyInCreation 这个集合80%是为了循环依赖而使用的</p>
+<p>beanDefinition A类去掉注解</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9f7588fdb505485d9020e160aa21bbae~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="82.png"></p>
+<p>然后通过ac来获取a 肯定会报错 因为A不在spring容器当中</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/54d4b6190a53461aa3580cdf67f4cf04~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="83.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/60147a0abaa04165a6608c561cd26d86~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="84.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa5ccf6e1e184f9abce637155a788b2e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="85.png"></p>
+<p>调用了程序员或者spring当中提供的所有的postProcessors</p>
+<p>//拿到spring当中所有的BeanFactoryPostProcessor对象 执行postProcessBeanDefinitionRegistry方法 完成的扫描，扫描之后就变成了beanDefinition</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa4e93993f6f49459cb6a8e631fb4ef9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="86.png"></p>
+<p>所谓的扫描就是执行spring内部的BeanFactoryPostProcessor的子类当中的postProcessBeanDefinitionRegistry方法完成的扫描</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/423c14c5a9b14ba1a2ee3993fbcf4390~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="87.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/838ec2213a34472b83c6c8daa496bb44~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="88.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/55f4f8b5242e4d38a370d8f5bc5cc704~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="89.png"></p>
+<p>怎么区分是spring内部和程序员自己提供的？</p>
+<p>找出所有实现了接口的子类，并且找了两次，代码几乎一摸一样 第一次找spring自己内部的 第二次找程序员写的</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2024cbb524e490babf3692e524487ba~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="90.png"></p>
+<p>spring 扩展点</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3db00fed467548df88b48880bd4d88bf~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="91.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7568c4b96ee84d8a9b969899d326a601~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="92.png"></p>
+<p>比如：把class给改了 改成了A，现在就可以拿到A了 而B就拿不到了</p>
+<h1 id="写在后面："><a href="#写在后面：" class="headerlink" title="写在后面："></a>写在后面：</h1><p>我是YC一位普通的从事软件开发行业的工作者，工作了很多年第一次写的一篇技术博客。这也是我学习到的东西，做一个分享吧！再此感谢子路老师，他的源码性的东西讲的非常的深入和细致。我也是听了他的课之后做一个总结，再次感谢！</p>
+]]></content>
+      <categories>
+        <category>Spring源码</category>
+      </categories>
+      <tags>
+        <tag>Spring源码</tag>
       </tags>
   </entry>
 </search>
