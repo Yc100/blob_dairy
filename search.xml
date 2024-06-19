@@ -86,42 +86,6 @@
       </tags>
   </entry>
   <entry>
-    <title>电信机顶盒创维E900-S刷机简易教程</title>
-    <url>/2023/06/05/20230605-1/</url>
-    <content><![CDATA[<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100 height=86 src="/download/离开北京.mp3"></iframe> -->
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;上周六宝和发小出去玩耍，一个人在家里闲来无事，打算把一直闲置的电信IPTV智能机顶盒刷下机，刷成一个全网通用的网络机顶盒，只要有无线网或者是有线网就可以正常使用，连接在显示器或电视上就可以当做智能电视来使用了。<br><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/8.1tcm7p7jozgg.jpg" alt="1.png"></p>
-<h2 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h2><ul>
-<li>螺丝刀(用于将机顶盒后盖的螺丝拧下)</li>
-<li>翘片或平头螺丝刀头(用于将机顶盒的后盖和主板撬起，因为机顶盒太小了主板卡的很牢固需要用工具来撬起来)</li>
-<li>U盘(U盘中存放刷机用到的程序和需要安装的软件)</li>
-<li>显示器、HDMI高清线(在升级后需要进行例如网络的配置所以需要有显示器)</li>
-<li>螺丝钉或者镊子或其他可以导电的物体(因为在升级过程中需要短接操作)</li>
-</ul>
-<h2 id="刷机步骤"><a href="#刷机步骤" class="headerlink" title="刷机步骤"></a>刷机步骤</h2><p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/1.55elghg8qlo0.jpg" alt="2.png"><br>首先用合适的螺丝刀将机顶盒背面的三个螺丝拧下,注意本刷机教程只适用于同型号的机顶盒，其他型号机顶盒未尝试所以不确定成功率，同型号的绝对没有问题。同型号的机顶盒背部的螺丝孔应该是有三个，如果没找到的话别着急，需要将底部的胶条撕下，螺丝孔藏在胶条下面。</p>
-<p>螺丝拆下后就需要用翘片或是平头的螺丝刀头从缝隙中一点一点将后盖撬起，这里需要用一点力，我这个设备还是很紧的。撬开后盖后就可以看到主板了<br><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/2.2gb0wyxbb78k.jpg" alt="3.png"></p>
-<p>接着还是用翘片从底部继续将主板翘起，有电源按钮的那一面是上部对着的就是底部了。这里注意主板的侧边有一跟线连着的信号接收器，它可能是粘在侧边的外壳上的所以如果粘的比较牢固的话我们需要想办法将这个接收器先与侧边的外壳分离开，可以用吹风机暖风吹一吹后在取回好取一些。总之就是在撬主板时不要将这个信号接收器给损坏了就行。撬主版时翘起来一点后可以用手将主板取出即可。</p>
-<p>然后将主板翻过来，主板的背部的这个地方就是我前面要说的短接操作</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/1685951953559.6mzi7n2beyk0.jpg" alt="4.png"></p>
-<p>刷机时需要用螺丝头或者镊子将这个两个地方抵住使主版短接从而读取U盘里的数据进行刷机和升级，我是用的镊子。</p>
-<p>将准备好的U盘格式化后把这些文件放到U盘根目录中即可，YueMe_BOX文件夹中放入你想要安装的软件，在刷机时会自动安装这些软件。<br>链接：<a href="https://pan.baidu.com/s/1HHOXbAw7ckDhPIHxxOLqlA">https://pan.baidu.com/s/1HHOXbAw7ckDhPIHxxOLqlA</a><br>提取码：wiyo</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/1685953082982.5hwkr7mt5xw0.jpg" alt="5.png"></p>
-<p>接入显示器的HDMI高清线和电源，插入已经准备好的U盘。此时应确保机顶盒的电源按钮为关闭状态。</p>
-<p>接着用小镊子抵住上面所说到的两个短接点。开机（这里我说明下点击完开机按钮会过一会才会有反应不知道是我设备的事情还是短接的问题，我第一次尝试没有成功开机后还是进入了原先的IPTV系统，不用着急多试几次，也可以尝试换用其他的类似螺丝头这样的工具多试几次一定可以）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/8.1tcm7p7jozgg.jpg" alt="6.png"></p>
-<p>此时如果成功的话会进入到下面的这个界面，说明机顶盒已经开始在刷机了，看到这个界面后就可以不用短接了，将小镊子拿下来，等待自动升级即可</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/7.2oxvjopi2du0.jpg" alt="7.png"></p>
-<p>到这个页面的话就是自动在安装已经放在YueMe_BOX文件夹下的软件了<br><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/5.ujgrictps9c.jpg" alt="8.png"></p>
-<p>安装完成<br><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/4.3naz7jwdea80.jpg" alt="9.png"></p>
-<p>剩下就可以进行网络连接然后找个视屏试看了。<br><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/3.78v7ufoxu5g0.jpg" alt="10.png"></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>不要问我北京怎么样，我只能说 去过</title>
     <url>/2023/05/27/20230601-1/</url>
     <content><![CDATA[<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100 height=86 src="/download/离开北京.mp3"></iframe> -->
@@ -185,6 +149,42 @@
       </categories>
       <tags>
         <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电信机顶盒创维E900-S刷机简易教程</title>
+    <url>/2023/06/05/20230605-1/</url>
+    <content><![CDATA[<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100 height=86 src="/download/离开北京.mp3"></iframe> -->
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;上周六宝和发小出去玩耍，一个人在家里闲来无事，打算把一直闲置的电信IPTV智能机顶盒刷下机，刷成一个全网通用的网络机顶盒，只要有无线网或者是有线网就可以正常使用，连接在显示器或电视上就可以当做智能电视来使用了。<br><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/8.1tcm7p7jozgg.jpg" alt="1.png"></p>
+<h2 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h2><ul>
+<li>螺丝刀(用于将机顶盒后盖的螺丝拧下)</li>
+<li>翘片或平头螺丝刀头(用于将机顶盒的后盖和主板撬起，因为机顶盒太小了主板卡的很牢固需要用工具来撬起来)</li>
+<li>U盘(U盘中存放刷机用到的程序和需要安装的软件)</li>
+<li>显示器、HDMI高清线(在升级后需要进行例如网络的配置所以需要有显示器)</li>
+<li>螺丝钉或者镊子或其他可以导电的物体(因为在升级过程中需要短接操作)</li>
+</ul>
+<h2 id="刷机步骤"><a href="#刷机步骤" class="headerlink" title="刷机步骤"></a>刷机步骤</h2><p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/1.55elghg8qlo0.jpg" alt="2.png"><br>首先用合适的螺丝刀将机顶盒背面的三个螺丝拧下,注意本刷机教程只适用于同型号的机顶盒，其他型号机顶盒未尝试所以不确定成功率，同型号的绝对没有问题。同型号的机顶盒背部的螺丝孔应该是有三个，如果没找到的话别着急，需要将底部的胶条撕下，螺丝孔藏在胶条下面。</p>
+<p>螺丝拆下后就需要用翘片或是平头的螺丝刀头从缝隙中一点一点将后盖撬起，这里需要用一点力，我这个设备还是很紧的。撬开后盖后就可以看到主板了<br><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/2.2gb0wyxbb78k.jpg" alt="3.png"></p>
+<p>接着还是用翘片从底部继续将主板翘起，有电源按钮的那一面是上部对着的就是底部了。这里注意主板的侧边有一跟线连着的信号接收器，它可能是粘在侧边的外壳上的所以如果粘的比较牢固的话我们需要想办法将这个接收器先与侧边的外壳分离开，可以用吹风机暖风吹一吹后在取回好取一些。总之就是在撬主板时不要将这个信号接收器给损坏了就行。撬主版时翘起来一点后可以用手将主板取出即可。</p>
+<p>然后将主板翻过来，主板的背部的这个地方就是我前面要说的短接操作</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/1685951953559.6mzi7n2beyk0.jpg" alt="4.png"></p>
+<p>刷机时需要用螺丝头或者镊子将这个两个地方抵住使主版短接从而读取U盘里的数据进行刷机和升级，我是用的镊子。</p>
+<p>将准备好的U盘格式化后把这些文件放到U盘根目录中即可，YueMe_BOX文件夹中放入你想要安装的软件，在刷机时会自动安装这些软件。<br>链接：<a href="https://pan.baidu.com/s/1HHOXbAw7ckDhPIHxxOLqlA">https://pan.baidu.com/s/1HHOXbAw7ckDhPIHxxOLqlA</a><br>提取码：wiyo</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/1685953082982.5hwkr7mt5xw0.jpg" alt="5.png"></p>
+<p>接入显示器的HDMI高清线和电源，插入已经准备好的U盘。此时应确保机顶盒的电源按钮为关闭状态。</p>
+<p>接着用小镊子抵住上面所说到的两个短接点。开机（这里我说明下点击完开机按钮会过一会才会有反应不知道是我设备的事情还是短接的问题，我第一次尝试没有成功开机后还是进入了原先的IPTV系统，不用着急多试几次，也可以尝试换用其他的类似螺丝头这样的工具多试几次一定可以）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/8.1tcm7p7jozgg.jpg" alt="6.png"></p>
+<p>此时如果成功的话会进入到下面的这个界面，说明机顶盒已经开始在刷机了，看到这个界面后就可以不用短接了，将小镊子拿下来，等待自动升级即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/7.2oxvjopi2du0.jpg" alt="7.png"></p>
+<p>到这个页面的话就是自动在安装已经放在YueMe_BOX文件夹下的软件了<br><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/5.ujgrictps9c.jpg" alt="8.png"></p>
+<p>安装完成<br><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/4.3naz7jwdea80.jpg" alt="9.png"></p>
+<p>剩下就可以进行网络连接然后找个视屏试看了。<br><img src="https://cdn.jsdelivr.net/gh/Yc100/picx-images-hosting@master/file1/3.78v7ufoxu5g0.jpg" alt="10.png"></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
       </tags>
   </entry>
   <entry>
@@ -429,115 +429,6 @@
       </categories>
       <tags>
         <tag>面试题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Photoshop快捷键</title>
-    <url>/2024/06/17/20240617-1/</url>
-    <content><![CDATA[<h2 id="1、Ctrl-T：自由变形"><a href="#1、Ctrl-T：自由变形" class="headerlink" title="1、Ctrl+T：自由变形"></a>1、Ctrl+T：自由变形</h2><div class="note no-icon flat"><p>该快捷键，主要对图层进行旋转、缩放等变形调整，同时可以拖动修改图层在画面中的位置，是极为常用的功能键。</p>
-</div>
-
-<h2 id="2、Ctrl-J：复制图层"><a href="#2、Ctrl-J：复制图层" class="headerlink" title="2、Ctrl+J：复制图层"></a>2、Ctrl+J：复制图层</h2><div class="note blue no-icon flat"><p>对图层的复制，一般的操作是通过图层菜单栏选择，或者直接在图层面板上右键单击图层的下拉菜单中选择，而“Ctrl+J”的快捷键不仅能复制图层，还能高光层、阴影层，在修图、调色、合成等设计工作中都是很常用的功能。</p>
-</div>
-
-<h2 id="3、数字键：图层不透明度变化"><a href="#3、数字键：图层不透明度变化" class="headerlink" title="3、数字键：图层不透明度变化"></a>3、数字键：图层不透明度变化</h2><div class="note pink no-icon flat"><p>在图层面板中，选中图层后，直接按数字键即可修改该图层的不透明度，1即10%，以此类推，0是100%</p>
-</div>
-
-<h2 id="4、空格键-F：更改工作区颜色"><a href="#4、空格键-F：更改工作区颜色" class="headerlink" title="4、空格键+F：更改工作区颜色"></a>4、空格键+F：更改工作区颜色</h2><div class="note red no-icon flat"><p>工作区即画布所在的地方，就是PS软件中最大的那块区域，通过改快捷键可以更改工作区的颜色，四种不同灰度的颜色，从死黑到浅黑到灰到亮灰，任君选择。</p>
-</div>
-
-<h2 id="5、F：更改屏幕显示模式"><a href="#5、F：更改屏幕显示模式" class="headerlink" title="5、F：更改屏幕显示模式"></a>5、F：更改屏幕显示模式</h2><div class="note orange no-icon flat"><p>即让PS在标准屏幕模式、带有菜单栏的全屏模式和全屏模式间切换，一般常用于欣赏作品、检查设计效果等工作环境中。</p>
-</div>
-
-<h2 id="6、TAB：工作区窗口显示-隐藏"><a href="#6、TAB：工作区窗口显示-隐藏" class="headerlink" title="6、TAB：工作区窗口显示/隐藏"></a>6、TAB：工作区窗口显示/隐藏</h2><div class="note purple no-icon flat"><p>主要作用是，让工作区全屏，只保留菜单栏，隐藏工具栏和各种面板窗口，以最大的工作区显示，以便有更大的视域来观察、设计等。</p>
-</div>
-
-<h2 id="7、Ctrl-Shift-AlT-E：盖印图层"><a href="#7、Ctrl-Shift-AlT-E：盖印图层" class="headerlink" title="7、Ctrl+Shift+AlT+E：盖印图层"></a>7、Ctrl+Shift+AlT+E：盖印图层</h2><div class="note green no-icon flat"><p>盖印图层，简单说就是将当前所有图层(及效果)合并，且生成一个全新的图层，打个比喻来说，这是一种“无损合成图层”，并不会破坏之前的任何图层，方便我们在设计中“反悔”去修改，而又能满足进一步修饰、设计的目的。</p>
-</div>
-
-
-
-<h2 id="8、Ctrl-AlT-A：选中所有图层"><a href="#8、Ctrl-AlT-A：选中所有图层" class="headerlink" title="8、Ctrl+AlT+A：选中所有图层"></a>8、Ctrl+AlT+A：选中所有图层</h2><div class="note no-icon flat"><p>按下该快捷键可以迅速选中所有图层，免去键盘(Ctrl /shift)+鼠标点击来选中图层的麻烦。需要注意的是，当文档中存在背景图层时，按下此快捷键则不会选中背景图层，只会选中除它之外的所有图层。</p>
-</div>
-
-<h2 id="9、Ctrl-G：图层编组"><a href="#9、Ctrl-G：图层编组" class="headerlink" title="9、Ctrl+G：图层编组"></a>9、Ctrl+G：图层编组</h2><div class="note blue no-icon flat"><p>在PS中，图层面板中的图层多起来的时候，合适的编组将是一个灰常好而且相当必要的习惯，这时候快捷键Ctrl+G，选中要编组的图层，然后按快捷键即可编组。</p>
-</div>
-
-<h2 id="10、D：复位颜色"><a href="#10、D：复位颜色" class="headerlink" title="10、D：复位颜色"></a>10、D：复位颜色</h2><div class="note pink no-icon flat"><p>PS默认的前景色和背景色为黑色、白色，而当我们做了一段时间的设计后，难免会遇到颜色已经不再是黑白，而又想用到黑白的时候，这个时候，只要按下键盘快捷键D即可恢复默认状态了。PS：所有涉及字母键的快捷键都要在英文输入状态下使用。</p>
-</div>
-
-<h2 id="11、X：切换前景色和背景色"><a href="#11、X：切换前景色和背景色" class="headerlink" title="11、X：切换前景色和背景色"></a>11、X：切换前景色和背景色</h2><div class="note orange no-icon flat"><p>字母X键的作用，一是前景色和背景色的互换，一是在蒙版状态下，切换黑白画笔。</p>
-</div>
-
-<h2 id="12、Ctrl-I：反相"><a href="#12、Ctrl-I：反相" class="headerlink" title="12、Ctrl+I：反相"></a>12、Ctrl+I：反相</h2><div class="note purple no-icon flat"><p>选中图片图层的情况下，按下该快捷键的作用是得到该图片的负片效果。</p>
-</div>
-
-<h2 id="13、空格键-鼠标左键：移动画布"><a href="#13、空格键-鼠标左键：移动画布" class="headerlink" title="13、空格键+鼠标左键：移动画布"></a>13、空格键+鼠标左键：移动画布</h2><div class="note green no-icon flat"><p>画布，也就是我们在进行设计的图片，有时候1:1比例观看时，很可能大得会超过了工作区，而有些地方看不到，这个时候就需要移动它了，只需按住空格键，然后左键单击移动即可。PS：当我们用选框工具画出一个选区时，按下空格键，移动鼠标则可以移动选区。</p>
-</div>
-
-<h2 id="14、Ctrl-D：取消选区"><a href="#14、Ctrl-D：取消选区" class="headerlink" title="14、Ctrl+D：取消选区"></a>14、Ctrl+D：取消选区</h2><div class="note no-icon flat"><p>有创建选区的，就会有取消选区的需求，只需按下该快捷键，蚂蚁线就消失了，选区不见了。</p>
-</div>
-
-<h2 id="15、Shift-AlT-M：切换成“正片叠底”模式"><a href="#15、Shift-AlT-M：切换成“正片叠底”模式" class="headerlink" title="15、Shift+AlT+M：切换成“正片叠底”模式"></a>15、Shift+AlT+M：切换成“正片叠底”模式</h2><div class="note blue no-icon flat"><p>当在使用画笔工具或者污点修复画笔工具类时，按此快捷键，可以把当前的绘画模式从默认的“正常”切换到“正片叠底”模式。</p>
-</div>
-
-<h2 id="16、Shift-AlT-S：滤色模式"><a href="#16、Shift-AlT-S：滤色模式" class="headerlink" title="16、Shift+AlT+S：滤色模式"></a>16、Shift+AlT+S：滤色模式</h2><div class="note pink no-icon flat"><p>在使用画笔类工具的时候，按下该快捷键，可以将绘画模式一秒切换到“滤色模式”。</p>
-</div>
-
-<h2 id="17、Shift-AlT-O：叠加模式"><a href="#17、Shift-AlT-O：叠加模式" class="headerlink" title="17、Shift+AlT+O：叠加模式"></a>17、Shift+AlT+O：叠加模式</h2><div class="note red no-icon flat"><p>画笔类工具被选择状态下，按下该快捷键可以把绘画模式一秒切换成“叠加模式”。</p>
-</div>
-
-<h2 id="18、Shift-AlT-F：柔光模式"><a href="#18、Shift-AlT-F：柔光模式" class="headerlink" title="18、Shift+AlT+F：柔光模式"></a>18、Shift+AlT+F：柔光模式</h2><div class="note orange no-icon flat"><p>画笔类工具被选择状态下，按下该快捷键可以把绘画模式一秒切换成“柔光模式”。</p>
-</div>
-
-<h2 id="19、Shift-AlT-Y：明度模式"><a href="#19、Shift-AlT-Y：明度模式" class="headerlink" title="19、Shift+AlT+Y：明度模式"></a>19、Shift+AlT+Y：明度模式</h2><div class="note purple no-icon flat"><p>画笔类工具被选择状态下，按下该快捷键可以把绘画模式一秒切换成“明度模式”。</p>
-</div>
-
-<h2 id="20、Shift-AlT-W：线性减淡-添加-模式"><a href="#20、Shift-AlT-W：线性减淡-添加-模式" class="headerlink" title="20、Shift+AlT+W：线性减淡(添加)模式"></a>20、Shift+AlT+W：线性减淡(添加)模式</h2><div class="note green no-icon flat"><p>画笔类工具被选择状态下，按下该快捷键可以把绘画模式一秒切换成“线性减淡(添加)模式”。</p>
-</div>
-
-
-<h2 id="21、Shift-AlT-C：颜色模式"><a href="#21、Shift-AlT-C：颜色模式" class="headerlink" title="21、Shift+AlT+C：颜色模式"></a>21、Shift+AlT+C：颜色模式</h2><div class="note no-icon flat"><p>画笔类工具被选择状态下，按下该快捷键可以把绘画模式一秒切换成“颜色模式”。</p>
-</div>
-
-<h2 id="22、AlT-，：选中“背景图层”"><a href="#22、AlT-，：选中“背景图层”" class="headerlink" title="22、AlT+，：选中“背景图层”"></a>22、AlT+，：选中“背景图层”</h2><div class="note blue no-icon flat"><p>有时候我们的文件中，图层已经相当得多了，想要选中最下面的“背景图层”都要鼠标滚轮滑动好久，所以快捷键“AlT+，”就非常有用了，瞬间选中“背景图层”。</p>
-</div>
-
-<h2 id="23、Ctrl-R：显示标尺"><a href="#23、Ctrl-R：显示标尺" class="headerlink" title="23、Ctrl+R：显示标尺"></a>23、Ctrl+R：显示标尺</h2><div class="note pink no-icon flat"><p>在工作时“标尺”的存在还是很实用的，而它显示/隐藏的快捷键则是“Ctrl+R”。</p>
-</div>
-
-<h2 id="24、Ctrl-Shift-AlT-N：创建新图层"><a href="#24、Ctrl-Shift-AlT-N：创建新图层" class="headerlink" title="24、Ctrl+Shift+AlT+N：创建新图层"></a>24、Ctrl+Shift+AlT+N：创建新图层</h2><div class="note red no-icon flat"><p>按下该组合快捷键，则会在当前选中图层上方直接创建一个新的透明图层。</p>
-</div>
-
-<h2 id="25、Ctrl-删除键：填充背景色"><a href="#25、Ctrl-删除键：填充背景色" class="headerlink" title="25、Ctrl+删除键：填充背景色"></a>25、Ctrl+删除键：填充背景色</h2><div class="note orange no-icon flat"><p>直接为选中的图层/对象填充背景色。</p>
-</div>
-
-<h2 id="26、AlT-删除键：填充前景色"><a href="#26、AlT-删除键：填充前景色" class="headerlink" title="26、AlT+删除键：填充前景色"></a>26、AlT+删除键：填充前景色</h2><div class="note purple no-icon flat"><p>直接为选中的图层/对象填充前景色。</p>
-</div>
-
-<h2 id="27、Ctrl-F：重复执行滤镜"><a href="#27、Ctrl-F：重复执行滤镜" class="headerlink" title="27、Ctrl+F：重复执行滤镜"></a>27、Ctrl+F：重复执行滤镜</h2><div class="note green no-icon flat"><p>这个快捷键的作用有点类似于word中的“格式刷”，就是再次执行上一次使用的滤镜，比如对图层1刚刚做了高斯模糊，如果此时选中图层2，按快捷键Ctrl+F，则图层2就同样被高斯模糊了。当然，也可以反复对同一个图层Ctrl+F。</p>
-</div>
-
-
-<h2 id="28、Ctrl-0：缩放至工作区"><a href="#28、Ctrl-0：缩放至工作区" class="headerlink" title="28、Ctrl+0：缩放至工作区"></a>28、Ctrl+0：缩放至工作区</h2><div class="note no-icon flat"><p>在各种缩放操作中，快捷键Ctrl+0的作用是把当前画布/图片缩放到适配工作区，即图片铺满了整个工作区。</p>
-</div>
-
-<h2 id="29、Ctrl-1：缩放至100"><a href="#29、Ctrl-1：缩放至100" class="headerlink" title="29、Ctrl+1：缩放至100%"></a>29、Ctrl+1：缩放至100%</h2><div class="note blue no-icon flat"><p>即是把画布或是图片按照它的真实尺寸1:1的在PS中显示，如果是很大的图，那么无疑将超过工作区面积，一眼已经无法看全整张图。PS：也可以直接Ctrl++或者Ctrl+-来缩放。</p>
-</div>
-
-<h2 id="30、Ctrl-Tab：文档切换"><a href="#30、Ctrl-Tab：文档切换" class="headerlink" title="30、Ctrl+Tab：文档切换"></a>30、Ctrl+Tab：文档切换</h2><div class="note pink no-icon flat"><p>这组快捷键是针对多PSD文件同时打开，同时工作的情况时，按下Ctrl+Tab则会在PSD文件之间切换。</p>
-</div>
-
-<h2 id="31、Shift-AlT-鼠标左键：设置前景色"><a href="#31、Shift-AlT-鼠标左键：设置前景色" class="headerlink" title="31、Shift+AlT+鼠标左键：设置前景色"></a>31、Shift+AlT+鼠标左键：设置前景色</h2><div class="note red no-icon flat"><p>在画笔或者油漆桶工具被选择的情况下，按此快捷键则会激活一个调色板出现，鼠标的移动则会直接设置好前景色。</p>
-</div>
-
-<h2 id="32、Shift-AlT-N：正常模式"><a href="#32、Shift-AlT-N：正常模式" class="headerlink" title="32、Shift+AlT+N：正常模式"></a>32、Shift+AlT+N：正常模式</h2><div class="note orange no-icon flat"><p>当画笔工具处在正片叠底的绘画模式时，按下此快捷键则可以一秒让绘画模式回归“正常模式”。</p>
-</div>]]></content>
-      <categories>
-        <category>PS</category>
-      </categories>
-      <tags>
-        <tag>PS</tag>
       </tags>
   </entry>
   <entry>
@@ -1671,6 +1562,31 @@ title="MemoryDairy"><i class="anzhiyufont anzhiyu-icon-circle-arrow-right"></i><
       </tags>
   </entry>
   <entry>
+    <title>PS给你的衣服换颜色</title>
+    <url>/2024/06/19/20240619-1/</url>
+    <content><![CDATA[<ol>
+<li><p>第一步需要使用钢笔工具将衣服扣出来，这里需要细致细心一点</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240619/2.jpg"/></div></div></li>
+<li><p>执行 图像-调整-去色</p>
+</li>
+<li><p>ctrl+j 将图层复制 一个命名为低频一个，命名为高频</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240619/3.jpg"/></div></div></li>
+<li><p>隐藏高频图层选择低频图层 执行滤镜-模糊 高斯模糊 参数调为3</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240619/4.jpg"/></div></div></li>
+<li><p>回到高频图层点击图像-应用图像 将图层选项改为低频图层 混合模式改为减去 缩放2 补偿值128 将图层混合模式改为线性光（为了保留衣服的质感和纹理）</p>
+</li>
+<li><p>回到低频图层 添加色相饱和度图层 创建剪贴蒙版 勾选着色 然后滑动色相就可以改变颜色了</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240619/5.jpg"/></div></div></li>
+</ol>
+]]></content>
+      <categories>
+        <category>PS</category>
+      </categories>
+      <tags>
+        <tag>PS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Photoshop-抠图</title>
     <url>/2024/06/17/20240617-2/</url>
     <content><![CDATA[<h1 id="一、通道抠图"><a href="#一、通道抠图" class="headerlink" title="一、通道抠图"></a>一、通道抠图</h1><ol>
@@ -1707,23 +1623,107 @@ title="MemoryDairy"><i class="anzhiyufont anzhiyu-icon-circle-arrow-right"></i><
       </tags>
   </entry>
   <entry>
-    <title>PS给你的衣服换颜色</title>
-    <url>/2024/06/19/20240619-1/</url>
-    <content><![CDATA[<ol>
-<li><p>第一步需要使用钢笔工具将衣服扣出来，这里需要细致细心一点</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240619/2.jpg"/></div></div></li>
-<li><p>执行 图像-调整-去色</p>
-</li>
-<li><p>ctrl+j 将图层复制 一个命名为低频一个，命名为高频</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240619/3.jpg"/></div></div></li>
-<li><p>隐藏高频图层选择低频图层 执行滤镜-模糊 高斯模糊 参数调为3</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240619/4.jpg"/></div></div></li>
-<li><p>回到高频图层点击图像-应用图像 将图层选项改为低频图层 混合模式改为减去 缩放2 补偿值128 将图层混合模式改为线性光（为了保留衣服的质感和纹理）</p>
-</li>
-<li><p>回到低频图层 添加色相饱和度图层 创建剪贴蒙版 勾选着色 然后滑动色相就可以改变颜色了</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240619/5.jpg"/></div></div></li>
-</ol>
-]]></content>
+    <title>Photoshop快捷键</title>
+    <url>/2024/06/17/20240617-1/</url>
+    <content><![CDATA[<h2 id="1、Ctrl-T：自由变形"><a href="#1、Ctrl-T：自由变形" class="headerlink" title="1、Ctrl+T：自由变形"></a>1、Ctrl+T：自由变形</h2><div class="note no-icon flat"><p>该快捷键，主要对图层进行旋转、缩放等变形调整，同时可以拖动修改图层在画面中的位置，是极为常用的功能键。</p>
+</div>
+
+<h2 id="2、Ctrl-J：复制图层"><a href="#2、Ctrl-J：复制图层" class="headerlink" title="2、Ctrl+J：复制图层"></a>2、Ctrl+J：复制图层</h2><div class="note blue no-icon flat"><p>对图层的复制，一般的操作是通过图层菜单栏选择，或者直接在图层面板上右键单击图层的下拉菜单中选择，而“Ctrl+J”的快捷键不仅能复制图层，还能高光层、阴影层，在修图、调色、合成等设计工作中都是很常用的功能。</p>
+</div>
+
+<h2 id="3、数字键：图层不透明度变化"><a href="#3、数字键：图层不透明度变化" class="headerlink" title="3、数字键：图层不透明度变化"></a>3、数字键：图层不透明度变化</h2><div class="note pink no-icon flat"><p>在图层面板中，选中图层后，直接按数字键即可修改该图层的不透明度，1即10%，以此类推，0是100%</p>
+</div>
+
+<h2 id="4、空格键-F：更改工作区颜色"><a href="#4、空格键-F：更改工作区颜色" class="headerlink" title="4、空格键+F：更改工作区颜色"></a>4、空格键+F：更改工作区颜色</h2><div class="note red no-icon flat"><p>工作区即画布所在的地方，就是PS软件中最大的那块区域，通过改快捷键可以更改工作区的颜色，四种不同灰度的颜色，从死黑到浅黑到灰到亮灰，任君选择。</p>
+</div>
+
+<h2 id="5、F：更改屏幕显示模式"><a href="#5、F：更改屏幕显示模式" class="headerlink" title="5、F：更改屏幕显示模式"></a>5、F：更改屏幕显示模式</h2><div class="note orange no-icon flat"><p>即让PS在标准屏幕模式、带有菜单栏的全屏模式和全屏模式间切换，一般常用于欣赏作品、检查设计效果等工作环境中。</p>
+</div>
+
+<h2 id="6、TAB：工作区窗口显示-隐藏"><a href="#6、TAB：工作区窗口显示-隐藏" class="headerlink" title="6、TAB：工作区窗口显示/隐藏"></a>6、TAB：工作区窗口显示/隐藏</h2><div class="note purple no-icon flat"><p>主要作用是，让工作区全屏，只保留菜单栏，隐藏工具栏和各种面板窗口，以最大的工作区显示，以便有更大的视域来观察、设计等。</p>
+</div>
+
+<h2 id="7、Ctrl-Shift-AlT-E：盖印图层"><a href="#7、Ctrl-Shift-AlT-E：盖印图层" class="headerlink" title="7、Ctrl+Shift+AlT+E：盖印图层"></a>7、Ctrl+Shift+AlT+E：盖印图层</h2><div class="note green no-icon flat"><p>盖印图层，简单说就是将当前所有图层(及效果)合并，且生成一个全新的图层，打个比喻来说，这是一种“无损合成图层”，并不会破坏之前的任何图层，方便我们在设计中“反悔”去修改，而又能满足进一步修饰、设计的目的。</p>
+</div>
+
+
+
+<h2 id="8、Ctrl-AlT-A：选中所有图层"><a href="#8、Ctrl-AlT-A：选中所有图层" class="headerlink" title="8、Ctrl+AlT+A：选中所有图层"></a>8、Ctrl+AlT+A：选中所有图层</h2><div class="note no-icon flat"><p>按下该快捷键可以迅速选中所有图层，免去键盘(Ctrl /shift)+鼠标点击来选中图层的麻烦。需要注意的是，当文档中存在背景图层时，按下此快捷键则不会选中背景图层，只会选中除它之外的所有图层。</p>
+</div>
+
+<h2 id="9、Ctrl-G：图层编组"><a href="#9、Ctrl-G：图层编组" class="headerlink" title="9、Ctrl+G：图层编组"></a>9、Ctrl+G：图层编组</h2><div class="note blue no-icon flat"><p>在PS中，图层面板中的图层多起来的时候，合适的编组将是一个灰常好而且相当必要的习惯，这时候快捷键Ctrl+G，选中要编组的图层，然后按快捷键即可编组。</p>
+</div>
+
+<h2 id="10、D：复位颜色"><a href="#10、D：复位颜色" class="headerlink" title="10、D：复位颜色"></a>10、D：复位颜色</h2><div class="note pink no-icon flat"><p>PS默认的前景色和背景色为黑色、白色，而当我们做了一段时间的设计后，难免会遇到颜色已经不再是黑白，而又想用到黑白的时候，这个时候，只要按下键盘快捷键D即可恢复默认状态了。PS：所有涉及字母键的快捷键都要在英文输入状态下使用。</p>
+</div>
+
+<h2 id="11、X：切换前景色和背景色"><a href="#11、X：切换前景色和背景色" class="headerlink" title="11、X：切换前景色和背景色"></a>11、X：切换前景色和背景色</h2><div class="note orange no-icon flat"><p>字母X键的作用，一是前景色和背景色的互换，一是在蒙版状态下，切换黑白画笔。</p>
+</div>
+
+<h2 id="12、Ctrl-I：反相"><a href="#12、Ctrl-I：反相" class="headerlink" title="12、Ctrl+I：反相"></a>12、Ctrl+I：反相</h2><div class="note purple no-icon flat"><p>选中图片图层的情况下，按下该快捷键的作用是得到该图片的负片效果。</p>
+</div>
+
+<h2 id="13、空格键-鼠标左键：移动画布"><a href="#13、空格键-鼠标左键：移动画布" class="headerlink" title="13、空格键+鼠标左键：移动画布"></a>13、空格键+鼠标左键：移动画布</h2><div class="note green no-icon flat"><p>画布，也就是我们在进行设计的图片，有时候1:1比例观看时，很可能大得会超过了工作区，而有些地方看不到，这个时候就需要移动它了，只需按住空格键，然后左键单击移动即可。PS：当我们用选框工具画出一个选区时，按下空格键，移动鼠标则可以移动选区。</p>
+</div>
+
+<h2 id="14、Ctrl-D：取消选区"><a href="#14、Ctrl-D：取消选区" class="headerlink" title="14、Ctrl+D：取消选区"></a>14、Ctrl+D：取消选区</h2><div class="note no-icon flat"><p>有创建选区的，就会有取消选区的需求，只需按下该快捷键，蚂蚁线就消失了，选区不见了。</p>
+</div>
+
+<h2 id="15、Shift-AlT-M：切换成“正片叠底”模式"><a href="#15、Shift-AlT-M：切换成“正片叠底”模式" class="headerlink" title="15、Shift+AlT+M：切换成“正片叠底”模式"></a>15、Shift+AlT+M：切换成“正片叠底”模式</h2><div class="note blue no-icon flat"><p>当在使用画笔工具或者污点修复画笔工具类时，按此快捷键，可以把当前的绘画模式从默认的“正常”切换到“正片叠底”模式。</p>
+</div>
+
+<h2 id="16、Shift-AlT-S：滤色模式"><a href="#16、Shift-AlT-S：滤色模式" class="headerlink" title="16、Shift+AlT+S：滤色模式"></a>16、Shift+AlT+S：滤色模式</h2><div class="note pink no-icon flat"><p>在使用画笔类工具的时候，按下该快捷键，可以将绘画模式一秒切换到“滤色模式”。</p>
+</div>
+
+<h2 id="17、Shift-AlT-O：叠加模式"><a href="#17、Shift-AlT-O：叠加模式" class="headerlink" title="17、Shift+AlT+O：叠加模式"></a>17、Shift+AlT+O：叠加模式</h2><div class="note red no-icon flat"><p>画笔类工具被选择状态下，按下该快捷键可以把绘画模式一秒切换成“叠加模式”。</p>
+</div>
+
+<h2 id="18、Shift-AlT-F：柔光模式"><a href="#18、Shift-AlT-F：柔光模式" class="headerlink" title="18、Shift+AlT+F：柔光模式"></a>18、Shift+AlT+F：柔光模式</h2><div class="note orange no-icon flat"><p>画笔类工具被选择状态下，按下该快捷键可以把绘画模式一秒切换成“柔光模式”。</p>
+</div>
+
+<h2 id="19、Shift-AlT-Y：明度模式"><a href="#19、Shift-AlT-Y：明度模式" class="headerlink" title="19、Shift+AlT+Y：明度模式"></a>19、Shift+AlT+Y：明度模式</h2><div class="note purple no-icon flat"><p>画笔类工具被选择状态下，按下该快捷键可以把绘画模式一秒切换成“明度模式”。</p>
+</div>
+
+<h2 id="20、Shift-AlT-W：线性减淡-添加-模式"><a href="#20、Shift-AlT-W：线性减淡-添加-模式" class="headerlink" title="20、Shift+AlT+W：线性减淡(添加)模式"></a>20、Shift+AlT+W：线性减淡(添加)模式</h2><div class="note green no-icon flat"><p>画笔类工具被选择状态下，按下该快捷键可以把绘画模式一秒切换成“线性减淡(添加)模式”。</p>
+</div>
+
+
+<h2 id="21、Shift-AlT-C：颜色模式"><a href="#21、Shift-AlT-C：颜色模式" class="headerlink" title="21、Shift+AlT+C：颜色模式"></a>21、Shift+AlT+C：颜色模式</h2><div class="note no-icon flat"><p>画笔类工具被选择状态下，按下该快捷键可以把绘画模式一秒切换成“颜色模式”。</p>
+</div>
+
+<h2 id="22、AlT-，：选中“背景图层”"><a href="#22、AlT-，：选中“背景图层”" class="headerlink" title="22、AlT+，：选中“背景图层”"></a>22、AlT+，：选中“背景图层”</h2><div class="note blue no-icon flat"><p>有时候我们的文件中，图层已经相当得多了，想要选中最下面的“背景图层”都要鼠标滚轮滑动好久，所以快捷键“AlT+，”就非常有用了，瞬间选中“背景图层”。</p>
+</div>
+
+<h2 id="23、Ctrl-R：显示标尺"><a href="#23、Ctrl-R：显示标尺" class="headerlink" title="23、Ctrl+R：显示标尺"></a>23、Ctrl+R：显示标尺</h2><div class="note pink no-icon flat"><p>在工作时“标尺”的存在还是很实用的，而它显示/隐藏的快捷键则是“Ctrl+R”。</p>
+</div>
+
+<h2 id="24、Ctrl-Shift-AlT-N：创建新图层"><a href="#24、Ctrl-Shift-AlT-N：创建新图层" class="headerlink" title="24、Ctrl+Shift+AlT+N：创建新图层"></a>24、Ctrl+Shift+AlT+N：创建新图层</h2><div class="note red no-icon flat"><p>按下该组合快捷键，则会在当前选中图层上方直接创建一个新的透明图层。</p>
+</div>
+
+<h2 id="25、Ctrl-删除键：填充背景色"><a href="#25、Ctrl-删除键：填充背景色" class="headerlink" title="25、Ctrl+删除键：填充背景色"></a>25、Ctrl+删除键：填充背景色</h2><div class="note orange no-icon flat"><p>直接为选中的图层/对象填充背景色。</p>
+</div>
+
+<h2 id="26、AlT-删除键：填充前景色"><a href="#26、AlT-删除键：填充前景色" class="headerlink" title="26、AlT+删除键：填充前景色"></a>26、AlT+删除键：填充前景色</h2><div class="note purple no-icon flat"><p>直接为选中的图层/对象填充前景色。</p>
+</div>
+
+<h2 id="27、Ctrl-F：重复执行滤镜"><a href="#27、Ctrl-F：重复执行滤镜" class="headerlink" title="27、Ctrl+F：重复执行滤镜"></a>27、Ctrl+F：重复执行滤镜</h2><div class="note green no-icon flat"><p>这个快捷键的作用有点类似于word中的“格式刷”，就是再次执行上一次使用的滤镜，比如对图层1刚刚做了高斯模糊，如果此时选中图层2，按快捷键Ctrl+F，则图层2就同样被高斯模糊了。当然，也可以反复对同一个图层Ctrl+F。</p>
+</div>
+
+
+<h2 id="28、Ctrl-0：缩放至工作区"><a href="#28、Ctrl-0：缩放至工作区" class="headerlink" title="28、Ctrl+0：缩放至工作区"></a>28、Ctrl+0：缩放至工作区</h2><div class="note no-icon flat"><p>在各种缩放操作中，快捷键Ctrl+0的作用是把当前画布/图片缩放到适配工作区，即图片铺满了整个工作区。</p>
+</div>
+
+<h2 id="29、Ctrl-1：缩放至100"><a href="#29、Ctrl-1：缩放至100" class="headerlink" title="29、Ctrl+1：缩放至100%"></a>29、Ctrl+1：缩放至100%</h2><div class="note blue no-icon flat"><p>即是把画布或是图片按照它的真实尺寸1:1的在PS中显示，如果是很大的图，那么无疑将超过工作区面积，一眼已经无法看全整张图。PS：也可以直接Ctrl++或者Ctrl+-来缩放。</p>
+</div>
+
+<h2 id="30、Ctrl-Tab：文档切换"><a href="#30、Ctrl-Tab：文档切换" class="headerlink" title="30、Ctrl+Tab：文档切换"></a>30、Ctrl+Tab：文档切换</h2><div class="note pink no-icon flat"><p>这组快捷键是针对多PSD文件同时打开，同时工作的情况时，按下Ctrl+Tab则会在PSD文件之间切换。</p>
+</div>
+
+<h2 id="31、Shift-AlT-鼠标左键：设置前景色"><a href="#31、Shift-AlT-鼠标左键：设置前景色" class="headerlink" title="31、Shift+AlT+鼠标左键：设置前景色"></a>31、Shift+AlT+鼠标左键：设置前景色</h2><div class="note red no-icon flat"><p>在画笔或者油漆桶工具被选择的情况下，按此快捷键则会激活一个调色板出现，鼠标的移动则会直接设置好前景色。</p>
+</div>
+
+<h2 id="32、Shift-AlT-N：正常模式"><a href="#32、Shift-AlT-N：正常模式" class="headerlink" title="32、Shift+AlT+N：正常模式"></a>32、Shift+AlT+N：正常模式</h2><div class="note orange no-icon flat"><p>当画笔工具处在正片叠底的绘画模式时，按下此快捷键则可以一秒让绘画模式回归“正常模式”。</p>
+</div>]]></content>
       <categories>
         <category>PS</category>
       </categories>
