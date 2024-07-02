@@ -267,68 +267,6 @@
       </tags>
   </entry>
   <entry>
-    <title>SpringBoot+screw 生成数据库文档，堪称数据库界的Swagger</title>
-    <url>/2024/05/23/20240523-1/</url>
-    <content><![CDATA[<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100 height=86 src="/download/离开北京.mp3"></iframe> -->
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近发现公司的数据库越来越庞大了，生产竟然有上千张表。但是每个业务库都没有相应的数据库文档，开始其实打算手写文档但是表实在太多了，包括后期的运维开发也需要手动进行文档维护。为了不进行重复的CV操作所以借助这个宝藏工具screw（螺丝钉）一键生成数据库文档。<br>至于工具为什么叫螺丝钉，引用作者的话来讲摘自雷锋日记：虽然是细小的螺丝钉，是个细微的小齿轮，然而如果缺了它，那整个的机器就无法运转了，即使是一枚小螺丝钉没拧紧，一个小齿轮略有破损，也可能会使机器的运转发生故障。</p>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
-<li>简洁、轻量、设计良好</li>
-<li>多数据库支持</li>
-<li>多种格式文档</li>
-<li>灵活扩展</li>
-<li>支持自定义模板</li>
-</ul>
-<h2 id="数据库支持"><a href="#数据库支持" class="headerlink" title="数据库支持"></a>数据库支持</h2><ul>
-<li><input checked="" disabled="" type="checkbox"> Mysql</li>
-<li><input checked="" disabled="" type="checkbox"> MariaDB</li>
-<li><input checked="" disabled="" type="checkbox"> TIDB</li>
-<li><input checked="" disabled="" type="checkbox"> Oracle</li>
-<li><input checked="" disabled="" type="checkbox"> SqlServer</li>
-<li><input checked="" disabled="" type="checkbox"> PostgreSQL</li>
-<li><input checked="" disabled="" type="checkbox"> Cache DB（2016）</li>
-<li><input checked="" disabled="" type="checkbox"> Cache DB（2016）</li>
-<li><input disabled="" type="checkbox"> H2（开发中）</li>
-<li><input disabled="" type="checkbox"> DB2（开发中）</li>
-<li><input disabled="" type="checkbox"> HSQL（开发中）</li>
-<li><input disabled="" type="checkbox"> SQLite（开发中）</li>
-<li><input disabled="" type="checkbox"> 瀚高（开发中）</li>
-<li><input disabled="" type="checkbox"> 达梦（开发中）</li>
-<li><input disabled="" type="checkbox"> 虚谷（开发中）</li>
-</ul>
-<ul>
-<li><input disabled="" type="checkbox"> 人大金仓（开发中）</li>
-</ul>
-<h2 id="生成文档格式支持"><a href="#生成文档格式支持" class="headerlink" title="生成文档格式支持"></a>生成文档格式支持</h2><ul>
-<li><input checked="" disabled="" type="checkbox"> hrml</li>
-<li><input checked="" disabled="" type="checkbox"> word</li>
-<li><input checked="" disabled="" type="checkbox"> markdown</li>
-</ul>
-<h2 id="文档截图"><a href="#文档截图" class="headerlink" title="文档截图"></a>文档截图</h2><ul>
-<li><p>html<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/1.45hhv3199z.jpg" alt="html-1.jpg"><br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/2.5j40z4chel.jpg" alt="html-2.jpg"></p>
-</li>
-<li><p>word<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/3.lvk59ys1v.jpg" alt="word-1.jpg"></p>
-</li>
-</ul>
-<ul>
-<li>markdown<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/4.26lb4qw1m4.jpg" alt="html-1.jpg"><br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/5.5j40z4coak.jpg" alt="html-2.jpg"></li>
-</ul>
-<h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><h3 id="1、普通方式"><a href="#1、普通方式" class="headerlink" title="1、普通方式"></a>1、普通方式</h3><p>普通方式是编写执行代码调用工具类进行文档生成<br>添加依赖，检查是否最新版本，连接地址-&gt; <a href="https://mvnrepository.com/artifact/cn.smallbun.screw/screw-core">最新版本</a></p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--螺丝钉 数据库文档生成工具--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/cn.smallbun.screw/screw-core --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cn.smallbun.screw<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>screw-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.yc.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.Configuration;</span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.engine.EngineConfig;</span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.engine.EngineFileType;</span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.engine.EngineTemplateType;</span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.execute.DocumentationExecute;</span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.process.ProcessConfig;</span><br><span class="line"><span class="keyword">import</span> com.zaxxer.hikari.HikariConfig;</span><br><span class="line"><span class="keyword">import</span> com.zaxxer.hikari.HikariDataSource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.sql.DataSource;</span><br><span class="line"><span class="keyword">import</span> java.time.LocalDateTime;</span><br><span class="line"><span class="keyword">import</span> java.time.format.DateTimeFormatter;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GenerateDataDoc</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 文档生成</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">documentGeneration</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//数据源</span></span><br><span class="line">        <span class="type">HikariConfig</span> <span class="variable">hikariConfig</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HikariConfig</span>();</span><br><span class="line">        hikariConfig.setDriverClassName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>);</span><br><span class="line">        hikariConfig.setJdbcUrl(<span class="string">&quot;jdbc:mysql://localhost:3306/platform?characterEncoding=UTF-8&quot;</span>);</span><br><span class="line">        hikariConfig.setUsername(<span class="string">&quot;root&quot;</span>);</span><br><span class="line">        hikariConfig.setPassword(<span class="string">&quot;root&quot;</span>);</span><br><span class="line">        <span class="comment">//设置可以获取tables remarks信息</span></span><br><span class="line">        hikariConfig.addDataSourceProperty(<span class="string">&quot;useInformationSchema&quot;</span>, <span class="string">&quot;true&quot;</span>);</span><br><span class="line">        hikariConfig.setMinimumIdle(<span class="number">2</span>);</span><br><span class="line">        hikariConfig.setMaximumPoolSize(<span class="number">5</span>);</span><br><span class="line">        <span class="type">DataSource</span> <span class="variable">dataSource</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HikariDataSource</span>(hikariConfig);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//生成配置</span></span><br><span class="line">        <span class="type">EngineConfig</span> <span class="variable">engineConfig</span> <span class="operator">=</span> EngineConfig.builder()</span><br><span class="line">                <span class="comment">//生成文件路径</span></span><br><span class="line">                .fileOutputDir(<span class="string">&quot;D:\\dataBaseDoc\\&quot;</span>)</span><br><span class="line">                <span class="comment">//打开目录</span></span><br><span class="line">                .openOutputDir(<span class="literal">true</span>)</span><br><span class="line">                <span class="comment">//文件类型</span></span><br><span class="line">                .fileType(EngineFileType.MD)</span><br><span class="line">                <span class="comment">//生成模板实现</span></span><br><span class="line">                .produceType(EngineTemplateType.freemarker)</span><br><span class="line">                <span class="comment">//自定义文件名称</span></span><br><span class="line">                .fileName(<span class="string">&quot;AYN-platform&quot;</span>).build();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//忽略表</span></span><br><span class="line">        ArrayList&lt;String&gt; ignoreTableName = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        ignoreTableName.add(<span class="string">&quot;test_user&quot;</span>);</span><br><span class="line">        ignoreTableName.add(<span class="string">&quot;test_group&quot;</span>);</span><br><span class="line">        <span class="comment">//忽略表前缀</span></span><br><span class="line">        ArrayList&lt;String&gt; ignorePrefix = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        ignorePrefix.add(<span class="string">&quot;test_&quot;</span>);</span><br><span class="line">        <span class="comment">//忽略表后缀</span></span><br><span class="line">        ArrayList&lt;String&gt; ignoreSuffix = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        ignoreSuffix.add(<span class="string">&quot;_test&quot;</span>);</span><br><span class="line">        <span class="type">ProcessConfig</span> <span class="variable">processConfig</span> <span class="operator">=</span> ProcessConfig.builder()</span><br><span class="line">                <span class="comment">//指定生成逻辑、当存在指定表、指定表前缀、指定表后缀时，将生成指定表，其余表不生成、并跳过忽略表配置</span></span><br><span class="line">                <span class="comment">//根据名称指定表生成</span></span><br><span class="line">                .designatedTableName(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;())</span><br><span class="line">                <span class="comment">//根据表前缀生成</span></span><br><span class="line">                .designatedTablePrefix(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;())</span><br><span class="line">                <span class="comment">//根据表后缀生成</span></span><br><span class="line">                .designatedTableSuffix(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;())</span><br><span class="line">                <span class="comment">//忽略表名</span></span><br><span class="line">                .ignoreTableName(ignoreTableName)</span><br><span class="line">                <span class="comment">//忽略表前缀</span></span><br><span class="line">                .ignoreTablePrefix(ignorePrefix)</span><br><span class="line">                <span class="comment">//忽略表后缀</span></span><br><span class="line">                .ignoreTableSuffix(ignoreSuffix).build();</span><br><span class="line">        <span class="comment">//配置</span></span><br><span class="line">        <span class="type">DateTimeFormatter</span> <span class="variable">df</span> <span class="operator">=</span> DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">nowDate</span> <span class="operator">=</span> LocalDateTime.now().format(df);</span><br><span class="line">        <span class="type">Configuration</span> <span class="variable">config</span> <span class="operator">=</span> Configuration.builder()</span><br><span class="line">                <span class="comment">//版本</span></span><br><span class="line">                .version(<span class="string">&quot;1.0.0&quot;</span>)</span><br><span class="line">                <span class="comment">//描述</span></span><br><span class="line">                .description(<span class="string">&quot;platform数据库设计文档生成-&quot;</span> + nowDate)</span><br><span class="line">                <span class="comment">//数据源</span></span><br><span class="line">                .dataSource(dataSource)</span><br><span class="line">                <span class="comment">//生成配置</span></span><br><span class="line">                .engineConfig(engineConfig)</span><br><span class="line">                <span class="comment">//生成配置</span></span><br><span class="line">                .produceConfig(processConfig)</span><br><span class="line">                .build();</span><br><span class="line">        <span class="comment">//执行生成</span></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">DocumentationExecute</span>(config).execute();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="2、Maven插件方式"><a href="#2、Maven插件方式" class="headerlink" title="2、Maven插件方式"></a>2、Maven插件方式</h3><p>使用Maven插件执行生成数据库文档<br>pom文件配置</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cn.smallbun.screw<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>screw-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;lastVersion&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- HikariCP --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.zaxxer<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>HikariCP<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.4.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--mysql driver--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">version</span>&gt;</span>8.0.20<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--username--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">username</span>&gt;</span>root<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--password--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">password</span>&gt;</span>password<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--driver--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">driverClassName</span>&gt;</span>com.mysql.cj.jdbc.Driver<span class="tag">&lt;/<span class="name">driverClassName</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--jdbc url--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">jdbcUrl</span>&gt;</span>jdbc:mysql://127.0.0.1:3306/xxxx<span class="tag">&lt;/<span class="name">jdbcUrl</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--生成文件类型--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">fileType</span>&gt;</span>HTML<span class="tag">&lt;/<span class="name">fileType</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--打开文件输出目录--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">openOutputDir</span>&gt;</span>false<span class="tag">&lt;/<span class="name">openOutputDir</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--生成模板--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">produceType</span>&gt;</span>freemarker<span class="tag">&lt;/<span class="name">produceType</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--文档名称 为空时:将采用[数据库名称-描述-版本号]作为文档名称--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">fileName</span>&gt;</span>测试文档名称<span class="tag">&lt;/<span class="name">fileName</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--描述--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">description</span>&gt;</span>数据库文档生成<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--版本--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;project.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--标题--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">title</span>&gt;</span>数据库文档<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">phase</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">goal</span>&gt;</span>run<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>配置完成后在 maven project-&gt;screw双击执行<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/6.4uarf52fba.jpg" alt="6.jpg"></p>
-<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>文档工具 screw <a href="https://github.com/pingfangushi/screw">https://github.com/pingfangushi/screw</a></p>
-]]></content>
-      <categories>
-        <category>JAVA</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>消息队列</title>
     <url>/2024/05/27/20240527-1/</url>
     <content><![CDATA[<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100 height=86 src="/download/离开北京.mp3"></iframe> -->
@@ -429,6 +367,68 @@
       </categories>
       <tags>
         <tag>面试题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringBoot+screw 生成数据库文档，堪称数据库界的Swagger</title>
+    <url>/2024/05/23/20240523-1/</url>
+    <content><![CDATA[<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100 height=86 src="/download/离开北京.mp3"></iframe> -->
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近发现公司的数据库越来越庞大了，生产竟然有上千张表。但是每个业务库都没有相应的数据库文档，开始其实打算手写文档但是表实在太多了，包括后期的运维开发也需要手动进行文档维护。为了不进行重复的CV操作所以借助这个宝藏工具screw（螺丝钉）一键生成数据库文档。<br>至于工具为什么叫螺丝钉，引用作者的话来讲摘自雷锋日记：虽然是细小的螺丝钉，是个细微的小齿轮，然而如果缺了它，那整个的机器就无法运转了，即使是一枚小螺丝钉没拧紧，一个小齿轮略有破损，也可能会使机器的运转发生故障。</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li>简洁、轻量、设计良好</li>
+<li>多数据库支持</li>
+<li>多种格式文档</li>
+<li>灵活扩展</li>
+<li>支持自定义模板</li>
+</ul>
+<h2 id="数据库支持"><a href="#数据库支持" class="headerlink" title="数据库支持"></a>数据库支持</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> Mysql</li>
+<li><input checked="" disabled="" type="checkbox"> MariaDB</li>
+<li><input checked="" disabled="" type="checkbox"> TIDB</li>
+<li><input checked="" disabled="" type="checkbox"> Oracle</li>
+<li><input checked="" disabled="" type="checkbox"> SqlServer</li>
+<li><input checked="" disabled="" type="checkbox"> PostgreSQL</li>
+<li><input checked="" disabled="" type="checkbox"> Cache DB（2016）</li>
+<li><input checked="" disabled="" type="checkbox"> Cache DB（2016）</li>
+<li><input disabled="" type="checkbox"> H2（开发中）</li>
+<li><input disabled="" type="checkbox"> DB2（开发中）</li>
+<li><input disabled="" type="checkbox"> HSQL（开发中）</li>
+<li><input disabled="" type="checkbox"> SQLite（开发中）</li>
+<li><input disabled="" type="checkbox"> 瀚高（开发中）</li>
+<li><input disabled="" type="checkbox"> 达梦（开发中）</li>
+<li><input disabled="" type="checkbox"> 虚谷（开发中）</li>
+</ul>
+<ul>
+<li><input disabled="" type="checkbox"> 人大金仓（开发中）</li>
+</ul>
+<h2 id="生成文档格式支持"><a href="#生成文档格式支持" class="headerlink" title="生成文档格式支持"></a>生成文档格式支持</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> hrml</li>
+<li><input checked="" disabled="" type="checkbox"> word</li>
+<li><input checked="" disabled="" type="checkbox"> markdown</li>
+</ul>
+<h2 id="文档截图"><a href="#文档截图" class="headerlink" title="文档截图"></a>文档截图</h2><ul>
+<li><p>html<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/1.45hhv3199z.jpg" alt="html-1.jpg"><br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/2.5j40z4chel.jpg" alt="html-2.jpg"></p>
+</li>
+<li><p>word<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/3.lvk59ys1v.jpg" alt="word-1.jpg"></p>
+</li>
+</ul>
+<ul>
+<li>markdown<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/4.26lb4qw1m4.jpg" alt="html-1.jpg"><br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/5.5j40z4coak.jpg" alt="html-2.jpg"></li>
+</ul>
+<h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><h3 id="1、普通方式"><a href="#1、普通方式" class="headerlink" title="1、普通方式"></a>1、普通方式</h3><p>普通方式是编写执行代码调用工具类进行文档生成<br>添加依赖，检查是否最新版本，连接地址-&gt; <a href="https://mvnrepository.com/artifact/cn.smallbun.screw/screw-core">最新版本</a></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--螺丝钉 数据库文档生成工具--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/cn.smallbun.screw/screw-core --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cn.smallbun.screw<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>screw-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.yc.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.Configuration;</span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.engine.EngineConfig;</span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.engine.EngineFileType;</span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.engine.EngineTemplateType;</span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.execute.DocumentationExecute;</span><br><span class="line"><span class="keyword">import</span> cn.smallbun.screw.core.process.ProcessConfig;</span><br><span class="line"><span class="keyword">import</span> com.zaxxer.hikari.HikariConfig;</span><br><span class="line"><span class="keyword">import</span> com.zaxxer.hikari.HikariDataSource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.sql.DataSource;</span><br><span class="line"><span class="keyword">import</span> java.time.LocalDateTime;</span><br><span class="line"><span class="keyword">import</span> java.time.format.DateTimeFormatter;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GenerateDataDoc</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 文档生成</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">documentGeneration</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//数据源</span></span><br><span class="line">        <span class="type">HikariConfig</span> <span class="variable">hikariConfig</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HikariConfig</span>();</span><br><span class="line">        hikariConfig.setDriverClassName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>);</span><br><span class="line">        hikariConfig.setJdbcUrl(<span class="string">&quot;jdbc:mysql://localhost:3306/platform?characterEncoding=UTF-8&quot;</span>);</span><br><span class="line">        hikariConfig.setUsername(<span class="string">&quot;root&quot;</span>);</span><br><span class="line">        hikariConfig.setPassword(<span class="string">&quot;root&quot;</span>);</span><br><span class="line">        <span class="comment">//设置可以获取tables remarks信息</span></span><br><span class="line">        hikariConfig.addDataSourceProperty(<span class="string">&quot;useInformationSchema&quot;</span>, <span class="string">&quot;true&quot;</span>);</span><br><span class="line">        hikariConfig.setMinimumIdle(<span class="number">2</span>);</span><br><span class="line">        hikariConfig.setMaximumPoolSize(<span class="number">5</span>);</span><br><span class="line">        <span class="type">DataSource</span> <span class="variable">dataSource</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HikariDataSource</span>(hikariConfig);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//生成配置</span></span><br><span class="line">        <span class="type">EngineConfig</span> <span class="variable">engineConfig</span> <span class="operator">=</span> EngineConfig.builder()</span><br><span class="line">                <span class="comment">//生成文件路径</span></span><br><span class="line">                .fileOutputDir(<span class="string">&quot;D:\\dataBaseDoc\\&quot;</span>)</span><br><span class="line">                <span class="comment">//打开目录</span></span><br><span class="line">                .openOutputDir(<span class="literal">true</span>)</span><br><span class="line">                <span class="comment">//文件类型</span></span><br><span class="line">                .fileType(EngineFileType.MD)</span><br><span class="line">                <span class="comment">//生成模板实现</span></span><br><span class="line">                .produceType(EngineTemplateType.freemarker)</span><br><span class="line">                <span class="comment">//自定义文件名称</span></span><br><span class="line">                .fileName(<span class="string">&quot;AYN-platform&quot;</span>).build();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//忽略表</span></span><br><span class="line">        ArrayList&lt;String&gt; ignoreTableName = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        ignoreTableName.add(<span class="string">&quot;test_user&quot;</span>);</span><br><span class="line">        ignoreTableName.add(<span class="string">&quot;test_group&quot;</span>);</span><br><span class="line">        <span class="comment">//忽略表前缀</span></span><br><span class="line">        ArrayList&lt;String&gt; ignorePrefix = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        ignorePrefix.add(<span class="string">&quot;test_&quot;</span>);</span><br><span class="line">        <span class="comment">//忽略表后缀</span></span><br><span class="line">        ArrayList&lt;String&gt; ignoreSuffix = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        ignoreSuffix.add(<span class="string">&quot;_test&quot;</span>);</span><br><span class="line">        <span class="type">ProcessConfig</span> <span class="variable">processConfig</span> <span class="operator">=</span> ProcessConfig.builder()</span><br><span class="line">                <span class="comment">//指定生成逻辑、当存在指定表、指定表前缀、指定表后缀时，将生成指定表，其余表不生成、并跳过忽略表配置</span></span><br><span class="line">                <span class="comment">//根据名称指定表生成</span></span><br><span class="line">                .designatedTableName(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;())</span><br><span class="line">                <span class="comment">//根据表前缀生成</span></span><br><span class="line">                .designatedTablePrefix(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;())</span><br><span class="line">                <span class="comment">//根据表后缀生成</span></span><br><span class="line">                .designatedTableSuffix(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;())</span><br><span class="line">                <span class="comment">//忽略表名</span></span><br><span class="line">                .ignoreTableName(ignoreTableName)</span><br><span class="line">                <span class="comment">//忽略表前缀</span></span><br><span class="line">                .ignoreTablePrefix(ignorePrefix)</span><br><span class="line">                <span class="comment">//忽略表后缀</span></span><br><span class="line">                .ignoreTableSuffix(ignoreSuffix).build();</span><br><span class="line">        <span class="comment">//配置</span></span><br><span class="line">        <span class="type">DateTimeFormatter</span> <span class="variable">df</span> <span class="operator">=</span> DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">nowDate</span> <span class="operator">=</span> LocalDateTime.now().format(df);</span><br><span class="line">        <span class="type">Configuration</span> <span class="variable">config</span> <span class="operator">=</span> Configuration.builder()</span><br><span class="line">                <span class="comment">//版本</span></span><br><span class="line">                .version(<span class="string">&quot;1.0.0&quot;</span>)</span><br><span class="line">                <span class="comment">//描述</span></span><br><span class="line">                .description(<span class="string">&quot;platform数据库设计文档生成-&quot;</span> + nowDate)</span><br><span class="line">                <span class="comment">//数据源</span></span><br><span class="line">                .dataSource(dataSource)</span><br><span class="line">                <span class="comment">//生成配置</span></span><br><span class="line">                .engineConfig(engineConfig)</span><br><span class="line">                <span class="comment">//生成配置</span></span><br><span class="line">                .produceConfig(processConfig)</span><br><span class="line">                .build();</span><br><span class="line">        <span class="comment">//执行生成</span></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">DocumentationExecute</span>(config).execute();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2、Maven插件方式"><a href="#2、Maven插件方式" class="headerlink" title="2、Maven插件方式"></a>2、Maven插件方式</h3><p>使用Maven插件执行生成数据库文档<br>pom文件配置</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cn.smallbun.screw<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>screw-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;lastVersion&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- HikariCP --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.zaxxer<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>HikariCP<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.4.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--mysql driver--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">version</span>&gt;</span>8.0.20<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--username--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">username</span>&gt;</span>root<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--password--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">password</span>&gt;</span>password<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--driver--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">driverClassName</span>&gt;</span>com.mysql.cj.jdbc.Driver<span class="tag">&lt;/<span class="name">driverClassName</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--jdbc url--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">jdbcUrl</span>&gt;</span>jdbc:mysql://127.0.0.1:3306/xxxx<span class="tag">&lt;/<span class="name">jdbcUrl</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--生成文件类型--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">fileType</span>&gt;</span>HTML<span class="tag">&lt;/<span class="name">fileType</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--打开文件输出目录--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">openOutputDir</span>&gt;</span>false<span class="tag">&lt;/<span class="name">openOutputDir</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--生成模板--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">produceType</span>&gt;</span>freemarker<span class="tag">&lt;/<span class="name">produceType</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--文档名称 为空时:将采用[数据库名称-描述-版本号]作为文档名称--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">fileName</span>&gt;</span>测试文档名称<span class="tag">&lt;/<span class="name">fileName</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--描述--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">description</span>&gt;</span>数据库文档生成<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--版本--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;project.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--标题--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">title</span>&gt;</span>数据库文档<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">phase</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">goal</span>&gt;</span>run<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>配置完成后在 maven project-&gt;screw双击执行<br><img src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240523/6.4uarf52fba.jpg" alt="6.jpg"></p>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>文档工具 screw <a href="https://github.com/pingfangushi/screw">https://github.com/pingfangushi/screw</a></p>
+]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
       </tags>
   </entry>
   <entry>
@@ -1498,131 +1498,6 @@ title="MemoryDairy"><i class="anzhiyufont anzhiyu-icon-circle-arrow-right"></i><
       </tags>
   </entry>
   <entry>
-    <title>PS制作夕阳效果</title>
-    <url>/2024/06/18/20240618-1/</url>
-    <content><![CDATA[<h1 id="夕阳效果"><a href="#夕阳效果" class="headerlink" title="夕阳效果"></a>夕阳效果</h1><div class="note info modern"><p>有时候我们在白天拍摄的照片或者是想要拍摄夕阳但是正好碰到阴天拍不到夕阳。别急我们可以利用PS制作一个夕阳效果出来</p>
-</div>
-
-<ol>
-<li><p>将照片导入到PS 复制一个图层出来</p>
-</li>
-<li><p>右击图层下边的菜单，在弹出的菜单中点击颜色查找</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/2.jpg"/></div></div></li>
-<li><p>选择LateSunSet 这时候照片颜色变为类似夕阳的效果，但是还不够理想。继续做调整</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/3.jpg"/></div></div></li>
-<li><p>手动制作一个夕阳出来，还是图层下边菜单右击选择渐变</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/4.jpg"/></div></div></li>
-<li><p>样式选择径向</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/5.jpg"/></div></div></li>
-<li><p>然后点击第一个渐变选择黑白渐变</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/6.jpg"/></div></div></li>
-<li><p>然后从左到右依次新建色标 每一个色标比前一个多一点黄色红色达到模拟夕阳</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/7.jpg"/></div></div></li>
-<li><p>最右边又下角的色标改成偏50度中性灰</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/8.jpg"/></div></div></li>
-<li><p>上边一排大概第三个点击一下 将不透明度设置到75%左右</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/9.jpg"/></div></div></li>
-<li><p>在切换到最右边右上角的色标降低不透明度（降低到整个环境若隐若现即可）</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/10.jpg"/></div></div></li>
-<li><p>用移动工具 移动光源的位置即可</p>
-</li>
-<li><p>通过角度和缩放可以控制光源的扩散性 (调整满意后点击确定)</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/11.jpg"/></div></div></li>
-<li><p>将图层的混合模式改成强光（这时光源才会有偏真实的感觉）</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/12.jpg"/></div></div></li>
-<li><p>如果感觉光源太亮了可以设置亮度对比度 也是右击图层下边的菜单选择亮度对比度</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/13.jpg"/></div></div></li>
-<li><p>照片偏紫没有夕阳的氛围感 夕阳的照片应该都是偏黄的。可以新建一个纯色选择一个偏深黄的颜色</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/14.jpg"/></div></div>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/15.jpg"/></div></div></li>
-<li><p>然后将这个图层的混合模式改成柔光 此时照片有一种黄色的调子</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/16.jpg"/></div></div></li>
-<li><p>用叠加的方式让光源非常自然的印在整个画面当中。按住shift建将第1234个图层用鼠标选中然后ctrl+G编辑成一个组。</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/17.jpg"/></div></div></li>
-<li><p>然后给组添加一个白色蒙版 再点击上方菜单 图像应用图像 按照下方的设置混合选择正片叠底 点击确定 此时光源会很自然的覆盖在照片上面</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/18.jpg"/></div></div>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/19.jpg"/></div></div></li>
-<li><p>如果还觉得效果不好的话 ctrl+j复制一个组出来 增加光的效果</p>
-</li>
-<li><p>增加一个曲线 按箭头方向拉一点点效果就出来了</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/20.jpg"/></div></div>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/21.jpg"/></div></div></li>
-<li><p>再选择亮度对比 将对比度提高</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/22.jpg"/></div></div>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/23.jpg"/></div></div></li>
-<li><p>和之前一样将第1234个图层合并成一个组ctrl+g 然后就可以控制组的不透明度去达到想要的效果</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/24.jpg"/></div></div></li>
-</ol>
-]]></content>
-      <categories>
-        <category>PS</category>
-      </categories>
-      <tags>
-        <tag>PS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PS给你的衣服换颜色</title>
-    <url>/2024/06/19/20240619-1/</url>
-    <content><![CDATA[<ol>
-<li><p>第一步需要使用钢笔工具将衣服扣出来，这里需要细致细心一点</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240619/2.jpg"/></div></div></li>
-<li><p>执行 图像-调整-去色</p>
-</li>
-<li><p>ctrl+j 将图层复制 一个命名为低频一个，命名为高频</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240619/3.jpg"/></div></div></li>
-<li><p>隐藏高频图层选择低频图层 执行滤镜-模糊 高斯模糊 参数调为3</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240619/4.jpg"/></div></div></li>
-<li><p>回到高频图层点击图像-应用图像 将图层选项改为低频图层 混合模式改为减去 缩放2 补偿值128 将图层混合模式改为线性光（为了保留衣服的质感和纹理）</p>
-</li>
-<li><p>回到低频图层 添加色相饱和度图层 创建剪贴蒙版 勾选着色 然后滑动色相就可以改变颜色了</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240619/5.jpg"/></div></div></li>
-</ol>
-]]></content>
-      <categories>
-        <category>PS</category>
-      </categories>
-      <tags>
-        <tag>PS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Photoshop-抠图</title>
-    <url>/2024/06/17/20240617-2/</url>
-    <content><![CDATA[<h1 id="一、通道抠图"><a href="#一、通道抠图" class="headerlink" title="一、通道抠图"></a>一、通道抠图</h1><ol>
-<li><p>先用套索工具 大致框出要扣的人物或物体，然后Ctrl+J复制出来。隐藏掉原图层。</p>
-</li>
-<li><p>打开通道面板 （如果没找到,在窗口菜单下通道面板选择对勾就可以调出来）</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240617/t1.jpg"/></div></div></li>
-<li><p>找到对比最大的通道右击复制通道 (红绿蓝)</p>
-</li>
-<li><p>ctrl+L调出色阶 让黑色区域更黑白色区域更白(输入色阶 调黑色从左往右拉动 调白色从右往左拉动)</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240617/t2.jpg"/></div></div></li>
-<li><p>Ctrl+鼠标左键点击缩略图 然后ctrl+shift+i反选选区 再回到原图层 ctrl+j复制</p>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240617/t3.jpg"/></div></div></li>
-<li><p>最后多余的地方可以用套索工具删除掉 大树就被抠出来了</p>
-</li>
-</ol>
-<h1 id="二、蒙版抠图-适合冰块-酒杯等透明物体"><a href="#二、蒙版抠图-适合冰块-酒杯等透明物体" class="headerlink" title="二、蒙版抠图 (适合冰块 酒杯等透明物体)"></a>二、蒙版抠图 (适合冰块 酒杯等透明物体)</h1><ol>
-<li>首先全选复制，接着创建一个蒙版 (蒙版在图层下边的菜单中可以找到)按住alt建进入蒙版，然后ctrl+v粘贴，ctrl+i反向 再回到原图层 前景色填充为白色(alt+del) 最后添加一个背景色黑色(ctrl+del)查看效果<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240617/t4.jpg"/></div></div>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240617/t5.jpg"/></div></div></li>
-</ol>
-<h1 id="三、选择并遮住-针对于毛发，边缘复杂的图片"><a href="#三、选择并遮住-针对于毛发，边缘复杂的图片" class="headerlink" title="三、选择并遮住 (针对于毛发，边缘复杂的图片)"></a>三、选择并遮住 (针对于毛发，边缘复杂的图片)</h1><ol>
-<li>首先用选择主体大致选中人物 然后再选择并遮住</li>
-<li>使用调整边缘画笔涂抹毛发的边缘，涂多的地方可以按住alt建涂抹恢复 </li>
-<li>涂抹好之后点击净化颜色</li>
-<li>最后添加一个图层 白色背景看看效果<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240617/t6.jpg"/></div></div>
-<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240617/t7.jpg"/></div></div></li>
-</ol>
-]]></content>
-      <categories>
-        <category>PS</category>
-      </categories>
-      <tags>
-        <tag>PS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Photoshop快捷键</title>
     <url>/2024/06/17/20240617-1/</url>
     <content><![CDATA[<h2 id="1、Ctrl-T：自由变形"><a href="#1、Ctrl-T：自由变形" class="headerlink" title="1、Ctrl+T：自由变形"></a>1、Ctrl+T：自由变形</h2><div class="note no-icon flat"><p>该快捷键，主要对图层进行旋转、缩放等变形调整，同时可以拖动修改图层在画面中的位置，是极为常用的功能键。</p>
@@ -1724,6 +1599,131 @@ title="MemoryDairy"><i class="anzhiyufont anzhiyu-icon-circle-arrow-right"></i><
 
 <h2 id="32、Shift-AlT-N：正常模式"><a href="#32、Shift-AlT-N：正常模式" class="headerlink" title="32、Shift+AlT+N：正常模式"></a>32、Shift+AlT+N：正常模式</h2><div class="note orange no-icon flat"><p>当画笔工具处在正片叠底的绘画模式时，按下此快捷键则可以一秒让绘画模式回归“正常模式”。</p>
 </div>]]></content>
+      <categories>
+        <category>PS</category>
+      </categories>
+      <tags>
+        <tag>PS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Photoshop-抠图</title>
+    <url>/2024/06/17/20240617-2/</url>
+    <content><![CDATA[<h1 id="一、通道抠图"><a href="#一、通道抠图" class="headerlink" title="一、通道抠图"></a>一、通道抠图</h1><ol>
+<li><p>先用套索工具 大致框出要扣的人物或物体，然后Ctrl+J复制出来。隐藏掉原图层。</p>
+</li>
+<li><p>打开通道面板 （如果没找到,在窗口菜单下通道面板选择对勾就可以调出来）</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240617/t1.jpg"/></div></div></li>
+<li><p>找到对比最大的通道右击复制通道 (红绿蓝)</p>
+</li>
+<li><p>ctrl+L调出色阶 让黑色区域更黑白色区域更白(输入色阶 调黑色从左往右拉动 调白色从右往左拉动)</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240617/t2.jpg"/></div></div></li>
+<li><p>Ctrl+鼠标左键点击缩略图 然后ctrl+shift+i反选选区 再回到原图层 ctrl+j复制</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240617/t3.jpg"/></div></div></li>
+<li><p>最后多余的地方可以用套索工具删除掉 大树就被抠出来了</p>
+</li>
+</ol>
+<h1 id="二、蒙版抠图-适合冰块-酒杯等透明物体"><a href="#二、蒙版抠图-适合冰块-酒杯等透明物体" class="headerlink" title="二、蒙版抠图 (适合冰块 酒杯等透明物体)"></a>二、蒙版抠图 (适合冰块 酒杯等透明物体)</h1><ol>
+<li>首先全选复制，接着创建一个蒙版 (蒙版在图层下边的菜单中可以找到)按住alt建进入蒙版，然后ctrl+v粘贴，ctrl+i反向 再回到原图层 前景色填充为白色(alt+del) 最后添加一个背景色黑色(ctrl+del)查看效果<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240617/t4.jpg"/></div></div>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240617/t5.jpg"/></div></div></li>
+</ol>
+<h1 id="三、选择并遮住-针对于毛发，边缘复杂的图片"><a href="#三、选择并遮住-针对于毛发，边缘复杂的图片" class="headerlink" title="三、选择并遮住 (针对于毛发，边缘复杂的图片)"></a>三、选择并遮住 (针对于毛发，边缘复杂的图片)</h1><ol>
+<li>首先用选择主体大致选中人物 然后再选择并遮住</li>
+<li>使用调整边缘画笔涂抹毛发的边缘，涂多的地方可以按住alt建涂抹恢复 </li>
+<li>涂抹好之后点击净化颜色</li>
+<li>最后添加一个图层 白色背景看看效果<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240617/t6.jpg"/></div></div>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240617/t7.jpg"/></div></div></li>
+</ol>
+]]></content>
+      <categories>
+        <category>PS</category>
+      </categories>
+      <tags>
+        <tag>PS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PS制作夕阳效果</title>
+    <url>/2024/06/18/20240618-1/</url>
+    <content><![CDATA[<h1 id="夕阳效果"><a href="#夕阳效果" class="headerlink" title="夕阳效果"></a>夕阳效果</h1><div class="note info modern"><p>有时候我们在白天拍摄的照片或者是想要拍摄夕阳但是正好碰到阴天拍不到夕阳。别急我们可以利用PS制作一个夕阳效果出来</p>
+</div>
+
+<ol>
+<li><p>将照片导入到PS 复制一个图层出来</p>
+</li>
+<li><p>右击图层下边的菜单，在弹出的菜单中点击颜色查找</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/2.jpg"/></div></div></li>
+<li><p>选择LateSunSet 这时候照片颜色变为类似夕阳的效果，但是还不够理想。继续做调整</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/3.jpg"/></div></div></li>
+<li><p>手动制作一个夕阳出来，还是图层下边菜单右击选择渐变</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/4.jpg"/></div></div></li>
+<li><p>样式选择径向</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/5.jpg"/></div></div></li>
+<li><p>然后点击第一个渐变选择黑白渐变</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/6.jpg"/></div></div></li>
+<li><p>然后从左到右依次新建色标 每一个色标比前一个多一点黄色红色达到模拟夕阳</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/7.jpg"/></div></div></li>
+<li><p>最右边又下角的色标改成偏50度中性灰</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/8.jpg"/></div></div></li>
+<li><p>上边一排大概第三个点击一下 将不透明度设置到75%左右</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/9.jpg"/></div></div></li>
+<li><p>在切换到最右边右上角的色标降低不透明度（降低到整个环境若隐若现即可）</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/10.jpg"/></div></div></li>
+<li><p>用移动工具 移动光源的位置即可</p>
+</li>
+<li><p>通过角度和缩放可以控制光源的扩散性 (调整满意后点击确定)</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/11.jpg"/></div></div></li>
+<li><p>将图层的混合模式改成强光（这时光源才会有偏真实的感觉）</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/12.jpg"/></div></div></li>
+<li><p>如果感觉光源太亮了可以设置亮度对比度 也是右击图层下边的菜单选择亮度对比度</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/13.jpg"/></div></div></li>
+<li><p>照片偏紫没有夕阳的氛围感 夕阳的照片应该都是偏黄的。可以新建一个纯色选择一个偏深黄的颜色</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/14.jpg"/></div></div>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/15.jpg"/></div></div></li>
+<li><p>然后将这个图层的混合模式改成柔光 此时照片有一种黄色的调子</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/16.jpg"/></div></div></li>
+<li><p>用叠加的方式让光源非常自然的印在整个画面当中。按住shift建将第1234个图层用鼠标选中然后ctrl+G编辑成一个组。</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/17.jpg"/></div></div></li>
+<li><p>然后给组添加一个白色蒙版 再点击上方菜单 图像应用图像 按照下方的设置混合选择正片叠底 点击确定 此时光源会很自然的覆盖在照片上面</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/18.jpg"/></div></div>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/19.jpg"/></div></div></li>
+<li><p>如果还觉得效果不好的话 ctrl+j复制一个组出来 增加光的效果</p>
+</li>
+<li><p>增加一个曲线 按箭头方向拉一点点效果就出来了</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/20.jpg"/></div></div>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/21.jpg"/></div></div></li>
+<li><p>再选择亮度对比 将对比度提高</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/22.jpg"/></div></div>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/23.jpg"/></div></div></li>
+<li><p>和之前一样将第1234个图层合并成一个组ctrl+g 然后就可以控制组的不透明度去达到想要的效果</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240618/24.jpg"/></div></div></li>
+</ol>
+]]></content>
+      <categories>
+        <category>PS</category>
+      </categories>
+      <tags>
+        <tag>PS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PS给你的衣服换颜色</title>
+    <url>/2024/06/19/20240619-1/</url>
+    <content><![CDATA[<ol>
+<li><p>第一步需要使用钢笔工具将衣服扣出来，这里需要细致细心一点</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240619/2.jpg"/></div></div></li>
+<li><p>执行 图像-调整-去色</p>
+</li>
+<li><p>ctrl+j 将图层复制 一个命名为低频一个，命名为高频</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240619/3.jpg"/></div></div></li>
+<li><p>隐藏高频图层选择低频图层 执行滤镜-模糊 高斯模糊 参数调为3</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240619/4.jpg"/></div></div></li>
+<li><p>回到高频图层点击图像-应用图像 将图层选项改为低频图层 混合模式改为减去 缩放2 补偿值128 将图层混合模式改为线性光（为了保留衣服的质感和纹理）</p>
+</li>
+<li><p>回到低频图层 添加色相饱和度图层 创建剪贴蒙版 勾选着色 然后滑动色相就可以改变颜色了</p>
+<div class="img-wrap"><div class="img-bg"><img class="img" src="https://raw.githubusercontent.com/Yc100/picx-images-hosting/master/20240619/5.jpg"/></div></div></li>
+</ol>
+]]></content>
       <categories>
         <category>PS</category>
       </categories>
